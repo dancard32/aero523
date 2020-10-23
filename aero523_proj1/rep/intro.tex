@@ -1,0 +1,92 @@
+\pagebreak
+\section{Introduction}
+
+    \subsection{Overview}
+    A flow that is incompressible and irrotational can be modeled by Laplace’s equation for a scalar velocity potential. In two dimensions, an equivalent formulation is obtained using a stream function, $\psi(x, y)$, from which the velocity components are given by
+
+    \begin{equation}
+        u = \frac{\partial \psi}{\partial y},\qquad v = -\frac{\partial \psi}{\partial x}
+        \label{eqn:velocity}
+    \end{equation}\myequations{Stream Function Velocity Components}
+
+    With this definition, continuity is automatically satisfied. Requiring the flow to be irrotational leads to Laplace’s equation for $\psi$,
+
+    \begin{equation}
+        \nabla^2\psi = 0
+        \label{eqn:laplace_eqn}
+    \end{equation}\myequations{Laplace's Equation}
+
+    In this project, I will be solving for two-dimensional potential flow around a square, as illustrated in Figure \ref{fig:solution}.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width = 0.9\linewidth]{rep/solution.JPG}
+        \caption[Solution of Potential Flow Around a Square]{Solution of potential flow around a square, using a stream function, $\psi(x, y)$.}
+        \label{fig:solution}
+    \end{figure}
+
+    The computational domain is a square, $(x, y) \in [-1, 1]^2$ , and the boundary conditions are Dirichlet. On the bottom and top walls, $\psi$ is set to -1 and +1, respectively, and on the sides, $\psi$ is set to $y$. The inner square, of side length $\frac{1}{2}$ and placed in the center of the outer square, presents an obstacle to the flow, and by symmetry it corresponds to a streamline on which $\psi = 0$.
+
+
+    \pagebreak
+    \subsection{Discretization}
+    I will use a finite-difference method to solve Equation \ref{eqn:laplace_eqn} on the computational domain. The grid consists of a lattice of $(N + 1)^2$ points, as shown in Figure \ref{fig:fea_grid}. Some of these points are on the boundary, and some are inside the inner square, hence outside the computational domain. It is up to me to decide how best to deal with these points. N is the number of intervals across the entire domain, so that the spacing is $\Delta x = \Delta y = h = 2/N$.
+
+    \begin{figure}[h]
+        \centering
+        \input{rep/fea_grid.tikz}
+        \caption[Finite Difference Grid]{Finite difference grid for $p=0 \rightarrow N=8$.}
+        \label{fig:fea_grid}
+    \end{figure}
+
+
+    To ensures that the grid conforms to the boundary of the inner square, use
+
+    \begin{equation}
+        N = 2^{p+3},\qquad p = [0,\ 1,\ 2,\ldots]
+    \end{equation}\myequations{Nodal Number to Conform to Inner Square}
+
+    At each interior node, I will use a standard second-order five-point stencil to discretize the Laplacian in Equation \ref{eqn:laplace_eqn}. Note that the given Dirichlet conditions fully specify $\psi$ on the boundaries.
+
+    
+    \subsection{Solvers}
+    There are three types of solvers that I will implement to study the flow around the square.
+
+        \subsubsection{Direct}
+        The direct solver will build a \textit{sparse} linear system of equations to solve for the nodal states. The system
+        will take the form
+
+        \begin{equation}
+            \doubleunderline{A} \underline{\Psi} = \underline{F}
+            \label{eqn:boundaries}
+        \end{equation}\myequations{Direct Solver System Form}
+
+        where $\underline{\Psi}$ is the unrolled state vector of unknowns. Solve this system using a sparse direct
+        solver, such as the backslash operator in Matlab or {\tt scipy.sparse.linalg.spsolve()}.
+
+        \subsubsection{Iterative Smoothers}
+        For the other solver I will implement two iterative smoothers: under-relaxed Jacobi and overrelaxed Gauss-Seidel. For Gauss-Seidel, I will use the “red-black” ordering, in which the nodes are colored in checkerboard fashion and the smoother is applied first to the red nodes and then to the black nodes. The presence of the inner square does not change the red-black ordering: imagine a checkerboard with the center cut out. I will use under-relaxation for Jacobi and over-relaxation for Gauss-Seidel.
+
+        \subsubsection{Multigrid}
+        The last solver I will use will implement a V-cycle in which successively finer grids are obtained by increasing $p$ in Equation \ref{eqn:boundaries}. Use full-weighting for the restriction operator, $I_{2h}^h$, and interpolation for the prolongation operator, $I_h^{2h}$. On the down/up sweep of the V-cycle perform $\nu_1 = \nu_2 = 2$ pre/post smoothing iterations. On the coarsest grid, perform $\nu_c = 50$ smoothing iterations. For the initial conditions in all iterative runs, use $\psi = 0$ at the interior nodes. For the smoother, use Gauss-Seidel with an over-relaxation factor of $\omega = 1.5$. \textit{Again, implement these without any matrices whose size scales with the number of unknowns}
+
+
+    \subsection{Post-Processing}
+    To visualize the flowfield, plot contours of the stream function, as shown in Figure \ref{fig:solution}. These contours are streamlines of the flow. The top and bottom of the domain represent impenetrable walls, since $\psi$ is set to a constant there. Acceleration of the fluid around the square changes the pressure of the fluid, and this affects the force on the walls. Of interest will be the pressure coefficient distribution on the bottom wall,
+
+    \begin{equation}
+        c_p(x) = 1 - \frac{u^2}{U_\infty^2},
+        \label{eqn:cp}
+    \end{equation}\myequations{Coefficient of Pressure Coefficient}
+
+    where the free-stream speed (speed of the flow without the inner square present) is $U_\infty = 1$ based on the boundary conditions. Note that $u$ is obtained by differentiating $\psi$, according to Equation \ref{eqn:velocity}. Use a second-order one-sided finite difference of the $\psi$ data to obtain $u$ at the bottom boundary nodes.
+
+    \medskip
+    Integrating and normalizing the pressure coefficient gives the lift coefficient on the bottom wall,
+
+    \begin{equation}
+        c_l(x) = \frac{1}{2}\int_0^2c_p(x)\ dx
+        \label{eqn:cl}
+    \end{equation}\myequations{Coefficient of Lift Coefficient}
+
+    In this approximation I will use the trapezoidal method to perform this integration.

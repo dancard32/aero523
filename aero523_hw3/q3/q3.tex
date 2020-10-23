@@ -1,0 +1,11 @@
+\pagebreak
+\section{Manufactured Solutions}
+Discretize the one-dimensional advection-diffusion equation, $u_t + au_x - \nu u_{xx}= 0$, using the trapezoidal method in time and second-order central differences in space. Assume a grid of length $L$, periodic boundaries, and $N$ spatial intervals.
+
+
+\begin{enumerate}[label=\alph*., start = 1]
+    \item Write a computer program that implements the given method, and run a simulation using the parameters given in problem 2c, $\nu= 0.1,\ N= 64$, and a CFL number of $\sigma= 0.5$.  Plot the state at the final time, $u(x,T)$.
+    \item Apply the method of manufactured solutions to your discretization.  The PDE will now need a source term: $u_t+au_x - \nu u_{xx}=s(x,t)$. Derive the form of $s(x,t)$ for the manufactured solution $u^{MS}= \sin{(kx -\omega t)}$, with $k= 4\pi/L$ and $\omega= 0.5a/L$.
+    \item Implement the method of manufactured solutions in your discretization, and present the solution at $t=T=L/a$ for $N= 64,\ \sigma= 0.5$.
+    \item Using the manufactured solution,  perform spatial and temporal convergence  studies of your discretization and verify that the orders of accuracy match your expectations.
+\end{enumerate}

@@ -1,0 +1,71 @@
+\documentclass[12pt]{extarticle}
+\usepackage{Format}
+%\usepackage[draft]{graphicx}           % Uncomment and comment ``graphicx'' for decreasing compiling speeds
+\usepackage{graphicx}
+
+
+% First Page Header/footer
+\fancypagestyle{firstpage}{
+\lhead{ Dan Card\\                                     % Name
+        Aerospace 523: Computational Fluid Dynamics\\  % Class number and name
+        Homework: XX                                   % Homework assignment
+        \vspace{1cm}}
+\rhead{ {\textit{dcard@umich.edu}}\\                   % Email
+        \vspace{0.35cm}
+        {Due: September 6\textsuperscript{th}, 2020}       % Due Date
+        \vspace{1cm}}
+\chead{}
+\renewcommand{\headrulewidth}{3pt}}
+
+% Header/Footer for the rest of the page
+\pagestyle{fancy}{
+\fancyhf{}
+\lhead{Dan Card}                                                       % Name
+\rhead{September 6, 2020}                                              % Due Date
+\chead{\textit{Aerospace 523: Computational Fluid Dynamics}}           % Class Name
+\fancyfoot[l]{\textbf{University of Michigan - Ann Arbor}}             % University
+\fancyfoot[r]{Page \thepage}}                                          % Page Number
+
+\begin{document}      
+
+        % Adjust Margins for first page
+        \thispagestyle{firstpage}
+        \newgeometry{left = 0.55in, right = 0.55in, top = 0in, bottom = 2.4in}
+        \headsep = 65pt % Important! This creates a space between the header and the frame
+
+        % Import problems .tex files
+        \import{q1/}{q1.tex}        
+
+        % Code attachments
+        %\pagebreak
+        %\section*{Matlab Code}
+        %\lstinputlisting[
+        %        linewidth=0.95\textwidth,
+        %        xleftmargin=.1\textwidth,
+        %        language=matlab,
+        %        label=l:findb,
+        %        caption={Matlab Code for Homework 4.}
+        %        ]{aero523_hw4.m}
+        %\textcolor{white}{Ah}
+\end{document}
+
+
+% Important formatting fixes for page layout
+
+% Adjust Margins/Header/Footer for rest of homework (Add to page two)
+        %\pagebreak
+        %\pagestyle{fancy}
+        %\restoregeometry
+
+% Indent sections
+        %\begin{adjustwidth}{2.5em}{0pt}
+        %\end{adjustwidth}
+
+% Input code used
+        %\lstinputlisting[
+        %linewidth=0.95\textwidth,
+        %xleftmargin=.1\textwidth,
+        %language=matlab,
+        %label=l:findb,
+        %caption={The caption}
+        %]{aero523_hw4.m}

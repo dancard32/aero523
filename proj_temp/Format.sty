@@ -1,0 +1,86 @@
+\ProvidesPackage{Format}
+\usepackage{import}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[titletoc]{appendix}
+\usepackage[symbol]{footmisc}
+\usepackage{cancel}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{chngcntr}
+\usepackage{longtable,tabularx}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage[font=small]{caption}
+\usepackage{listings}
+\usepackage{tikz}
+%\usepackage{filecontents}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{xparse}
+\usepackage{mathtools}
+\usepackage{rotating}
+\usepackage{float}
+
+\definecolor{commentgreen}{RGB}{14,120,0}
+\lstset{
+  numbers=left, 
+  basicstyle=\scriptsize, 
+  commentstyle=\color{commentgreen},
+  keywordstyle=\bf\color{blue},
+  language=matlab, 
+  frame=shadowbox,
+  rulesepcolor=\color{black},
+  flexiblecolumns=true
+}
+
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\figurename}{\textbf{Figure}}
+\renewcommand{\tablename}{\textbf{Table}}
+\renewcommand{\lstlistingname}{\textbf{Algorithm}}
+\renewcommand{\lstlistlistingname}{\Large{\textbf{List of \lstlistingname s}}}
+\def\doubleunderline#1{\underline{\underline{#1}}}
+\setlength{\parindent}{0in}
+
+\lstset{
+   basicstyle=\fontsize{9}{9}\selectfont\ttfamily,
+   breaklines = true
+}
+
+
+% Creates a framed minipage
+\newsavebox{\fminipagebox}
+\NewDocumentEnvironment{fminipage}{m O{\fboxsep}}
+ {\centering\par\kern#2\noindent\begin{lrbox}{\fminipagebox}
+  \begin{minipage}{#1}\ignorespaces}
+ {\end{minipage}\end{lrbox}%
+  \makebox[#1]{%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+    \fbox{\usebox{\fminipagebox}}%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+  }\par\kern#2
+ }

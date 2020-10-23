@@ -1,0 +1,45 @@
+\pagebreak
+\section{Newton-Raphson}
+Write a computer program that solves the following system of nonlinear equations,
+
+\begin{align*}
+    x^2 + \sin{(y)} & = 3\\
+    y^3 - \frac{2x}{y} & = -10
+\end{align*}
+
+using the Newton-Raphson method, starting with the guess $(x, y) = (1.5,0.5)$.  In your writeup, show all analytical derivations, the final answer, and a convergence history (table form) of the residuals.
+
+\begin{adjustwidth}{2.5em}{0pt}
+    \begin{align*}
+        \shortintertext{The Newton-Raphson method is described by,}
+        \Delta U_k & = -\left(\frac{\partial R}{\partial U}|_{U_k}\right)^{-1}R\left(U_k\right)\\
+        \shortintertext{Where $\frac{\partial R}{\partial U}|_{U_k}$ is the Jacobian matrix of the residual which can be expressed as,}
+        \frac{\partial R}{\partial U}|_{U_k} & = \begin{bmatrix}
+            \frac{\partial}{\partial x}\left(x^2 + \sin{(y)} - 3\right) & \frac{\partial}{\partial y}\left(x^2 + \sin{(y) - 3}\right)\\
+            \frac{\partial}{\partial x}\left(y^3 - \frac{2x}{y} + 10\right) & \frac{\partial}{\partial y}\left(y^3 - \frac{2x}{y} + 10\right)
+        \end{bmatrix}\\
+        \frac{\partial R}{\partial U}|_{U_k} & = \begin{bmatrix}
+            2x & \cos{(y)}\\
+            -\frac{2}{y} & 3y^2 +\frac{2x}{y^2}
+        \end{bmatrix}
+        \shortintertext{Then the next iteration can be written to be where $\Delta U_k$ is from the definition above,}
+        U_{k+1} & = U_k + \Delta U_k\\
+        \shortintertext{Implementing this method into Python gives the following results,}
+    \end{align*}
+
+    \vspace{-0.3in}
+    \begin{fminipage}{0.8\linewidth}
+        \textbf{Using the method shown above I found that the final value through Newton-Raphson was $\bf \input{q3/q3_final_vals}$. This was found through 8 iterations but converged to machine precision on iteration 6 as shown in Table \ref{tab:newton_raphson} below.}
+    \end{fminipage}
+\end{adjustwidth}
+
+\begin{table}[h]
+    \centering
+    \caption{Python output from Newton-Raphson Method.}
+    \label{tab:newton_raphson}
+    \begin{tabular}{ c | c | c }
+        Iteration & $(x,\ y)$ & $| \vec{e}_k |$ \\
+        \hline \hline
+        \input{q3/q3_results}
+    \end{tabular}
+\end{table}

@@ -1,0 +1,12 @@
+\contentsline {myequations}{\numberline {1}Stream Function Velocity Components}{4}{equation.1.1}% 
+\contentsline {myequations}{\numberline {2}Laplace's Equation}{4}{equation.1.2}% 
+\contentsline {myequations}{\numberline {3}Nodal Number to Conform to Inner Square}{5}{equation.1.3}% 
+\contentsline {myequations}{\numberline {4}Direct Solver System Form}{5}{equation.1.4}% 
+\contentsline {myequations}{\numberline {5}Coefficient of Pressure Coefficient}{6}{equation.1.5}% 
+\contentsline {myequations}{\numberline {6}Coefficient of Lift Coefficient}{6}{equation.1.6}% 
+\contentsline {myequations}{\numberline {7}5-Point Stencil Implementation}{7}{equation.2.7}% 
+\contentsline {myequations}{\numberline {8}Horizontal Velocity Approximation}{8}{equation.2.8}% 
+\contentsline {myequations}{\numberline {9}Expression For Trapazoidal Integration}{8}{equation.2.9}% 
+\contentsline {myequations}{\numberline {10}Jacobi Iteration Update Expression}{10}{equation.2.10}% 
+\contentsline {myequations}{\numberline {11}Full-Weighting Residual Restriction}{12}{equation.2.11}% 
+\contentsline {myequations}{\numberline {12}State/Error Prolongation}{12}{equation.2.12}% 

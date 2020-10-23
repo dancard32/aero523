@@ -1,0 +1,106 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{4}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Overview}{4}{subsection.1.1}\protected@file@percent }
+\newlabel{eqn:velocity}{{1}{4}{Overview}{equation.1.1}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {1}Stream Function Velocity Components}{4}{equation.1.1}\protected@file@percent }
+\newlabel{eqn:laplace_eqn}{{2}{4}{Overview}{equation.1.2}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {2}Laplace's Equation}{4}{equation.1.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Solution of Potential Flow Around a Square}}{4}{figure.caption.3}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:solution}{{1}{4}{Solution of Potential Flow Around a Square}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Discretization}{5}{subsection.1.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Finite Difference Grid}}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:fea_grid}{{2}{5}{Finite Difference Grid}{figure.caption.4}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {3}Nodal Number to Conform to Inner Square}{5}{equation.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Solvers}{5}{subsection.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}Direct}{5}{subsubsection.1.3.1}\protected@file@percent }
+\newlabel{eqn:boundaries}{{4}{5}{Direct}{equation.1.4}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {4}Direct Solver System Form}{5}{equation.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2}Iterative Smoothers}{6}{subsubsection.1.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.3}Multigrid}{6}{subsubsection.1.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Post-Processing}{6}{subsection.1.4}\protected@file@percent }
+\newlabel{eqn:cp}{{5}{6}{Post-Processing}{equation.1.5}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {5}Coefficient of Pressure Coefficient}{6}{equation.1.5}\protected@file@percent }
+\newlabel{eqn:cl}{{6}{6}{Post-Processing}{equation.1.6}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {6}Coefficient of Lift Coefficient}{6}{equation.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Tasks and Deliverables}{7}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Solving the Finite-Difference System}{7}{subsection.2.1}\protected@file@percent }
+\newlabel{eqn:5pt_stencil}{{7}{7}{Solving the Finite-Difference System}{equation.2.7}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {7}5-Point Stencil Implementation}{7}{equation.2.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Post-Processing Functions}{8}{subsection.2.2}\protected@file@percent }
+\newlabel{eqn:u_fd}{{8}{8}{Post-Processing Functions}{equation.2.8}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {8}Horizontal Velocity Approximation}{8}{equation.2.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Coefficient of Pressure Along Bottom Wall.}}{8}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:cp_runs}{{3}{8}{Coefficient of Pressure Along Bottom Wall}{figure.caption.5}{}}
+\newlabel{eqn:trapz}{{9}{8}{Post-Processing Functions}{equation.2.9}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {9}Expression For Trapazoidal Integration}{8}{equation.2.9}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Coefficient of lift $c_l$ values at $p$.\relax }}{9}{table.caption.6}\protected@file@percent }
+\newlabel{tab:cl_vals}{{1}{9}{Coefficient of lift $c_l$ values at $p$.\relax }{table.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Approximated Residual Error}}{9}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:cl_err}{{4}{9}{Approximated Residual Error}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Implementing Jacobi and Gauss-Seidel Smoothers}{10}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Jacobi Iteration Smoother}{10}{subsubsection.2.3.1}\protected@file@percent }
+\newlabel{eqn:jacboi}{{10}{10}{Jacobi Iteration Smoother}{equation.2.10}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {10}Jacobi Iteration Update Expression}{10}{equation.2.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Jacboi Smoother Iteration}}{10}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:jacobi}{{5}{10}{Jacboi Smoother Iteration}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Gauss-Seidel Smoother}{11}{subsubsection.2.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Gauss-Seidel Smoother}}{11}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:gauss}{{6}{11}{Gauss-Seidel Smoother}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Implementing V-Cycle Multigrid Method}{12}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}V-Cycle Multigrid Method Convergence}{12}{subsubsection.2.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Restriction}{12}{paragraph*.10}\protected@file@percent }
+\newlabel{eqn:restrict}{{11}{12}{Restriction}{equation.2.11}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {11}Full-Weighting Residual Restriction}{12}{equation.2.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Prolongation}{12}{paragraph*.11}\protected@file@percent }
+\newlabel{eqn:prolongation}{{12}{12}{Prolongation}{equation.2.12}{}}
+\@writefile{equ}{\contentsline {myequations}{\numberline {12}State/Error Prolongation}{12}{equation.2.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Implementing Multigrid}{12}{paragraph*.12}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces V-Cycle $L_2$ Convergence}}{13}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:vcyc_l2_err}{{7}{13}{V-Cycle $L_2$ Convergence}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}V-Cycle Multigrid Smoothing Iterations}{14}{subsubsection.2.4.2}\protected@file@percent }
+\newlabel{eqn:workunits}{{13}{14}{V-Cycle Multigrid Smoothing Iterations}{equation.2.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces V-Cycle Multigrid Smoothing Iterations}}{14}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:vcyc_gs}{{8}{14}{V-Cycle Multigrid Smoothing Iterations}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {section}{Appendices}{15}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Appendix \numberline {A}Python Direct Solver Implementation}{15}{Appendix.a.A}\protected@file@percent }
+\newlabel{l:findb}{{1}{15}{{Driving Code to Implement Direct Solver.}\label {alg:direct_solver}}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{Driving Code to Implement Direct Solver.}}{15}{lstlisting.1}\protected@file@percent }
+\newlabel{alg:direct_solver}{{1}{15}{{Driving Code to Implement Direct Solver.}\label {alg:direct_solver}}{lstlisting.1}{}}
+\@writefile{toc}{\contentsline {section}{Appendix \numberline {B}Coefficient of Pressure Implementation}{16}{Appendix.a.B}\protected@file@percent }
+\newlabel{l:findb}{{2}{16}{{Python Implemention to Approximate Coefficient of Pressure.}\label {alg:u_fd}}{lstlisting.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{Python Implemention to Approximate Coefficient of Pressure.}}{16}{lstlisting.2}\protected@file@percent }
+\newlabel{alg:u_fd}{{2}{16}{{Python Implemention to Approximate Coefficient of Pressure.}\label {alg:u_fd}}{lstlisting.2}{}}
+\@writefile{toc}{\contentsline {section}{Appendix \numberline {C}Jacobi Iteration Smoother}{17}{Appendix.a.C}\protected@file@percent }
+\newlabel{l:findb}{{3}{17}{{Python Implemention of Jacboi Iteration Smoother.}\label {alg:jacobi}}{lstlisting.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}{Python Implemention of Jacboi Iteration Smoother.}}{17}{lstlisting.3}\protected@file@percent }
+\newlabel{alg:jacobi}{{3}{17}{{Python Implemention of Jacboi Iteration Smoother.}\label {alg:jacobi}}{lstlisting.3}{}}
+\@writefile{toc}{\contentsline {section}{Appendix \numberline {D}Gauss-Seidel Iteration Smoother}{18}{Appendix.a.D}\protected@file@percent }
+\newlabel{l:findb}{{4}{18}{{Python Implemention of Gauss-Seidel Iteration Smoother.}\label {alg:gauss}}{lstlisting.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}{Python Implemention of Gauss-Seidel Iteration Smoother.}}{18}{lstlisting.4}\protected@file@percent }
+\newlabel{alg:gauss}{{4}{18}{{Python Implemention of Gauss-Seidel Iteration Smoother.}\label {alg:gauss}}{lstlisting.4}{}}
+\@writefile{toc}{\contentsline {section}{Appendix \numberline {E}V-Cycle Multigrid}{19}{Appendix.a.E}\protected@file@percent }
+\newlabel{l:findb}{{5}{19}{{Python Implemention of V-Cycle Multigrid.}\label {alg:v_cycle}}{lstlisting.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}{Python Implemention of V-Cycle Multigrid.}}{19}{lstlisting.5}\protected@file@percent }
+\newlabel{alg:v_cycle}{{5}{19}{{Python Implemention of V-Cycle Multigrid.}\label {alg:v_cycle}}{lstlisting.5}{}}
+\@writefile{toc}{\contentsline {section}{Appendix \numberline {F}Main Python Driving Code}{22}{Appendix.a.F}\protected@file@percent }
+\newlabel{l:findb}{{6}{22}{{Python Implemention of V-Cycle Multigrid.}\label {alg:main}}{lstlisting.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}{Python Implemention of V-Cycle Multigrid.}}{22}{lstlisting.6}\protected@file@percent }
+\newlabel{alg:main}{{6}{22}{{Python Implemention of V-Cycle Multigrid.}\label {alg:main}}{lstlisting.6}{}}

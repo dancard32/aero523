@@ -1,0 +1,46 @@
+\pagebreak
+\section{Gram Schmidt [25\%]}
+Using the function inner product $(f, g) =\int^1_0fg\ dx$, apply the Gram-Schmidt algorithm to orthonormalize the following two one-dimensional functions.
+
+\begin{equation*}
+    f_1 = x^4,\quad f_2 = 2x.
+\end{equation*}
+
+Then, project the function $g=x^2$ onto the space spanned by these two functions.
+
+\vspace{-0.2in}
+\begin{align*}
+    \shortintertext{First is to orthogonalize the basis function,}
+    u_1 & = f_1 = \boxed{x^4}\\
+    u_2 & = f_2 - \frac{(u_1, f_2)}{(u_1, u_1)}u_1\\
+        & = 2x - \frac{\int_0^1 x^4\cdot 2x\ dx}{\int_0^1 x^4\cdot x^4\ dx}x^4 = 2x - \frac{\int_0^1 2x^5\ dx}{\int_0^1 x^8\ dx}x^4\\ 
+        & = 2x - \frac{1/3}{1/9}x^4 = \boxed{2x - 3x^4}\\
+    \shortintertext{Then next is to normalize the orthongal functions,}
+    u_{1, norm} & = \frac{u_1}{\sqrt{(u_1,u_1)}} = \frac{x^4}{\sqrt{\int_0^1 x^8\ dx}} = \frac{x^4}{1/3}\\
+    u_{2, norm} & = \frac{u_2}{\sqrt{(u_2,u_2)}} = \frac{\left(2x - 3x^4\right)}{\int_0^1 \left(2x - 3x^4\right)^2\ dx} = \frac{2x-3x^4}{1/\sqrt{3}}
+\end{align*}
+
+\begin{equation*}
+    \boxed{u_{1,norm} = \input{q2/u1norm},\quad u_{2,norm} = \input{q2/u2norm}}
+\end{equation*}
+
+\vspace{-0.35in}
+\begin{align*}
+    \shortintertext{The projection of the vector can be expressed as}
+    \text{proj}_{u_i}(g) & = \frac{(u_i, g)}{(u_i, u_i)}u_i\\
+    \shortintertext{Performing the projection of the orthonormal vector gives,}
+    \text{proj}_{u_1}(g) & = \frac{(u_1, g)}{(u_1, u_1)}u_1  = \frac{\int_0^1 x^4\cdot x^2\ dx}{ \int_0^1 x^4\cdot x^4\ dx}x^4  = \frac{\int_0^1 x^6\ dx}{\int_0^1 x^8\ dx}x^4 = \boxed{\frac{9\,x^4}{7}}\\
+    \text{proj}_{u_2}(g) & = \frac{(u_2, g)}{(u_2, u_2)}u_2 = \frac{\int_0^1 \left(2x - 3x^4\right)\cdot x^2\ dx}{ \int_0^1 \left(2x - 3x^4\right)\cdot \left(2x - 3x^4\right)\ dx}\left(2x - 3x^4\right)\\
+    \shortintertext{Computing the integral on matlab gives,}
+        & = \frac{\int_0^1 x^2 \left(2\,x-3\,x^4\right)\ dx}{\int_0^1 {\left(2\,x-3\,x^4\right)}^2\ dx}\left(2x - 3x^4\right) = \boxed{\frac{3\,x}{7}-\frac{9\,x^4}{14}}\\
+    \shortintertext{Again, expressing in vector form the projection of g onto the orthonormal vector function $\vec{u}$ gives,}
+\end{align*}
+
+\vspace{-0.35in}
+\begin{equation*}
+    \boxed{\text{proj}_{u_1}(g) =  \frac{9\,x^4}{7},\quad \text{proj}_{u_2}(g) = \frac{3\,x}{7}-\frac{9\,x^4}{14} }
+\end{equation*}
+
+\begin{fminipage}{0.8\linewidth}
+    \textbf{Checking that these are orthogonal taking the inner product of $\bf (u_1,\ u_2)$ gives that the inner produce is zero. Re-affirming that these are indeed orthogonal to each other. My matlab code can be found attached at the end of the assignment.}
+\end{fminipage}

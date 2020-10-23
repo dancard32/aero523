@@ -1,0 +1,38 @@
+\section{Equation Classification}
+The differential equation (note, subscripts indicate differentiation)
+\begin{equation*}
+    aw_{xx} + bw_{xy} + cw_{yy} = f
+\end{equation*}
+is defined to be hyperbolic/parabolic/elliptic is $b^2-4ac$ is positive/zero/negative, respectively.  Show that this definition is consistent with the definition in the notes. \textit{Hint: convert the PDE to a system of two equations by defining} $\mathit u = w_x\ \textit{and}\ v = w_y$
+
+\vspace{-0.25in}
+\begin{adjustwidth}{2.5em}{0pt}
+    \begin{align*}
+        \shortintertext{Firstly noting that $u = w_x$ and that $v = w_y$, this can be written as a system of two equations}
+        au_x + bu_y + cv_y & = f\\
+        v_x - u_y & = 0\\
+        \shortintertext{Defing the state vector as $\vec{u} = \begin{bmatrix} u, & v \end{bmatrix}$, we can write the system in matrix form,}
+        \underbrace{\begin{bmatrix} a & 0\\ 0 & 1 \end{bmatrix}}_{\doubleunderline{A}_1} \frac{\partial }{\partial x}\begin{bmatrix} u\\ v \end{bmatrix} + \underbrace{\begin{bmatrix} b & c\\ -1 & 0 \end{bmatrix}}_{\doubleunderline{A}_2} \frac{\partial }{\partial y}\begin{bmatrix} u\\v \end{bmatrix} & = \begin{bmatrix}
+            f\\ 0
+        \end{bmatrix}\\
+        \shortintertext{Then, since there is no time derivative in this system, classifying the equation for vectors $\vec{k}$ that makes the determinant of $\tilde{A}$ zero or, }
+        \det{\left(\tilde{A}\right)} = \det{\left(\doubleunderline{A}_1k_1 + \doubleunderline{A}_2k_2\right)} & = \det{\left(\begin{bmatrix}
+            ak_1 + bk_2 & ck_2\\ -k_2 & k_1
+        \end{bmatrix}\right)} = 0\\
+        \shortintertext{Taking the determinant of the $2\times 2$ matrix, we have}
+        \left(ak_1 + bk_2\right)k_1 + ck_2^2 & = 0\\
+        ak_1^2 + bk_2k_1 + ck_2^2 & = 0\\
+        \shortintertext{Dividing through both sides by $k_1^2$ to get the relation that takes the form of the quadratic expression gives,}
+        c\left(\frac{k_2}{k_1}\right)^2 + b \left(\frac{k_2}{k_1}\right) + a & = 0\\
+        \shortintertext{Solving for $\frac{k_2}{k_1}$ gives that the relationship is,}
+    \end{align*}
+
+    \vspace{-0.5in}
+    \begin{equation*}
+        \boxed{\frac{k_2}{k_1} = \frac{-b\pm \sqrt{b^2 - 4ac}}{2c}}
+    \end{equation*}
+
+    \begin{fminipage}{0.8\linewidth}
+        \textbf{As shown above, this is consistent with the notes since the relation $\bf b^2 - 4ac$ denotes whether the particular PDE is parabolic/hyperbolic/elliptic depending on whether the roots of $\bf \frac{k_2}{k_1}$ are real, have imaginary parts, or are a double root.}
+    \end{fminipage}
+\end{adjustwidth}

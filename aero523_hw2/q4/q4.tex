@@ -1,0 +1,23 @@
+\pagebreak
+\section{Area Calculation}
+In the last problem of homework 1, you identified loops of nodes using edges.  You should have found that these loops enclosed a computational domain surrounding a three-element airfoil.  Moreover, the edges were constructed such that the computational domain is always on the left as an edge is traversed from the first node to the second.  This corresponds to a clockwise ordering for the inner loops, and a counter-clockwise ordering for the outer loop.  In this problem,  your task is to compute the area of that computational domain.  Do this by a numerical (midpoint) integration along the edges, after applying the divergence theorem for a vector function $\vec{F} = x\hat{i}$.  Repeat with $\vec{F}=y\hat{j}$ and show that you obtain the same answer.
+
+
+\begin{adjustwidth}{2.5em}{0pt}
+    \begin{align*}
+        \shortintertext{Firstly we wish to evaluate,}
+        A & = \oint_{\partial S}\vec{F}\cdot \hat{n}\ dl\\
+        \shortintertext{However, discretizing this over the edges gives,}
+        A & \approx \sum_{\text{edge}} \left(\vec{F}\cdot \hat{n}\right)_{\text{mid-point}}\cdot \Delta l_{\text{edge}}\\
+        \shortintertext{Conducting this for $\vec{F} = x\hat{i}$ gives,}
+        A(\vec{F} = x\hat{i}) \input{q4/fx_out}\\
+        \shortintertext{Repeating with $\vec{F} = y\hat{j}$ results in,}
+        A(\vec{F} = y\hat{j}) \input{q4/fy_out}
+    \end{align*}
+
+    \begin{fminipage}{0.8\linewidth}
+        \textbf{As shown above and shown in my attached Matlab code at the end of my assignment, the results are in agreement with each other despite using a different vector function.}
+    \end{fminipage}
+\end{adjustwidth}
+
+

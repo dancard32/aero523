@@ -1,0 +1,91 @@
+\ProvidesPackage{Format}
+
+% Technical packages
+\usepackage{import}           % Import .tex files from sub-directories
+\usepackage{hyperref}         % Allows clickable references
+\usepackage{subcaption}       % Used for creating sub-figures
+\usepackage{caption}          % Allows custom/customization of caption settings
+\usepackage{listings}         % Used for displaying code
+\usepackage{enumitem}         % Allows change of the enumerated list
+\usepackage{changepage}       % Used to change the default margin size
+
+% Visual packages
+\usepackage[left=.5in,right=.5in,top=0.5in,bottom=.75in, headsep = 2.5pt]{geometry} % Page margins
+\usepackage{fancybox}         % Creates the framed border around page
+\usepackage{fancyhdr}         % Header / Footer package
+\usepackage[symbol]{footmisc} % Specifies symbolic \footnote{} to be used
+\usepackage{color}            % Allows basic colors
+\usepackage{tabularx}         % Allows tables with a specifies width
+\usepackage{booktabs}         % Has more customization for tables
+\usepackage{multirow}         % Allows multi-row table enteries
+
+% Math packages
+\usepackage{amsmath}          % Aids in writing math expressions
+\usepackage{amsfonts}         % Adds more math fonts
+\usepackage{amssymb}          % Add more math symbols
+\usepackage{gensymb}          % Adds more generic symbols
+\usepackage{siunitx}          % SI unit symbols
+\usepackage{mathtools}        % Adds more math symbols
+\usepackage{cancel}           % Used for math expressions \cancelto{Final Val}{expression}
+\usepackage{mathdots}         % Adds variety of dot configurations
+\usepackage{yhmath}           % Font styles inside math environment
+\usepackage{array}            % Allows arrays in math environment
+
+% Uncomment if using tikz (A large package that can slow compiling times)
+\usepackage{tikz}
+%\usetikzlibrary{fadings}
+%\usetikzlibrary{patterns}
+%\usetikzlibrary{shadows.blur}
+\tikzset{every picture/.style={line width=0.75pt}}  % Set default line width to 0.75pt 
+
+% Set up listings for matlab code
+\definecolor{commentgreen}{RGB}{14,120,0}
+\definecolor{mylilas}{RGB}{170,55,241}
+\lstset{language=matlab,                          % Define codestyle for listings
+  numbers=left, 
+  commentstyle=\scriptsize\color{commentgreen},   % Define color and font style for comments
+  keywordstyle=\color{blue},                      % Colors most matlab functions
+  frame=shadowbox,                                % Frame around algorithm
+  stringstyle=\color{mylilas},                    % Colors strings
+  showstringspaces=false,                         % Removes weird space symbol in strings
+  rulesepcolor=\color{black},
+  flexiblecolumns=true,
+  basicstyle=\fontsize{9}{9}\selectfont\ttfamily, % Font sytle of normal code
+  breaklines = true
+}
+
+% Set up clickable-links
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+
+% Creates a centered framed-minipage \begin{fminipage}{length}... \end{fminipage}
+\newsavebox{\fminipagebox}
+\NewDocumentEnvironment{fminipage}{m O{\fboxsep}}
+ {\centering\par\kern#2\noindent\begin{lrbox}{\fminipagebox}
+  \begin{minipage}{#1}\ignorespaces}
+ {\end{minipage}\end{lrbox}%
+  \makebox[#1]{%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+    \fbox{\usebox{\fminipagebox}}%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+  }\par\kern#2
+ }
+
+ % Stylish Edits
+ \renewcommand{\thefootnote}{\fnsymbol{footnote}}         % Roman footnote symbols
+ \captionsetup{labelfont=bf, font=small}                  % Bold Figure # and Table # and reduce text size
+ \renewcommand{\lstlistingname}{\textbf{Algorithm}}       % Renames Listing to Algorithm
+ \renewcommand{\headrulewidth}{0pt}                       % Removes the header rule on all other pages
+ \setlength{\parindent}{0in}                              % Turns off auto-indent
+ \setlength{\fboxrule}{0.5pt}                             % Thickness of the frame page 
+ \fancypage{\setlength{\fboxsep}{3pt}\fbox}{}             % Sets the width of the frame page
+ \newcommand{\mathsym}[1]{{}}                             % For Mathematica
+ \newcommand{\unicode}[1]{{}}                             % For Mathematica
+ \renewcommand{\labelitemi}{$\circ$}	                    % Changes the bullets to circles
+
+ % Math definitions
+ \def\doubleunderline#1{\underline{\underline{#1}}}   % Creates double-underline for matrices
+ 

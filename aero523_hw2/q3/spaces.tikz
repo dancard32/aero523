@@ -1,0 +1,65 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp7380948353026224] 
+\draw  (133,180) -- (263,180)(133,50) -- (133,180) -- cycle (256,175) -- (263,180) -- (256,185) (128,57) -- (133,50) -- (138,57)  ;
+%Shape: Axis 2D [id:dp8732172960708304] 
+\draw  (480,180) -- (610,180)(480,50) -- (480,180) -- cycle (603,175) -- (610,180) -- (603,185) (475,57) -- (480,50) -- (485,57)  ;
+%Curve Lines [id:da6439554475328086] 
+\draw    (133,180) .. controls (140.5,131.57) and (161.5,104.57) .. (193,90) ;
+%Curve Lines [id:da7450361057497594] 
+\draw    (233,180) .. controls (236.5,161.57) and (243.5,135.57) .. (263,130) ;
+%Straight Lines [id:da701652135230981] 
+\draw    (193,90) -- (263,130) ;
+%Straight Lines [id:da6822793783891032] 
+\draw    (350,140) -- (438,140) ;
+\draw [shift={(440,140)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Square [id:dp347937538101061] 
+\draw   (480,80) -- (580,80) -- (580,180) -- (480,180) -- cycle ;
+%Straight Lines [id:da44592555123633604] 
+\draw    (228,110) -- (246.59,91.41) ;
+\draw [shift={(248,90)}, rotate = 495] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7188497207060873] 
+\draw    (243,150) -- (266.14,159.26) ;
+\draw [shift={(268,160)}, rotate = 201.8] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da20467386352369865] 
+\draw    (178,180) -- (178,198) ;
+\draw [shift={(178,200)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da37405110877950887] 
+\draw    (158,120) -- (139.79,110.89) ;
+\draw [shift={(138,110)}, rotate = 386.57] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (371,92.4) node [anchor=north west][inner sep=0.75pt]    {$ \begin{array}{l}
+\xi ( x,y)\\
+\eta ( x,y)
+\end{array}$};
+% Text Node
+\draw (264,182.4) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (114,42.4) node [anchor=north west][inner sep=0.75pt]    {$y$};
+% Text Node
+\draw (461,42.4) node [anchor=north west][inner sep=0.75pt]    {$\eta $};
+% Text Node
+\draw (616,182.4) node [anchor=north west][inner sep=0.75pt]    {$\xi $};
+% Text Node
+\draw (521,116.4) node [anchor=north west][inner sep=0.75pt]    {$\hat{\Omega }$};
+% Text Node
+\draw (134,232.4) node [anchor=north west][inner sep=0.75pt]    {$Global\ Space$};
+% Text Node
+\draw (474,232.4) node [anchor=north west][inner sep=0.75pt]    {$Reference\ Space$};
+% Text Node
+\draw (31,82.4) node [anchor=north west][inner sep=0.75pt]    {$\vec{n} =-\nabla \xi |_{\xi =0,\ \eta =0.5}$};
+% Text Node
+\draw (114,198.4) node [anchor=north west][inner sep=0.75pt]    {$\vec{n} =-\nabla \eta |_{\xi =0.5,\ \eta =0}$};
+% Text Node
+\draw (244,62.4) node [anchor=north west][inner sep=0.75pt]    {$\vec{n} =\nabla \eta |_{\xi =0.5,\ \eta =1}$};
+% Text Node
+\draw (271,152.4) node [anchor=north west][inner sep=0.75pt]    {$\vec{n} =\nabla \xi |_{\xi =1,\ \eta =0.5}$};
+
+
+\end{tikzpicture}

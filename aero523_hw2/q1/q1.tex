@@ -1,0 +1,53 @@
+\section{Lagrange Interpolation}
+Use the method of Lagrange \textit{interpolation} to derive an expression for the mixed derivative, $u_{xy}$,  at the center of the stencil pictured below, i.e.  point (0,0), using the values of $u$ only at the four corner nodes in a uniform grid.  Note, this problem is solved using the method of undetermined coefficients in the notes.
+
+\begin{figure}[h]
+    \centering
+    \input{q1/q1_diag.tikz}
+    \caption{Stencil for Lagrange interpolation.}
+\end{figure}
+
+\vspace{-0.35in}
+\begin{align*}
+    \shortintertext{To conduct the Lagrange interpolation, I will conduct evaluate at each node. Taking into consideration that this is in two-dimensions that the Lagrange interpolating functions can be expressed separetly to be}
+    L_{-1}^z(z) & = \frac{(z - z_0)(z - z_{1})}{(-\Delta z)(-2 \Delta z)}, \quad \text{for node $j=-1$}\\
+    L_{0}^z(z) & = \frac{(z - z_{-1})(z - z_{1})}{(\Delta z)(-\Delta z)}, \quad \text{for node $j=-0$}\\
+    L_{1}^z(z) & = \frac{(z - z_{-1})(z - z_{0})}{(2\Delta z)(\Delta z)}, \quad \text{for node $j=1$}\\
+    \shortintertext{Where $z$ is either $x,\ y$ depending on the node and evaluating at each of the nodes gives,}
+\end{align*}
+
+\vspace{-0.75in}
+\begin{align*}
+    N_{1,1} & = L_{1}(x)\ L_{1}(y)\\
+        & = \left( \frac{(x - x_{-1})(x - x_{0})}{(2\Delta x)(\Delta x)} \right) \left( \frac{(y - y_{-1})(y - y_{0})}{(2\Delta y)(\Delta y)}  \right)\\
+    N_{-1,-1} & = L_{-1}(x)\ L_{-1}(y)\\
+        & = \left(\frac{(x - x_0)(x - x_{-1})}{(-\Delta x)(-2 \Delta x)}\right) \left( \frac{(y - y_0)(y - y_{-1})}{(-\Delta y)(-2 \Delta y)}\right)\\
+    N_{1,-1} & = L_{1}(x)\ L_{-1}(y)\\
+        & = \left( \frac{(x - x_{-1})(x - x_{0})}{(2\Delta x)(\Delta x)} \right) \left( \frac{(y - y_0)(y - y_{-1})}{(-\Delta y)(-2 \Delta y)}\right)\\
+    N_{-1,1} & = L_{-1}(x)\ L_{1}(y)\\
+        & = \left(\frac{(x - x_0)(x - x_{-1})}{(-\Delta x)(-2 \Delta x)}\right) \left( \frac{(y - y_{-1})(y - y_{0})}{(2\Delta y)(\Delta y)}  \right)
+\end{align*}
+
+\pagebreak
+\pagestyle{fancy}
+\restoregeometry
+
+\begin{align*}
+    \shortintertext{With all the Lagrange interpolating functions defined at each node the approximated solution can be expressed by the following relation,}
+    \tilde{u} & = \sum_{j = -l}^{r}\sum_{k=-d}^{u}L_{j}^x(x)L_{k}^y(y)u_{k,j}\\
+    \shortintertext{In order to evaluate the mixed derivative at the center point, each Nodal value must have its mixed derivative computed and evalued at $x_0,\ y_0$ so,}
+    \frac{\partial ^2N_{1,1}}{\partial x\partial y}|_{x_0,\ y_0} & = \frac{(x_0 - 2x + x_{-1})(y_0 - 2y + y_{-1})}{4\Delta x^2\Delta y^2}|_{x_0,\ y_0}\\
+    & = \frac{ \overbrace{(-x_0 + x_{-1})}^{-\Delta x} \overbrace{(-y_0 + y_{-1})}^{-\Delta y}}{4\Delta x^2 \Delta y^2}u_{1,1} = \frac{1}{4\Delta x\Delta y}u_{1,1}\\
+    \frac{\partial ^2N_{-1,-1}}{\partial x\partial y}|_{x_0,\ y_0} & = \frac{(x_0 - 2x + x_{1})(y_0 - 2y + y_{1})}{4\Delta x^2\Delta y^2}|_{x_0,\ y_0}\\
+    & = \frac{ \overbrace{(-x_0 + x_{1})}^{\Delta x} \overbrace{(-y_0 + y_{1})}^{\Delta y}}{4\Delta x^2 \Delta y^2}u_{-1,-1} = \frac{1}{4\Delta x\Delta y}u_{-1,-1}\\
+    \frac{\partial ^2N_{1,-1}}{\partial x\partial y}|_{x_0,\ y_0} & = \frac{(x_0 - 2x + x_{-1})(y_0 - 2y + y_{1})}{4\Delta x^2\Delta y^2}|_{x_0,\ y_0}\\
+    & = \frac{ \overbrace{(-x_0 + x_{-1})}^{-\Delta x} \overbrace{(-y_0 + y_{1})}^{\Delta y}}{4\Delta x^2 \Delta y^2}u_{1,-1} = -\frac{1}{4\Delta x\Delta y}u_{1,-1}\\
+    \frac{\partial ^2N_{-1,1}}{\partial x\partial y}|_{x_0,\ y_0} & = \frac{(x_0 - 2x + x_{1})(y_0 - 2y + y_{-1})}{4\Delta x^2\Delta y^2}|_{x_0,\ y_0}\\
+    & = \frac{ \overbrace{(-x_0 + x_{1})}^{\Delta x} \overbrace{(-y_0 + y_{-1})}^{-\Delta y}}{4\Delta x^2 \Delta y^2}u_{-1,1} = -\frac{1}{4\Delta x\Delta y}u_{-1,1}\\
+    \shortintertext{Summing all the contributions and substituting back into the equation we get that,}
+\end{align*}
+
+\vspace{-0.2in}
+\begin{equation*}
+    \boxed{u_{xy} \approx \frac{1}{4\Delta x\Delta y}\left(u_{1,1} + u_{-1,-1} - \left(u_{1,-1} + u_{-1,1}\right)\right)}
+\end{equation*}

@@ -1,0 +1,51 @@
+\documentclass[12pt]{extarticle}
+\usepackage{Format}
+%\usepackage[draft]{graphicx}
+\usepackage{graphicx}
+
+\thispagestyle{empty}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{April 20, 2020}
+\rhead{\textit{Aerospace 523, Project X:}}
+\fancyfoot[l]{\textbf{Unviversity of Michigan - Ann Arbor}}
+\fancyfoot[r]{Page \thepage}
+
+
+\begin{document}
+
+    % Cover page
+    \thispagestyle{empty}
+    \begin{center}
+        \textbf{{\LARGE{\underline{Project : Title}}}}
+
+        \vspace{0.25cm}
+        Aerospace 523: Computational Fluid Dynamics I
+        \\ Undergraduate Aerospace Engineering
+        \\ University of Michigan, Ann Arbor
+        
+        \vspace{0.25cm}
+        By: Dan Card, dcard@umich.edu
+        \\ Date: April 20, 2020
+    \end{center}
+
+    \pagebreak
+    {
+        \begin{figure}[h]
+            \includegraphics[width=\linewidth]{rep/aero.jpg}
+        \end{figure}
+
+        \tocloftpagestyle{empty}
+        \tableofcontents
+        \pagebreak
+        \listoffigures
+        \lstlistoflistings
+        \thispagestyle{empty}
+    }
+
+
+    \import{rep/}{intro.tex}
+    \import{rep/}{apps.tex}
+
+
+\end{document}

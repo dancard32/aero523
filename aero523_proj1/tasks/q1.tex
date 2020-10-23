@@ -1,0 +1,26 @@
+\pagebreak
+\section{Tasks and Deliverables}
+In this project I will implement a finite-element solver to approximate the flow field
+around a square and verify its coefficients of lift and pressure. Additionally I will implement Jacobi and Gauss-Seidel smoothers and determine their convergences to theory. Lastly, I will implement a V-cycle multigrid method and will determine the best level so that the system converges to the appropriate solution.
+
+\subsection{Solving the Finite-Difference System}
+Since the boundary conditions have been specified, I will use a 5-point stencil about the interior nodes to approximate the global $\doubleunderline{A}$ sparse matrix that will approximate the nodal values. After assembling the $\doubleunderline{A}$ matrix I will reduce it to solve for the interior $\underline{\psi}$ nodal values. Where the 5-point stencil can be written to be,
+
+\begin{equation}
+    \frac{1}{h^2} \begin{bmatrix}
+        +u_{i,j+1}\\
+        + u_{i-1,j} - 4u_{i,j} + u_{i+1,j}\\
+        u_{i,j-1}
+    \end{bmatrix} = f_{i,j}
+    \label{eqn:5pt_stencil}
+\end{equation}\myequations{5-Point Stencil Implementation}
+
+Using the 5-point stencil shown above in Equation \ref{eqn:5pt_stencil}, and the coefficients to form the global stiffness matrix $\doubleunderline{A}$ and using the Dirichlet boundary conditions to form $\underline{F}$ through Python I can solve directly for the approximated solution for $\psi$. After implementing the finite difference system shown in Algorithm \ref{alg:direct_solver} and using the direct solver the $9\times 9$ matrix for $p=0$, the re-shaped $\underline{\Psi}$ matrix becomes,
+
+\begin{equation*}
+    \boxed{
+    \underline{\psi} = 
+    \begin{bmatrix}
+        \input{tasks/9by9_mat}
+    \end{bmatrix}}
+\end{equation*}

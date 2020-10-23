@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Overview}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Discretization}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Solvers}{section.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Direct}{subsection.1.3}% 5
+\BOOKMARK [3][-]{subsubsection.1.3.2}{Iterative Smoothers}{subsection.1.3}% 6
+\BOOKMARK [3][-]{subsubsection.1.3.3}{Multigrid}{subsection.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.4}{Post-Processing}{section.1}% 8
+\BOOKMARK [1][-]{section.2}{Tasks and Deliverables}{}% 9
+\BOOKMARK [2][-]{subsection.2.1}{Solving the Finite-Difference System}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.2}{Post-Processing Functions}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.3}{Implementing Jacobi and Gauss-Seidel Smoothers}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Jacobi Iteration Smoother}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Gauss-Seidel Smoother}{subsection.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.4}{Implementing V-Cycle Multigrid Method}{section.2}% 15
+\BOOKMARK [3][-]{subsubsection.2.4.1}{V-Cycle Multigrid Method Convergence}{subsection.2.4}% 16
+\BOOKMARK [3][-]{subsubsection.2.4.2}{V-Cycle Multigrid Smoothing Iterations}{subsection.2.4}% 17
+\BOOKMARK [1][-]{section*.15}{Appendices}{}% 18
+\BOOKMARK [1][-]{Appendix.a.A}{Appendix Python Direct Solver Implementation}{}% 19
+\BOOKMARK [1][-]{Appendix.a.B}{Appendix Coefficient of Pressure Implementation}{}% 20
+\BOOKMARK [1][-]{Appendix.a.C}{Appendix Jacobi Iteration Smoother}{}% 21
+\BOOKMARK [1][-]{Appendix.a.D}{Appendix Gauss-Seidel Iteration Smoother}{}% 22
+\BOOKMARK [1][-]{Appendix.a.E}{Appendix V-Cycle Multigrid}{}% 23
+\BOOKMARK [1][-]{Appendix.a.F}{Appendix Main Python Driving Code}{}% 24

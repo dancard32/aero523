@@ -1,0 +1,51 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Circle [id:dp06682781228078438] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (240,65) .. controls (240,62.24) and (242.24,60) .. (245,60) .. controls (247.76,60) and (250,62.24) .. (250,65) .. controls (250,67.76) and (247.76,70) .. (245,70) .. controls (242.24,70) and (240,67.76) .. (240,65) -- cycle ;
+%Shape: Circle [id:dp2823555602353238] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (380,65) .. controls (380,62.24) and (382.24,60) .. (385,60) .. controls (387.76,60) and (390,62.24) .. (390,65) .. controls (390,67.76) and (387.76,70) .. (385,70) .. controls (382.24,70) and (380,67.76) .. (380,65) -- cycle ;
+%Shape: Circle [id:dp6222623809561607] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (380,205) .. controls (380,202.24) and (382.24,200) .. (385,200) .. controls (387.76,200) and (390,202.24) .. (390,205) .. controls (390,207.76) and (387.76,210) .. (385,210) .. controls (382.24,210) and (380,207.76) .. (380,205) -- cycle ;
+%Shape: Circle [id:dp14694556239035372] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (240,205) .. controls (240,202.24) and (242.24,200) .. (245,200) .. controls (247.76,200) and (250,202.24) .. (250,205) .. controls (250,207.76) and (247.76,210) .. (245,210) .. controls (242.24,210) and (240,207.76) .. (240,205) -- cycle ;
+%Shape: Circle [id:dp8106200964793124] 
+\draw   (310,135) .. controls (310,132.24) and (312.24,130) .. (315,130) .. controls (317.76,130) and (320,132.24) .. (320,135) .. controls (320,137.76) and (317.76,140) .. (315,140) .. controls (312.24,140) and (310,137.76) .. (310,135) -- cycle ;
+%Shape: Circle [id:dp06002439214257249] 
+\draw   (380,135) .. controls (380,132.24) and (382.24,130) .. (385,130) .. controls (387.76,130) and (390,132.24) .. (390,135) .. controls (390,137.76) and (387.76,140) .. (385,140) .. controls (382.24,140) and (380,137.76) .. (380,135) -- cycle ;
+%Shape: Circle [id:dp22749598300585605] 
+\draw   (310,65) .. controls (310,62.24) and (312.24,60) .. (315,60) .. controls (317.76,60) and (320,62.24) .. (320,65) .. controls (320,67.76) and (317.76,70) .. (315,70) .. controls (312.24,70) and (310,67.76) .. (310,65) -- cycle ;
+%Shape: Circle [id:dp8588323743643862] 
+\draw   (240,135) .. controls (240,132.24) and (242.24,130) .. (245,130) .. controls (247.76,130) and (250,132.24) .. (250,135) .. controls (250,137.76) and (247.76,140) .. (245,140) .. controls (242.24,140) and (240,137.76) .. (240,135) -- cycle ;
+%Shape: Circle [id:dp5234863402795684] 
+\draw   (310,205) .. controls (310,202.24) and (312.24,200) .. (315,200) .. controls (317.76,200) and (320,202.24) .. (320,205) .. controls (320,207.76) and (317.76,210) .. (315,210) .. controls (312.24,210) and (310,207.76) .. (310,205) -- cycle ;
+%Straight Lines [id:da3521724505838646] 
+\draw    (322,205) -- (378,205) ;
+\draw [shift={(380,205)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(320,205)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da034995775783171146] 
+\draw    (385,142) -- (385,198) ;
+\draw [shift={(385,200)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [shift={(385,140)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (231,72.4) node [anchor=north west][inner sep=0.75pt]    {$( -1,1)$};
+% Text Node
+\draw (301,142.4) node [anchor=north west][inner sep=0.75pt]    {$( 0,0)$};
+% Text Node
+\draw (371,72.4) node [anchor=north west][inner sep=0.75pt]    {$( 1,1)$};
+% Text Node
+\draw (221,212.4) node [anchor=north west][inner sep=0.75pt]    {$( -1,-1)$};
+% Text Node
+\draw (371,212.4) node [anchor=north west][inner sep=0.75pt]    {$( 1,-1)$};
+% Text Node
+\draw (337,212.4) node [anchor=north west][inner sep=0.75pt]    {$\Delta x$};
+% Text Node
+\draw (387,162.4) node [anchor=north west][inner sep=0.75pt]    {$\Delta y$};
+
+
+\end{tikzpicture}

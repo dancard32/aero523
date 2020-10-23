@@ -1,0 +1,59 @@
+\pagebreak
+\pagestyle{fancy}
+\restoregeometry
+\section{Gram-Schmidt Orthonormalization and Projection}
+
+Given the following three vectors,
+
+\begin{equation*}
+    \vec{u}_1 = \begin{bmatrix} 1\\ 2\\ 0\\ 0\\ 0\end{bmatrix},\quad \vec{u}_2 = \begin{bmatrix} 0\\ -1\\ 0\\ 3\\ 0\end{bmatrix}, \vec{u}_3 = \begin{bmatrix} 3\\ 0\\ 1\\ 0\\ -2\end{bmatrix}
+\end{equation*}
+
+\begin{enumerate}[label=\alph*., start = 1]
+    \item Use the Gram-Schmidt algorithm to compute an orthonormal basis (three vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$) for the space spanned by \{$\vec{u}_1,\vec{u}_2,\vec{u}_3$\}. You can write a program to do this.
+    
+    \begin{align*}
+        \shortintertext{The Gram-Schmidt algorithm can be defined as,}
+        v_n & = v_n -\sum_{i=1}^{n-1} \frac{<v_n, v_i>}{<v_i, v_i>}v_i\\
+        \shortintertext{Where $<\phi,\psi>$ is defined as the inner product with the corresponding set respectively such that,}
+        <\phi, \psi> & = \int_a^b \phi(x)\psi(x)\ dx\\
+        \shortintertext{However, since this is dealing with vectors then applying the discrete version of the Gram-Schmidt algorithm gives,}
+        <\vec{\phi}, \vec{\psi}> & = \vec{\phi} \cdot \vec{\psi}\\
+        \shortintertext{Applying this algorithm in Python (attached at end of assignment) gives that the three vectors are}
+    \end{align*}
+
+    \vspace{-0.2in}
+    \begin{fminipage}{0.7\linewidth}
+        \begin{equation*}
+            \vec{v}_1 = \begin{bmatrix} \input{q2/v1} \end{bmatrix},\quad  \vec{v}_2 = \begin{bmatrix} \input{q2/v2} \end{bmatrix},\quad \vec{v}_3 = \begin{bmatrix} \input{q2/v3} \end{bmatrix}
+        \end{equation*}
+    \end{fminipage}
+
+    \pagebreak
+    \item Project the vector $w= \begin{bmatrix}1 & 2 & 3 & 4 & 5\end{bmatrix}^T$ into the space spanned by this basis, and write \newline $w=w_\parallel+w_\perp$, where $w_\parallel$ is the projection of $w$ in to the space.  Give both $w_\parallel$ and $w_\perp$.
+
+    
+    \begin{align*}
+        \shortintertext{Projecting the vector onto the space spanned by the basis can be done through the following,}
+        \vec{w}_{\parallel,i} & = \underbrace{\left(\vec{w}\cdot \hat{v}_i\right)}_{\text{Scalar}}\underbrace{\hat{v}_i}_{\text{Direction}}\\
+        \shortintertext{Conducting this over the size of the basis will give the total projection or,}
+        \vec{w}_\parallel & = \sum_{i=1}^N  \left(\vec{w}\cdot \hat{v}_i\right) \hat{v}_i\\
+        \shortintertext{Then with the parallel component being defined the perpendicular component is,}
+        \vec{w}_\perp & = \vec{w} - \vec{w}_\parallel
+        \shortintertext{Using the results from part a.) and looping through the vectors and outputting through Python gives the results to be,}
+    \end{align*}
+
+
+    \begin{fminipage}{0.4\linewidth}
+        \vspace{-0.1in}
+        \begin{align*}
+            \vec{w} & = \underbrace{\begin{bmatrix}
+                \input{q2/w_parallel}
+            \end{bmatrix}}_{\vec{w}_\parallel} + \underbrace{\begin{bmatrix}
+                \input{q2/w_perp}
+            \end{bmatrix}}_{\vec{w}_\perp}
+        \end{align*}    
+    \end{fminipage}
+    
+
+\end{enumerate}

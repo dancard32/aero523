@@ -1,0 +1,27 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Overview}{4}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Discretization}{5}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Solvers}{5}{subsection.1.3}% 
+\contentsline {subsubsection}{\numberline {1.3.1}Direct}{5}{subsubsection.1.3.1}% 
+\contentsline {subsubsection}{\numberline {1.3.2}Iterative Smoothers}{6}{subsubsection.1.3.2}% 
+\contentsline {subsubsection}{\numberline {1.3.3}Multigrid}{6}{subsubsection.1.3.3}% 
+\contentsline {subsection}{\numberline {1.4}Post-Processing}{6}{subsection.1.4}% 
+\contentsline {section}{\numberline {2}Tasks and Deliverables}{7}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Solving the Finite-Difference System}{7}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Post-Processing Functions}{8}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Implementing Jacobi and Gauss-Seidel Smoothers}{10}{subsection.2.3}% 
+\contentsline {subsubsection}{\numberline {2.3.1}Jacobi Iteration Smoother}{10}{subsubsection.2.3.1}% 
+\contentsline {subsubsection}{\numberline {2.3.2}Gauss-Seidel Smoother}{11}{subsubsection.2.3.2}% 
+\contentsline {subsection}{\numberline {2.4}Implementing V-Cycle Multigrid Method}{12}{subsection.2.4}% 
+\contentsline {subsubsection}{\numberline {2.4.1}V-Cycle Multigrid Method Convergence}{12}{subsubsection.2.4.1}% 
+\contentsline {paragraph}{Restriction}{12}{paragraph*.10}% 
+\contentsline {paragraph}{Prolongation}{12}{paragraph*.11}% 
+\contentsline {paragraph}{Implementing Multigrid}{12}{paragraph*.12}% 
+\contentsline {subsubsection}{\numberline {2.4.2}V-Cycle Multigrid Smoothing Iterations}{14}{subsubsection.2.4.2}% 
+\contentsline {section}{Appendices}{15}{section*.15}% 
+\contentsline {section}{Appendix \numberline {A}Python Direct Solver Implementation}{15}{Appendix.a.A}% 
+\contentsline {section}{Appendix \numberline {B}Coefficient of Pressure Implementation}{16}{Appendix.a.B}% 
+\contentsline {section}{Appendix \numberline {C}Jacobi Iteration Smoother}{17}{Appendix.a.C}% 
+\contentsline {section}{Appendix \numberline {D}Gauss-Seidel Iteration Smoother}{18}{Appendix.a.D}% 
+\contentsline {section}{Appendix \numberline {E}V-Cycle Multigrid}{19}{Appendix.a.E}% 
+\contentsline {section}{Appendix \numberline {F}Main Python Driving Code}{22}{Appendix.a.F}% 

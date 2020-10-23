@@ -1,0 +1,8 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Solution of Potential Flow Around a Square}}{4}{figure.caption.3}% 
+\contentsline {figure}{\numberline {2}{\ignorespaces Finite Difference Grid}}{5}{figure.caption.4}% 
+\contentsline {figure}{\numberline {3}{\ignorespaces Coefficient of Pressure Along Bottom Wall.}}{8}{figure.caption.5}% 
+\contentsline {figure}{\numberline {4}{\ignorespaces Approximated Residual Error}}{9}{figure.caption.7}% 
+\contentsline {figure}{\numberline {5}{\ignorespaces Jacboi Smoother Iteration}}{10}{figure.caption.8}% 
+\contentsline {figure}{\numberline {6}{\ignorespaces Gauss-Seidel Smoother}}{11}{figure.caption.9}% 
+\contentsline {figure}{\numberline {7}{\ignorespaces V-Cycle $L_2$ Convergence}}{13}{figure.caption.13}% 
+\contentsline {figure}{\numberline {8}{\ignorespaces V-Cycle Multigrid Smoothing Iterations}}{14}{figure.caption.14}% 
