@@ -54,7 +54,7 @@ In the BDF methods, the time derivative is approximated using one-sided finite d
         & -\frac{1}{6}\left(u^n -2\Delta tu_t^n +2\Delta t^2u_{tt}^n - \frac{4}{3}\Delta t^3u_{ttt}^n + \frac{2}{3}\Delta t^4u_{t^{(4)}}^n\right) + \ldots \\
         & -\Delta t \left(u_t^n + \Delta tu_{tt}^n + \frac{1}{2}\Delta t^2u_{ttt}^n + \frac{1}{6}\Delta t^3u_{t^{(4)}}^n + \frac{1}{24}\Delta t^4u_{t^{(5)}}^n \right)\\
         \shortintertext{Then using Matlab to simplify gives that the error is,}
-        \epsilon^{n+1} & = -\frac{1}{6}\Delta t^3u_{ttt} - \frac{1}{6}\Delta t^4u_{t^{(4)}} + \frac{1}{40}\Delta t^5u_{t^{(5)}}
+        \epsilon^{n+1} & = -\frac{1}{6}\Delta t^3u_{ttt} - \frac{1}{6}\Delta t^4u_{t^{(4)}} + \mathcal{O}(\Delta t^5)
         \shortintertext{Then from the leading term this gives that the convergence is,}
         |\epsilon^{n+1}| & = \mathcal{O}(\Delta t^{p+1}) = \mathcal{O}(\Delta t^3)\\
         \shortintertext{This gives that the order of accuracy is,}
@@ -136,7 +136,15 @@ In the BDF methods, the time derivative is approximated using one-sided finite d
         \shortintertext{From part a. of this question, I found that the local error was,}
         \epsilon^{n+1} & = -\frac{1}{6}\Delta t^3u_{ttt} - \frac{1}{6}\Delta t^4u_{t^{(4)}} + \frac{1}{40}\Delta t^5u_{t^{(5)}}\\
         \shortintertext{Thus, the truncation error is}
-        \epsilon^{n+1} & = \underbrace{-\frac{1}{6}\Delta t^3u_{ttt} - \frac{1}{6}\Delta t^4u_{t^{(4)}} + \frac{1}{40}\Delta t^5u_{t^{(5)}} + \ldots \mathcal{O}(\Delta t^6)}_{\text{truncation error: $\mathcal{O}(\Delta t^3)$}}
+    \end{align*}
+
+    \vspace{-0.5in}
+    \begin{equation*}
+        \boxed{\epsilon^{n+1} = \underbrace{-\frac{1}{6}\Delta t^3u_{ttt} - \frac{1}{6}\Delta t^4u_{t^{(4)}} + \frac{1}{40}\Delta t^5u_{t^{(5)}} + \ldots \mathcal{O}(\Delta t^6)}_{\text{truncation error: $\mathcal{O}(\Delta t^3)$}}}
+    \end{equation*}
+
+    \vspace{-0.25in}
+    \begin{align*}
         \shortintertext{However, proving that the leading term is half the magnitude of that of BDF2, I will use the LHS and RHS definitions from BDF2 and use the Taylor-Series expansions from part a. and simplify as,}
         \text{LHS} & = \frac{3}{2}u^{n+1} - 2u^n + \frac{1}{2}u^{n-1}\\
             & = \frac{3}{2}\left(u^n + \Delta tu_t^n + \frac{1}{2}\Delta t^2u_{tt}^n + \frac{1}{6}\Delta t^3u_{ttt}^n + \frac{1}{24}\Delta t^4u_{t^{(4)}}^n + \frac{1}{120}\Delta t^5u_{t^{(5)}}^n\right) + \ldots \\

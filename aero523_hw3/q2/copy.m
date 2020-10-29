@@ -15,8 +15,8 @@ for j = 1:max(size(ntlin))
 
         l2norms(j,i) = sqrt(1./ntlin(j).*sum((us(1,:) - us(end,:)).^2));
     end
-    fprintf('Nt = %.f \n', ntlin(j))
 end
+
 val = floor(num/3);
 rate1 = abs(log10(l2norms(1,2*val)/l2norms(1,val))/log10(intervals(1,2*val)/intervals(1,val)));
 rate2 = abs(log10(l2norms(2,floor(2.5*val))/l2norms(2,floor(1.1*val)))/log10(intervals(2,floor(2.5*val))/intervals(2,floor(1.1*val))));
@@ -36,20 +36,6 @@ set(gca, 'yscale', 'log')
 set(gca, 'xscale', 'log')
 set(gcf, 'Color', 'w', 'Position', [200 200 800 400]);
 export_fig('BW_convergence.eps')
-%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-l2err = l2norms(:,15);
-rate = abs(log10(l2err(2)/l2err(1))/log10(ntlin(2)/ntlin(1)));
-
-figure()
-hold on
-plot(ntlin, l2err, 'k', 'linewidth', 2)
-xlabel('$N_t$ Intervals', 'fontsize', 16)
-ylabel('$L_2$ Residual Error Norm', 'fontsize', 16)
-legend(['rate = $\mathcal{O}$(', num2str(rate),')'], 'fontsize', 16, 'location', 'northeast')
-set(gca, 'yscale', 'log')
-set(gca, 'xscale', 'log')
-set(gcf, 'Color', 'w', 'Position', [200 200 800 400]);
-export_fig('BW_convergence_nt.eps')
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function [us, xlin] = BW_method(nx, nt)
     L = 2; a = 0.5; T = L/a;

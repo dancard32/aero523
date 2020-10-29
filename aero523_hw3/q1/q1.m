@@ -9,7 +9,7 @@ syms u ut utt uttt utttt uttttt dt
 
 unp1 = u + dt*ut + 1/2*dt^2*utt + 1/6*dt^3*uttt + 1/24*dt^4*utttt + 1/120*dt^5*uttttt;
 un = u;
-unm1 = u - dt*ut + 1/2*dt^2*utt - 1/6*dt^3*uttt + 1/24*dt^4*utttt + 1/120*dt^5*uttttt;
+unm1 = u - dt*ut + 1/2*dt^2*utt - 1/6*dt^3*uttt + 1/24*dt^4*utttt - 1/120*dt^5*uttttt;
 unm2 = u - 2*dt*ut + 2*dt^2*utt - 4/3*dt^3*uttt + 2/3*dt^4*utttt + (-2)^5/120*dt^5*uttttt;
 fnp1 = ut + dt*utt + 1/2*dt^2*uttt + 1/6*dt^3*utttt + 1/24*dt^4*uttttt;
 
