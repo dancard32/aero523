@@ -1,0 +1,54 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp2275403590324392] 
+\draw  (180,170) -- (460,170)(180,60) -- (180,170) -- cycle (453,165) -- (460,170) -- (453,175) (175,67) -- (180,60) -- (185,67)  ;
+%Straight Lines [id:da3604109815505028] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (180,90) -- (290,90) ;
+%Straight Lines [id:da7925256894106991] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (290,90) -- (290,160) ;
+%Straight Lines [id:da511794290422414] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (290,160) -- (440,160) ;
+%Straight Lines [id:da6328483411928432] 
+\draw [color={rgb, 255:red, 0; green, 45; blue, 235 }  ,draw opacity=1 ][line width=0.75]    (180,90) -- (240,90) ;
+%Straight Lines [id:da40233058047883086] 
+\draw [color={rgb, 255:red, 0; green, 45; blue, 235 }  ,draw opacity=1 ][line width=0.75]    (240,90) -- (290,120) ;
+%Straight Lines [id:da7801443444674079] 
+\draw [color={rgb, 255:red, 0; green, 45; blue, 235 }  ,draw opacity=1 ][line width=0.75]    (290,120) -- (330,120) ;
+%Straight Lines [id:da8214841243028934] 
+\draw [color={rgb, 255:red, 0; green, 45; blue, 235 }  ,draw opacity=1 ][line width=0.75]    (330,120) -- (330,140) ;
+%Straight Lines [id:da6097118362505765] 
+\draw [color={rgb, 255:red, 0; green, 45; blue, 235 }  ,draw opacity=1 ][line width=0.75]    (330,140) -- (370,140) ;
+%Straight Lines [id:da5501138326957089] 
+\draw [color={rgb, 255:red, 0; green, 45; blue, 235 }  ,draw opacity=1 ][line width=0.75]    (370,140) -- (370,160) ;
+%Straight Lines [id:da6904401388837584] 
+\draw [color={rgb, 255:red, 0; green, 45; blue, 235 }  ,draw opacity=1 ][line width=0.75]    (370,160) -- (440,160) ;
+%Straight Lines [id:da1151620138400622] 
+\draw    (265,105) -- (247,105) ;
+\draw [shift={(245,105)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9973625727389335] 
+\draw    (330,130) -- (348,130) ;
+\draw [shift={(350,130)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da03222983463189566] 
+\draw    (370,150) -- (388,150) ;
+\draw [shift={(390,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (161,42.4) node [anchor=north west][inner sep=0.75pt]    {$\rho $};
+% Text Node
+\draw (221,172.4) node [anchor=north west][inner sep=0.75pt]    {$\text{Distance along shock tube,} \ x$};
+% Text Node
+\draw (294,70.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,opacity=1 ]  {$\text{Initial Condition}$};
+% Text Node
+\draw (201,107.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 17; green, 0; blue, 255 }  ,opacity=1 ]  {$\text{Expansion}$};
+% Text Node
+\draw (332,107.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 17; green, 0; blue, 255 }  ,opacity=1 ]  {$\text{Contact}$};
+% Text Node
+\draw (392,139.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 17; green, 0; blue, 255 }  ,opacity=1 ]  {$\text{Shock}$};
+
+
+\end{tikzpicture}

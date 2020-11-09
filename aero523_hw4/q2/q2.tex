@@ -1,0 +1,29 @@
+\pagebreak
+\pagestyle{fancy}
+\restoregeometry
+\section{Shock Tube}
+A shock tube consists of two chambers containing air ($\gamma = 1.4$) at different states, as shown below. The domain length is $L= 1$, and the diaphragm is in the middle, at $x= 0.5$.
+
+\begin{figure}[h]
+    \centering
+    \input{q2/diag.tikz}
+    \caption{Shock tube chamber configuration.}
+\end{figure}
+
+At $t= 0$, the diaphragm between the two chambers is broken, sending a shock wave and a contact wave into one chamber and an expansion into the other, as shown schematically below for the density.
+
+\begin{figure}[h]
+    \centering
+    \input{q2/diag2.tikz}
+    \caption{Evolution of unsteady evolution.}
+\end{figure}
+
+In this problem you will use a finite-volume method to simulate the unsteady evolution of the gas state in the shock tube (both chambers). The Euler equations govern the flow, and the units are conveniently chosen to give $\mathcal{O}(1)$ quantities.
+
+\begin{enumerate}[label=\alph*., start = 1]
+    \item Write a code that implements a first-order FVM on a uniform grid of $N$ cells, with Dirichlet boundary conditions enforced using the flux function and a constant exterior state, and a constant time step estimated using the CFL condition. Implement both the Rusanov and the HLLE fluxes.Describe your code and ensure that you pass the free-stream preservation test.
+\end{enumerate}
+
+\begin{enumerate}[label=\alph*., start = 2]
+    \item Run your code to a final time of $T= 0.2$ with both fluxes, on grids of $N= 50,\ 100,\ 200$.  Make figures  showing the density, momentum, and velocity for each grid, overlaying the two flux function results on each figure (9 figures total). Discuss the behavior of the solution and the differences between the fluxes.
+\end{enumerate}

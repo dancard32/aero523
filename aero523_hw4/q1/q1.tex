@@ -1,0 +1,27 @@
+\section{Burger's Equation}
+In this problem you will solve Burgers equation, $u_t+f_x= 0,\ f=\frac{1}{2}u^2,\ x \in [0,4)$, periodic boundaries, with the initial condition shown below.
+
+\begin{figure}[h]
+    \centering
+    \input{q1/diag.tikz}
+    \caption{Initial condition to Burgers equation.}
+\end{figure}
+
+For the numerical method, use the finite volume method (FVM) with $N_x$ uniform cells, forward Euler time stepping, a uniform time step, CFL=0.8 (based on the initial condition), and the upwind flux,
+
+\begin{equation*}
+    \hat{F}_{j + \frac{1}{2}} = \frac{1}{2}\left(f_j + f_{j+1}\right) - \frac{1}{2}|\hat{a}_{j + \frac{1}{2}}|\left(u_{j+1} - u_j\right)
+\end{equation*}
+
+\begin{enumerate}[label=\alph*., start = 1]
+    \item Prior to implementing the FVM, determine the analytical solution using the method of characteristics. Plot the state, $u(x,t)$, at times $t= 0.5,\ 1.0,\ 1.5$ in one figure. In a separate figure, make a space-time diagram of the characteristics, up to $t= 1.5$, and indicate any shock speeds/paths.
+
+\end{enumerate}
+    
+\begin{enumerate}[label=\alph*., start = 2]
+    \item Implement the FVM and using $N_x$= 128 and $N_x$= 512, show the states at the same times as requested in the previous part. Make three plots, one for each time, and overlay the two $N_x$ results and the analytical solution on each plot. Comment on the differences.
+\end{enumerate}
+    
+\begin{enumerate}[label=\alph*., start = 3]
+    \item Perform a convergence study of the FVM, using the $L_2$ solution error norm at $t = 0.5$, for $N_x= 128,\ 256,\ 512,\ 1024.$  Include an error convergence plot and compute/discuss the rate.
+\end{enumerate}
