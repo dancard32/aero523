@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1605151967 "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.tex" "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.pdf" "main" 1605151968
+["pdflatex"] 1605194717 "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.tex" "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.pdf" "main" 1605194718
   "/etc/texmf/web2c/texmf.cnf" 1588539946 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.aux" 1605151968 6435 ecf90313482added191c84b15cbfcdcf ""
-  "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.tex" 1605151709 3703 02a81831279b53cdabdc6e88cf55b7c6 ""
+  "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.aux" 1605194718 6435 ecf90313482added191c84b15cbfcdcf ""
+  "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.tex" 1605194557 3703 482825b90b02607f86fedc625933c171 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tctt0900.tfm" 1136768653 1536 bda3e6bf9784a4cc572c754e0c3eeb00 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -226,9 +226,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1588539951 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1588539976 8261484 895e915f63b6d37eda76280809c5f603 ""
   "Format.sty" 1604956848 4425 c7a9c5ec9d0c1e0efcae71bd78c84d84 ""
-  "main.aux" 1605151968 6435 ecf90313482added191c84b15cbfcdcf "pdflatex"
-  "main.out" 1605151968 97 8941fc4040c9884d363bc96175565117 "pdflatex"
-  "main.tex" 1605151709 3703 02a81831279b53cdabdc6e88cf55b7c6 ""
+  "main.aux" 1605194718 6435 ecf90313482added191c84b15cbfcdcf "pdflatex"
+  "main.out" 1605194718 97 8941fc4040c9884d363bc96175565117 "pdflatex"
+  "main.tex" 1605194557 3703 482825b90b02607f86fedc625933c171 ""
   "q1/analytical.pdf" 1605131775 137392 d0aa5f714d444d12076234a3a29e3464 ""
   "q1/characteristics.pdf" 1605131777 103146 ed05ea55870ad7e98c75116c5e9aace1 ""
   "q1/convergence.pdf" 1605131783 229683 c87c65a88318687789f7bd435e919ac3 ""
@@ -236,7 +236,7 @@
   "q1/diag.tikz" 1604956848 2118 8692b645ce3d122590f80933363c9888 ""
   "q1/fvm.py" 1605131742 732 e99ceb4251da5199b34185842d14aa9e ""
   "q1/q1.py" 1605131772 6880 6536b74a554b42923adba1a0cc5a6269 ""
-  "q1/q1.tex" 1605021756 8758 a356769d3bc1d2778c2a7f0413a717a3 ""
+  "q1/q1.tex" 1605194717 8973 6f45fea824fe459119f3af4076ad94e4 ""
   "q1/t05.pdf" 1605131778 137847 dc35be9bc54e7dcb190e1154f37cdc7e ""
   "q1/t10.pdf" 1605131780 137908 8159d856dc434fe3cc0c9f41a8919bd9 ""
   "q1/t15.pdf" 1605131781 137727 ddf43d2b970b0cca8591a1fd31c8d03d ""
@@ -252,7 +252,7 @@
   (generated)
   "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.log"
   "main.pdf"
-  "main.log"
+  "main.out"
   "main.aux"
   "/home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.pdf"
-  "main.out"
+  "main.log"

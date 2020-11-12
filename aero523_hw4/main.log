@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.3)  11 NOV 2020 22:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.3)  12 NOV 2020 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -894,12 +894,12 @@ This may cause the page layout to be inconsistent, however.
 <q1/analytical.pdf, id=40, 390.32857pt x 382.49371pt>
 File: q1/analytical.pdf Graphic file (type pdf)
 <use q1/analytical.pdf>
-Package pdftex.def Info: q1/analytical.pdf  used on input line 109.
+Package pdftex.def Info: q1/analytical.pdf  used on input line 113.
 (pdftex.def)             Requested size: 243.90959pt x 239.02296pt.
 <q1/characteristics.pdf, id=41, 388.55077pt x 382.49371pt>
 File: q1/characteristics.pdf Graphic file (type pdf)
 <use q1/characteristics.pdf>
-Package pdftex.def Info: q1/characteristics.pdf  used on input line 115.
+Package pdftex.def Info: q1/characteristics.pdf  used on input line 119.
 (pdftex.def)             Requested size: 243.90959pt x 240.10854pt.
  [3 </home/dcard/Dev/Aerospace/aero523/aero523_hw4/q1/analytical.pdf> </home/dcard/Dev/Aerospace/aero523/aero523_hw4/q1/characteristics.pdf
 
@@ -908,17 +908,17 @@ pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_hw4/q1/
 <q1/t05.pdf, id=85, 502.34708pt x 215.55003pt>
 File: q1/t05.pdf Graphic file (type pdf)
 <use q1/t05.pdf>
-Package pdftex.def Info: q1/t05.pdf  used on input line 138.
+Package pdftex.def Info: q1/t05.pdf  used on input line 142.
 (pdftex.def)             Requested size: 379.41585pt x 162.80013pt.
 <q1/t10.pdf, id=86, 502.34708pt x 215.55003pt>
 File: q1/t10.pdf Graphic file (type pdf)
 <use q1/t10.pdf>
-Package pdftex.def Info: q1/t10.pdf  used on input line 144.
+Package pdftex.def Info: q1/t10.pdf  used on input line 148.
 (pdftex.def)             Requested size: 379.41585pt x 162.80013pt.
 <q1/t15.pdf, id=87, 502.34708pt x 215.55003pt>
 File: q1/t15.pdf Graphic file (type pdf)
 <use q1/t15.pdf>
-Package pdftex.def Info: q1/t15.pdf  used on input line 150.
+Package pdftex.def Info: q1/t15.pdf  used on input line 154.
 (pdftex.def)             Requested size: 379.41585pt x 162.80013pt.
  [4 </home/dcard/Dev/Aerospace/aero523/aero523_hw4/q1/t05.pdf> </home/dcard/Dev/Aerospace/aero523/aero523_hw4/q1/t10.pdf
 
@@ -930,7 +930,7 @@ pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_hw4/q1/
 <q1/convergence.pdf, id=137, 523.64377pt x 224.80136pt>
 File: q1/convergence.pdf Graphic file (type pdf)
 <use q1/convergence.pdf>
-Package pdftex.def Info: q1/convergence.pdf  used on input line 169.
+Package pdftex.def Info: q1/convergence.pdf  used on input line 173.
 (pdftex.def)             Requested size: 487.8192pt x 209.42668pt.
  (/home/dcard/Dev/Aerospace/aero523/aero523_hw4/q1/convergences)) (/home/dcard/Dev/Aerospace/aero523/aero523_hw4/q2/q2.tex [5 </home/dcard/Dev/Aerospace/aero523/aero523_hw4/q1/convergence.pdf>] (/home/dcard/Dev/Aerospace/aero523/aero523_hw4/q2/diag.tikz) (/home/dcard/Dev/Aerospace/aero523/aero523_hw4/q2/diag2.tikz) [6]
 <q2/verification.pdf, id=183, 905.41185pt x 326.84586pt>
@@ -991,7 +991,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  68i,18n,64p,605b,2518s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on /home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.pdf (16 pages, 471996 bytes).
+Output written on /home/dcard/Dev/Aerospace/aero523/aero523_hw4/main.pdf (16 pages, 472650 bytes).
 PDF statistics:
  885 PDF objects out of 1000 (max. 8388607)
  823 compressed objects within 9 object streams

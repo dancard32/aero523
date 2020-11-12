@@ -89,6 +89,10 @@ For the numerical method, use the finite volume method (FVM) with $N_x$ uniform 
             0 & x \in [0,1]\\
             \frac{x+t}{1+t} - 1 & x \in [1,1+\sqrt{2+2t}]\\ 
             0 & x \in [1+\sqrt{2+2t}, 4]
+        \end{cases},\qquad \frac{dx_s}{dt} = \begin{cases}
+            0 & x \in [0,1]\\
+            \frac{1}{2}\left(\frac{x+t}{1+t} - 1\right) & x \in [1,1+\sqrt{2+2t}]\\ 
+            0 & x \in [1+\sqrt{2+2t}, 4]
         \end{cases}}
     \end{equation*}
 
