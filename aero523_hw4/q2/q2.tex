@@ -18,10 +18,80 @@ At $t= 0$, the diaphragm between the two chambers is broken, sending a shock wav
 
 In this problem you will use a finite-volume method to simulate the unsteady evolution of the gas state in the shock tube (both chambers). The Euler equations govern the flow, and the units are conveniently chosen to give $\mathcal{O}(1)$ quantities.
 
+\pagebreak
 \begin{enumerate}[label=\alph*., start = 1]
-    \item Write a code that implements a first-order FVM on a uniform grid of $N$ cells, with Dirichlet boundary conditions enforced using the flux function and a constant exterior state, and a constant time step estimated using the CFL condition. Implement both the Rusanov and the HLLE fluxes.Describe your code and ensure that you pass the free-stream preservation test.
+    \item Write a code that implements a first-order FVM on a uniform grid of $N$ cells, with Dirichlet boundary conditions enforced using the flux function and a constant exterior state, and a constant time step estimated using the CFL condition. Implement both the Rusanov and the HLLE fluxes. Describe your code and ensure that you pass the free-stream preservation test.
+    
+    \textbf{\underline{Pseudo-Code}}
+    \begin{enumerate}[label =\arabic*:]
+        \item Calculate the maximum acoustic speed from $\sqrt{\gamma P/\rho}$
+        \item Determine {\texttt{$\Delta x$}} 
+        \item Using the CFL number and $a$, determine {\texttt{$\Delta t$ and $N_t$}}
+        \item Using the left and right initial conditions assemble the initial condition
+        \begin{itemize}
+            \item {\texttt{if x[i] < L/2}}
+            \item u0[:,i] = uL
+            \item else
+            \item u0[:,i] = uR
+        \end{itemize}
+        \item Pre-allocate u from u0, with R as size u
+        \item {\texttt{for n in range($N_t$):}}
+        \item \quad {\texttt{R *= 0}} \qquad Zero the residual 
+        \item \quad {\texttt{for n in range(N+1):}}
+        \item \qquad {\texttt{ul = u[:,j-1] if (j>0) else ul0}} \qquad left cell values or implement Dirichlet BC's
+        \item \qquad {\texttt{ur = u[:,j] if (j<N) else ur0}} \qquad right cell values or implement Dirichlet BC's
+        \item \qquad {\texttt{$\hat{F}$ = F(Rusanov or HLLE)}} \qquad determine the flux through the cell
+        \item \qquad {\texttt{if (j>0): R[:,j-1] += $\hat{F}$}} \qquad flux entering the cell
+        \item \qquad {\texttt{if (j<N): R[:,j] -= $\hat{F}$}} \qquad flux leaving the cell
+        \item \quad {\texttt{u -= $\Delta t/\Delta x$ * R}} \qquad iterate the approximated $u$
+    \end{enumerate}
+
+    Implementing this pseudo-code into Python and running a free-stream verification test (where the inlet and outlet conditions are matched with non-zero velocity component), the $L_2$ residual norm is:
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width = \linewidth]{q2/verification.pdf}
+        \caption{Free-stream preservation test with  $\rho=1,\ u=0.5,\ \rho E = 0.25$ for inlet and outlet.}
+        \label{fig:q2_residuals}
+    \end{figure}
 \end{enumerate}
 
+\pagebreak
 \begin{enumerate}[label=\alph*., start = 2]
     \item Run your code to a final time of $T= 0.2$ with both fluxes, on grids of $N= 50,\ 100,\ 200$.  Make figures  showing the density, momentum, and velocity for each grid, overlaying the two flux function results on each figure (9 figures total). Discuss the behavior of the solution and the differences between the fluxes.
+    
+    Using the method that I explained in part a. I implemented this into Python and ran at intervals $N = 50,\ 100,\ 200$. On the following page on Figure \ref{q2:shock_tube_analysis} are the effects of varying $N$ as shown in Figures \ref{fig:q2_n50}, \ref{fig:q2_n100}, \ref{fig:q2_n200}. In this simulation of the shock I found that a CFL = 0.5 would return stable results for all the intervals specified. However, from this analysis I conclude that:
+
+    \begin{fminipage}{0.9\linewidth}
+        \textbf{As shown on the following page in Figure \ref{q2:shock_tube_analysis}, the effect of increasing the number intervals $\bf N$ is analogous to increasing ``\textit{resolution}.'' By increasing the number of intervals the shock boundaries become more pronounced. The differences between the fluxes is that the HLLE flux is a more accurate depiction of the flux through the cells as the Rusanov flux convergs to the approximated solution that is shown from HLLE.}
+    \end{fminipage}
+    
+    \vfill
+    Continued on the next page\ldots
+
+    \pagebreak
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[h]{\linewidth}
+            \centering
+            \includegraphics[width = \linewidth]{q2/n50.pdf}
+            \caption{Shock tube behavior for $N = 50$ intervals.}
+            \label{fig:q2_n50}
+        \end{subfigure}
+        \begin{subfigure}[h]{\linewidth}
+            \centering
+            \includegraphics[width = \linewidth]{q2/n100.pdf}
+            \caption{Shock tube behavior for $N = 100$ intervals.}
+            \label{fig:q2_n100}
+        \end{subfigure}
+        \begin{subfigure}[h]{\linewidth}
+            \centering
+            \includegraphics[width = \linewidth]{q2/n200.pdf}
+            \caption{Shock tube behavior for $N = 200$ intervals.}
+            \label{fig:q2_n200}
+        \end{subfigure}
+        \caption{Effects of varying the number of intervals for shock tube analysis.}
+        \label{q2:shock_tube_analysis}
+    \end{figure}
+
 \end{enumerate}

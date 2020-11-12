@@ -5,7 +5,14 @@ def getglob(u):
     return a
 
 def flux(ul, ur, a):
-    Fhat = 1/2*ul**2
+
+    if abs(ul - ur) < 10**-8:
+        ahat = ul
+    else:
+        ahat = 1/2 * (ur**2 - ul**2)/(ur - ul)
+
+    Fhat = 1/4*(ul**2 + ur**2) - 1/2*abs(ahat)*(ur - ul)
+
     return Fhat
 
 def solve(x, u0, T, CFL):
@@ -25,3 +32,4 @@ def solve(x, u0, T, CFL):
             if (j < Ne): R[j  ] -= Fhat
         u -= dt/dx * R
     return u
+    
