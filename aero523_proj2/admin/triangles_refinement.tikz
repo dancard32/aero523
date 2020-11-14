@@ -1,0 +1,61 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da36192842191098795] 
+\draw [line width=1.5]    (60,160) -- (120,80) ;
+%Straight Lines [id:da5425661526994696] 
+\draw [line width=1.5]    (120,80) -- (160,140) ;
+%Straight Lines [id:da44878431831371346] 
+\draw [line width=1.5]    (160,140) -- (60,160) ;
+%Straight Lines [id:da0011262443709205705] 
+\draw [line width=1.5]    (270,160) -- (330,80) ;
+%Straight Lines [id:da21951601188615122] 
+\draw [line width=1.5]    (330,80) -- (370,140) ;
+%Straight Lines [id:da9300714537435593] 
+\draw [line width=1.5]    (370,140) -- (270,160) ;
+%Straight Lines [id:da3376367418061297] 
+\draw [line width=1.5]    (480,160) -- (540,80) ;
+%Straight Lines [id:da2556881107384765] 
+\draw [line width=1.5]    (540,80) -- (580,140) ;
+%Straight Lines [id:da7616804642146637] 
+\draw [line width=1.5]    (580,140) -- (480,160) ;
+%Straight Lines [id:da4163633440661523] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (120,80) -- (120,147.69) ;
+%Straight Lines [id:da007547566900241609] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (300,120) -- (350,110) ;
+%Straight Lines [id:da21236386256097184] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (300,120) -- (370,140) ;
+%Straight Lines [id:da04751621039067011] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (510,120) -- (539.93,147.69) ;
+%Straight Lines [id:da0959709459132021] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (539.93,147.69) -- (560,110) ;
+%Straight Lines [id:da17305312497337466] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]  [dash pattern={on 1.69pt off 2.76pt}]  (510,120) -- (560,110) ;
+%Shape: Circle [id:dp6356305041815642] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (115.54,147.69) .. controls (115.54,145.22) and (117.53,143.22) .. (120,143.22) .. controls (122.47,143.22) and (124.46,145.22) .. (124.46,147.69) .. controls (124.46,150.15) and (122.47,152.15) .. (120,152.15) .. controls (117.53,152.15) and (115.54,150.15) .. (115.54,147.69) -- cycle ;
+%Shape: Circle [id:dp6939765362470538] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (295.54,120) .. controls (295.54,117.53) and (297.53,115.54) .. (300,115.54) .. controls (302.47,115.54) and (304.46,117.53) .. (304.46,120) .. controls (304.46,122.47) and (302.47,124.46) .. (300,124.46) .. controls (297.53,124.46) and (295.54,122.47) .. (295.54,120) -- cycle ;
+%Shape: Circle [id:dp9518974624791348] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (345.54,110) .. controls (345.54,107.53) and (347.53,105.54) .. (350,105.54) .. controls (352.47,105.54) and (354.46,107.53) .. (354.46,110) .. controls (354.46,112.47) and (352.47,114.46) .. (350,114.46) .. controls (347.53,114.46) and (345.54,112.47) .. (345.54,110) -- cycle ;
+%Shape: Circle [id:dp5417462498770167] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (505.54,120) .. controls (505.54,117.53) and (507.53,115.54) .. (510,115.54) .. controls (512.47,115.54) and (514.46,117.53) .. (514.46,120) .. controls (514.46,122.47) and (512.47,124.46) .. (510,124.46) .. controls (507.53,124.46) and (505.54,122.47) .. (505.54,120) -- cycle ;
+%Shape: Circle [id:dp27821656516619253] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (555.54,110) .. controls (555.54,107.53) and (557.53,105.54) .. (560,105.54) .. controls (562.47,105.54) and (564.46,107.53) .. (564.46,110) .. controls (564.46,112.47) and (562.47,114.46) .. (560,114.46) .. controls (557.53,114.46) and (555.54,112.47) .. (555.54,110) -- cycle ;
+%Shape: Circle [id:dp49666970713488623] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (535.46,147.69) .. controls (535.46,145.22) and (537.46,143.22) .. (539.93,143.22) .. controls (542.39,143.22) and (544.39,145.22) .. (544.39,147.69) .. controls (544.39,150.15) and (542.39,152.15) .. (539.93,152.15) .. controls (537.46,152.15) and (535.46,150.15) .. (535.46,147.69) -- cycle ;
+
+% Text Node
+\draw (64,52) node [anchor=north west][inner sep=0.75pt]   [align=left] {\underline{{\fontfamily{ptm}\selectfont one edge flagged}}};
+% Text Node
+\draw (274,52) node [anchor=north west][inner sep=0.75pt]   [align=left] {\underline{{\fontfamily{ptm}\selectfont two edges flagged}}};
+% Text Node
+\draw (481,52) node [anchor=north west][inner sep=0.75pt]   [align=left] {\underline{{\fontfamily{ptm}\selectfont three edges flagged}}};
+% Text Node
+\draw (261,171) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\fontfamily{ptm}\selectfont (the larger angle is split)}};
+
+
+\end{tikzpicture}

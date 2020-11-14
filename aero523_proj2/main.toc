@@ -1,0 +1,23 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {paragraph}{Geometry:}{4}{paragraph*.3}%
+\contentsline {paragraph}{Governing Equations:}{4}{paragraph*.5}%
+\contentsline {paragraph}{Units:}{4}{paragraph*.6}%
+\contentsline {paragraph}{Initial and Boundary Conditions:}{5}{paragraph*.7}%
+\contentsline {paragraph}{Output:}{5}{paragraph*.8}%
+\contentsline {section}{\numberline {2}Numerical Method}{6}{section.2}%
+\contentsline {paragraph}{Discretization:}{6}{paragraph*.9}%
+\contentsline {paragraph}{Local Time Stepping:}{6}{paragraph*.10}%
+\contentsline {paragraph}{Residuals and Convergences:}{7}{paragraph*.11}%
+\contentsline {paragraph}{Numerical Flux:}{7}{paragraph*.12}%
+\contentsline {paragraph}{Time Stepping:}{7}{paragraph*.13}%
+\contentsline {paragraph}{Mesh:}{8}{paragraph*.14}%
+\contentsline {paragraph}{Output Calculation:}{8}{paragraph*.16}%
+\contentsline {section}{\numberline {3}Adaptation}{9}{section.3}%
+\contentsline {section}{\numberline {4}Tasks and Deliverables}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Implementation of Roe Flux}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Implementing Finite Volume Method}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Convergences}{12}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Implementing Mach Number Jumps}{13}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{14}{subsection.4.5}%
+\contentsline {section}{Appendices}{14}{section*.18}%
+\contentsline {section}{Appendix \numberline {A}Additional Supporting Code}{15}{appendix.a.A}%
