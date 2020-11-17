@@ -1,11 +1,17 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Numerical Method}{}% 2
-\BOOKMARK [1][-]{section.3}{Adaptation}{}% 3
-\BOOKMARK [1][-]{section.4}{Tasks and Deliverables}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{Implementation of Roe Flux}{section.4}% 5
-\BOOKMARK [2][-]{subsection.4.2}{Implementing Finite Volume Method}{section.4}% 6
-\BOOKMARK [2][-]{subsection.4.3}{Convergences}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.4}{Implementing Mach Number Jumps}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.5}{Adaptive Iterations}{section.4}% 9
-\BOOKMARK [1][-]{section*.18}{Appendices}{}% 10
-\BOOKMARK [1][-]{appendix.a.A}{Appendix Additional Supporting Code}{}% 11
+\BOOKMARK [1][-]{section*.3}{List of Figures}{}% 1
+\BOOKMARK [1][-]{section*.4}{List of Tables}{}% 2
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 3
+\BOOKMARK [1][-]{section.2}{Numerical Method}{}% 4
+\BOOKMARK [1][-]{section.3}{Adaptation}{}% 5
+\BOOKMARK [1][-]{section.4}{Tasks and Deliverables}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Roe Flux Overview}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Roe Flux Function}{subsection.4.1}% 8
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Subsonic and Supersonic Implementation Tests}{subsection.4.1}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Implementing Finite Volume Method}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.3}{Convergences}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.4}{Implementing Mach Number Jumps}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.5}{Adaptive Iterations}{section.4}% 13
+\BOOKMARK [1][-]{section*.29}{Appendices}{}% 14
+\BOOKMARK [1][-]{appendix.a.A}{Appendix Additional Supporting Code}{}% 15
+\BOOKMARK [1][-]{appendix.a.B}{Appendix Roe Flux Python Implementation}{}% 16
+\BOOKMARK [1][-]{lstnumber.4.48}{References}{}% 17

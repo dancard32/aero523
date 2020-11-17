@@ -55,6 +55,7 @@
     colorlinks=true, %set true if you want colored links
     linktoc=all,     
     linkcolor=black,  %choose some color if you want links to stand out
+    citecolor=black,
 }
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
@@ -90,4 +91,4 @@
 \newcommand{\listequationsname}{\Large{\textbf{List of Equations}}}
 \newlistof{myequations}{equ}{\listequationsname}
 \newcommand{\myequations}[1]{%
-\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+\addcontentsline{equ}{myequations}{\hspace{0.6cm}\protect\numberline{\theequation}#1}\par}

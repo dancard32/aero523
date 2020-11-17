@@ -1,6 +1,79 @@
 \pagebreak
 \section{Tasks and Deliverables}
-\subsection{Implementation of Roe Flux}
-[10\%] Write a function that computes the Roe flux, with $\epsilon = 0.1c$ for the entropy fix. Test
-your flux with several cases, including subsonic and supersonic states, and varying normal
-vectors. In your report, describe your implementation and your tests.
+In preparation for simulating the scramjet engine inlet performance I will prepare code that will implement Roe Flux to approximate the changing flow state between cells. After verification that the flux is correctly implemented then I will implement a first-order finite volume method to approximate the steady state solution and perform a convergence study on my method. Additionally, I will model Mach number jumps throughout the domain and determine the the averaged total pressure recovery. Finally, I will perform adaptive iterations to then determine the effects of the angle of attack and the averaged total pressure recovery.
+
+\subsection{Roe Flux Overview}
+%[10\%] Write a function that computes the Roe flux, with $\epsilon = 0.1c$ for the entropy fix. Test your flux with several cases, including subsonic and supersonic states, and varying normal vectors. In your report, describe your implementation and your tests.
+
+Roe flux, is an alternative flux that carefully upwinds waves one by one and is given by Equation \ref{eqn:roe_flux} below. \cite{notes:kfid}
+
+\vspace{-0.25in}
+\begin{equation}\label{eqn:roe_flux}
+    {\bf \hat{F}} = \frac{1}{2}\left({\bf F_L + F_R}\right) - \frac{1}{2} \left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u}^*)\right\lvert({\bf u_R - u_L})
+\end{equation}\myequations{Roe Flux}
+
+\vspace{-0.25in}
+In this expression $\left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u}^*)\right\lvert$ refers to the absolute values of the eigenvalues, i.e. $\bf R|\Lambda | L$, in the eigenvalue decomposition. $\bf u^*$ is an intermediate state that is based on $\bf u_L$ and $\bf u_R$. This intermediate choice is important for nonlinear problems, and the Roe flux uses the Roe-average state, a choice that yields exact single-wave solutions to the Riemann problem. However, for Euler equations Roe flux is given by Equation \ref{eqn:euler_roe} below.
+
+\vspace{-0.2in}
+\begin{equation}\label{eqn:euler_roe}
+    {\bf \hat{F}} = \frac{1}{2}({\bf F_L + F_R}) - \frac{1}{2} \begin{bmatrix}
+        |\lambda|_3 \Delta \rho + C_1\\
+        |\lambda|_3 \Delta (\rho \vec{v}) + C_1\vec{v} + C_2 \hat{n}\\
+        |\lambda|_3 \Delta (\rho E) + C_1H + C_2 (\vec{v}\cdot \hat{n})\\
+    \end{bmatrix}
+\end{equation}\myequations{Roe Flux for Euler Equations}
+
+\vspace{-0.5in}
+\begin{align*}
+    \shortintertext{Where further expansions of the constants above give,}
+    C_1 = \frac{G_1}{c^2}(s_1 - |\lambda|_3) + \frac{G_2}{c}s_2,& \qquad C_2 = \frac{G_1}{c}s_2 + (s_1 - |\lambda|_3)G_2\\ 
+    G_1 = (\gamma-1)\left(\frac{q^2}{2}\Delta\rho - \vec{v}\cdot\Delta(\rho\vec{v}) +\Delta(\rho E) \right), & \qquad G_2 = -(\vec{v}\cdot \hat{n})\Delta\rho + \Delta(\rho\vec{v})\cdot\hat{n}\\ 
+    s_1 = \frac{1}{2}\left(|\lambda|_1 + |\lambda|_2\right), & \qquad s_2 = \frac{1}{2}(|\lambda|_1 - |\lambda|_2)\\ 
+    \Delta {\bf u = u_R - u_L} & \\ 
+    {\bf F_L = \vec{F}(u_L)}\cdot\hat{n}, & \qquad {\bf F_R = \vec{F}(u_R)}\cdot\hat{n}
+    \shortintertext{However, to prevent expantion shocks, an entropy fix is required. The simple solution to this is to keep all eigenvalues away from zero such that,}
+    \text{if}\ |\lambda|_i < \epsilon\ \text{then}\ \lambda_i = \frac{\epsilon^2 + \lambda_i^2}{2\epsilon}, & \quad \forall\ i\ \in\ [1,\ 4]\\
+    \shortintertext{Where $\epsilon$ is a small fraction of the Roe-averaged speed of sound, e.g. $\epsilon = 0.1c$}
+\end{align*}
+
+\pagebreak
+\subsubsection{Roe Flux Function}
+In this project I will implement Roe Flux into Python3 that will be further implemented when writing the finite-volume method to determine the flow through the scramjet. Essentially this function is as follows:
+
+\paragraph{Inputs} This function inputs the left state and the right state of a given edge. This will allow the finite-volume method solver to simply call this function when determining the fluxes in and out of a given cell. Furthermore, this function will also input the normal vector and a logical on whether to return test cases or not.
+
+\paragraph{Generating Arguments} Going further, this code then will determine the states of the left and right side such as $\rho,\ u,\ v,\ P,\ H$ to determine the flux and approximate the Roe-average state. With the left and right hand fluxes determined what's left is the Roe-averages.
+
+\paragraph{Roe-Average} Determining the Roe-average is done by passing all the calculated values into a separate subfunction that will determine the Roe-averages from a weighted averaged of the densities to the state properties. Additionally in this function it will calculate the wave propagating eigenvalues to remove discontinuities from the calculation.
+
+\paragraph{Final Calculation} Then with the Roe-Average and the fluxes determined, simply conducted the average of the fluxes subtracted by half the sum of the running waves.\cite{notes:gryphon}
+
+\pagebreak
+\subsubsection{Subsonic and Supersonic Implementation Tests}
+
+\paragraph{Consistency Check:} First and foremost is a simple check to see if the Roe flux at steady state is equal to the flux of a single state vector acting in the same direction of the normal. In this I simply returned the values in Python3 and tabulated the results in order to check the consistency. In this test I assumed $\alpha = 0\degree,\ M_\infty = 2.2,\ \vec{n} = \begin{bmatrix} 1, & 0 \end{bmatrix}$ and used this initial state for $u_l$. Performing the consistency check I get Table \ref{tab:roe_flux_consistency} below aligning with theory.
+
+\begin{table}[h]
+    \centering
+    \caption[Roe Flux Consistency Check]{Roe Flux consistency check}
+    \label{tab:roe_flux_consistency}
+    \begin{tabular}{c|c|c|c|c}
+        \import{rep/q1/}{consistency}
+    \end{tabular}
+\end{table}
+
+\paragraph{Direction Flipping} Next is to check that there is agreement with flipping the states and the norm vector and returning the same results without error. In this test case I will assume that the left state will be $\alpha = 0\degree,\ M_\infty = 2.2,\ \vec{n} = \begin{bmatrix} 1, & 0 \end{bmatrix}$ initially and for the right state the same but with $M_\infty = 2.4$ initially. Tabulating the results gives Table \ref{tab:roe_flux_flipped} below.
+
+\begin{table}[h]
+    \centering
+    \caption[Roe Flux Flipped Direction Check]{Roe Flux flipped direction check}
+    \label{tab:roe_flux_flipped}
+    \begin{tabular}{c|c|c|c|c}
+        \import{rep/q1/}{flipped}
+    \end{tabular}
+\end{table}
+
+
+\paragraph{Supersonic Normal Velocity} Shown and confirmed above, my Roe Flux implementation passes this test. This function returns the analytical flux from the upwind state and the downwind state does not have any effect on the flux.
+

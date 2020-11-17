@@ -5,6 +5,7 @@ from readgri import readgri
 #-----------------------------------------------------------
 def plotmesh(Mesh, fname):
     V = Mesh['V']; E = Mesh['E']; BE = Mesh['BE']
+
     f = plt.figure(figsize=(12,12))
     #plt.tripcolor(V[:,0], V[:,1], triangles=E)
     plt.triplot(V[:,0], V[:,1], E, 'k-')
