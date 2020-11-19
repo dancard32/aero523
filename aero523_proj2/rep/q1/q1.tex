@@ -7,7 +7,7 @@ In preparation for simulating the scramjet engine inlet performance I will prepa
 
 Roe flux, is an alternative flux that carefully upwinds waves one by one and is given by Equation \ref{eqn:roe_flux} below. \cite{notes:kfid}
 
-\vspace{-0.25in}
+\vspace{-0.45in}
 \begin{equation}\label{eqn:roe_flux}
     {\bf \hat{F}} = \frac{1}{2}\left({\bf F_L + F_R}\right) - \frac{1}{2} \left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u}^*)\right\lvert({\bf u_R - u_L})
 \end{equation}\myequations{Roe Flux}
@@ -15,7 +15,7 @@ Roe flux, is an alternative flux that carefully upwinds waves one by one and is 
 \vspace{-0.25in}
 In this expression $\left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u}^*)\right\lvert$ refers to the absolute values of the eigenvalues, i.e. $\bf R|\Lambda | L$, in the eigenvalue decomposition. $\bf u^*$ is an intermediate state that is based on $\bf u_L$ and $\bf u_R$. This intermediate choice is important for nonlinear problems, and the Roe flux uses the Roe-average state, a choice that yields exact single-wave solutions to the Riemann problem. However, for Euler equations Roe flux is given by Equation \ref{eqn:euler_roe} below.
 
-\vspace{-0.2in}
+\vspace{-0.25in}
 \begin{equation}\label{eqn:euler_roe}
     {\bf \hat{F}} = \frac{1}{2}({\bf F_L + F_R}) - \frac{1}{2} \begin{bmatrix}
         |\lambda|_3 \Delta \rho + C_1\\
@@ -27,10 +27,11 @@ In this expression $\left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u
 \vspace{-0.5in}
 \begin{align*}
     \shortintertext{Where further expansions of the constants above give,}
+    \begin{bmatrix} \lambda_1, & \lambda_2, & \lambda_3, & \lambda_4 \end{bmatrix} & = \begin{bmatrix} u+c, & u-c, & u, & u \end{bmatrix}\\
     C_1 = \frac{G_1}{c^2}(s_1 - |\lambda|_3) + \frac{G_2}{c}s_2,& \qquad C_2 = \frac{G_1}{c}s_2 + (s_1 - |\lambda|_3)G_2\\ 
     G_1 = (\gamma-1)\left(\frac{q^2}{2}\Delta\rho - \vec{v}\cdot\Delta(\rho\vec{v}) +\Delta(\rho E) \right), & \qquad G_2 = -(\vec{v}\cdot \hat{n})\Delta\rho + \Delta(\rho\vec{v})\cdot\hat{n}\\ 
     s_1 = \frac{1}{2}\left(|\lambda|_1 + |\lambda|_2\right), & \qquad s_2 = \frac{1}{2}(|\lambda|_1 - |\lambda|_2)\\ 
-    \Delta {\bf u = u_R - u_L} & \\ 
+    \Delta {\bf u = u_R - u_L}, & q^2 = u^2 + v^2\\ 
     {\bf F_L = \vec{F}(u_L)}\cdot\hat{n}, & \qquad {\bf F_R = \vec{F}(u_R)}\cdot\hat{n}
     \shortintertext{However, to prevent expantion shocks, an entropy fix is required. The simple solution to this is to keep all eigenvalues away from zero such that,}
     \text{if}\ |\lambda|_i < \epsilon\ \text{then}\ \lambda_i = \frac{\epsilon^2 + \lambda_i^2}{2\epsilon}, & \quad \forall\ i\ \in\ [1,\ 4]\\
@@ -52,11 +53,11 @@ In this project I will implement Roe Flux into Python3 that will be further impl
 \pagebreak
 \subsubsection{Subsonic and Supersonic Implementation Tests}
 
-\paragraph{Consistency Check:} First and foremost is a simple check to see if the Roe flux at steady state is equal to the flux of a single state vector acting in the same direction of the normal. In this I simply returned the values in Python3 and tabulated the results in order to check the consistency. In this test I assumed $\alpha = 0\degree,\ M_\infty = 2.2,\ \vec{n} = \begin{bmatrix} 1, & 0 \end{bmatrix}$ and used this initial state for $u_l$. Performing the consistency check I get Table \ref{tab:roe_flux_consistency} below aligning with theory.
+\paragraph{Consistency Check:} First and foremost is a simple check to see if the Roe flux at steady state is equal to the flux of a single state vector acting in the same direction of the normal. In this I simply returned the values in Python3 and tabulated the results in order to check the consistency. In this test I assumed $\alpha = 0\degree,\ M_\infty = 0.8,\ \vec{n} = \begin{bmatrix} 1, & 0 \end{bmatrix}$ and used this initial state for $u_l$. Performing the consistency check I get Table \ref{tab:roe_flux_consistency} below aligning with theory.
 
 \begin{table}[h]
     \centering
-    \caption[Roe Flux Consistency Check]{Roe Flux consistency check}
+    \caption[Roe Flux Consistency Check]{Roe Flux consistency check.}
     \label{tab:roe_flux_consistency}
     \begin{tabular}{c|c|c|c|c}
         \import{rep/q1/}{consistency}
@@ -67,7 +68,7 @@ In this project I will implement Roe Flux into Python3 that will be further impl
 
 \begin{table}[h]
     \centering
-    \caption[Roe Flux Flipped Direction Check]{Roe Flux flipped direction check}
+    \caption[Roe Flux Flipped Direction Check]{Roe Flux flipped direction check.}
     \label{tab:roe_flux_flipped}
     \begin{tabular}{c|c|c|c|c}
         \import{rep/q1/}{flipped}
@@ -75,5 +76,14 @@ In this project I will implement Roe Flux into Python3 that will be further impl
 \end{table}
 
 
-\paragraph{Supersonic Normal Velocity} Shown and confirmed above, my Roe Flux implementation passes this test. This function returns the analytical flux from the upwind state and the downwind state does not have any effect on the flux.
+\paragraph{Supersonic Normal Velocity} Conducting the supersonic normal velocity test for with Roe Flux is a test shown below in Table \ref{tab:roe_flux_supersonic}. In this test I compare $\hat{F}$ to $F_l,\ F_R$ and determine any discrepancies. This function returns the analytical flux from the upwind state and the downwind state does not have any effect on the flux. In this case, I assumed that the upwind had a free-stream $M_\infty = 2.2$ and a down-stream $M_\infty = 2.5$. 
 
+
+\begin{table}[h]
+    \centering
+    \caption[Roe Flux Supersonic Normal Velocity]{Roe Flux supersonic normal velocity.}
+    \label{tab:roe_flux_supersonic}
+    \begin{tabular}{c|c|c|c|c}
+        \import{rep/q1/}{supersonic_normal}
+    \end{tabular}
+\end{table}

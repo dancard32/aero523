@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {4.3}Convergences}{14}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Implementing Mach Number Jumps}{15}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{16}{subsection.4.5}%
-\contentsline {section}{Appendices}{16}{section*.29}%
+\contentsline {section}{Appendices}{16}{section*.30}%
 \contentsline {section}{Appendix \numberline {A}Additional Supporting Code}{17}{appendix.a.A}%
 \contentsline {section}{Appendix \numberline {B}Roe Flux Python Implementation}{21}{appendix.a.B}%
-\contentsline {section}{References}{22}{lstnumber.4.48}%
+\contentsline {section}{References}{22}{lstnumber.4.56}%

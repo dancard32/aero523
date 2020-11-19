@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.3)  17 NOV 2020 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.3)  19 NOV 2020 08:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -959,7 +959,7 @@ Package pdftex.def Info: admin/aero.jpg  used on input line 30.
 \openout9 = `main.lol'.
 
 ) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/intro.tex [3]
-<admin/engine_geometry.png, id=189, 1522.68875pt x 929.4725pt>
+<admin/engine_geometry.png, id=192, 1522.68875pt x 929.4725pt>
 File: admin/engine_geometry.png Graphic file (type png)
 <use admin/engine_geometry.png>
 Package pdftex.def Info: admin/engine_geometry.png  used on input line 9.
@@ -976,7 +976,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 10
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<admin/baseline_mesh.pdf, id=239, 860.01299pt x 860.01299pt>
+<admin/baseline_mesh.pdf, id=242, 860.01299pt x 860.01299pt>
 File: admin/baseline_mesh.pdf Graphic file (type pdf)
 <use admin/baseline_mesh.pdf>
 Package pdftex.def Info: admin/baseline_mesh.pdf  used on input line 111.
@@ -985,7 +985,7 @@ Package pdftex.def Info: admin/baseline_mesh.pdf  used on input line 111.
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 52.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-))) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/q1.tex [9] [10] [11] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/consistency) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/flipped)) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q2/q2.tex [12]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q3/q3.tex [13]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/q4.tex [14]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/q5.tex [15]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/apps.tex [16] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+))) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/q1.tex [9] [10] [11] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/consistency) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/flipped) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/supersonic_normal)) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q2/q2.tex [12]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q3/q3.tex [13]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/q4.tex [14]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/q5.tex [15]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/apps.tex [16] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 13.
@@ -996,7 +996,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 32.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 32.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EE4F0C60291335C64421AD4B47254E82;1091.
+(rerunfilecheck)             Checksum: E4FD29382BF54812F2FCA222059EB846;1091.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1004,18 +1004,18 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 32.
  ) 
 Here is how much of TeX's memory you used:
- 25757 strings out of 481239
- 487494 string characters out of 5920378
- 1233518 words of memory out of 5000000
- 40123 multiletter control sequences out of 15000+600000
+ 25779 strings out of 481239
+ 487880 string characters out of 5920378
+ 1233733 words of memory out of 5000000
+ 40134 multiletter control sequences out of 15000+600000
  563050 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,12n,64p,792b,2462s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,13n,64p,792b,2462s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on /home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.pdf (22 pages, 898657 bytes).
+Output written on /home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.pdf (22 pages, 900973 bytes).
 PDF statistics:
- 688 PDF objects out of 1000 (max. 8388607)
- 625 compressed objects within 7 object streams
- 286 named destinations out of 1000 (max. 500000)
+ 703 PDF objects out of 1000 (max. 8388607)
+ 640 compressed objects within 7 object streams
+ 295 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

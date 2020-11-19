@@ -1,1 +1,1 @@
-Flux & $\rho$ & $\rho u$ & $\rho v$ & $\rho E$ \\ \hline\hline$F(u_l,u_l,\vec{n})$ & 2.200 & 5.554 & 0.000 & 10.824 \\$\vec{F}(\vec{U}_l)\cdot \vec{n} $ & 2.200 & 5.554 & 0.000 & 10.824 \\$\Delta F$ & 0.00e+00 & 0.00e+00 & 0.00e+00 & 0.00e+00
+Flux & $\rho$ & $\rho u$ & $\rho v$ & $\rho E$ \\ \hline\hline$\hat{F}(u_l,u_l,\vec{n})$ & 0.800 & 1.354 & 0.000 & 2.256 \\$\vec{F}(\vec{U}_l)\cdot \vec{n} $ & 0.800 & 1.354 & 0.000 & 2.256 \\$\Delta F$ & 0.00e+00 & 0.00e+00 & 0.00e+00 & 0.00e+00
