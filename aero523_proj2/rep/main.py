@@ -40,6 +40,10 @@ def test_flux():
     f.write(r'$\Delta F$ & %.2e & %.2e & %.2e & %.2e'%(diff[0],diff[1],diff[2],diff[3]))
     f.close()
 
+    # Free-stream 
+    Fl, fl, fr = RoeFlux(ul,ul, n, True); Fr, fl2, fr2 = RoeFlux(ur,ur, n, True); diff = abs(Fl-Fr)
+    print('\n\nFree Stream Test\n' + 50*'-' + '\n', Fl,'\n', Fr)
+
     # Supersonic Normal Velocity
     alpha = 0
     ul = getIC(alpha, 2.2); ur = getIC(alpha, 2.5)
@@ -56,13 +60,16 @@ def test_flux():
 def run_fvm():
 
     u0, u, err, V, E, BE, IE = solve()
+    P0 = (1.4 - 1)*(u0[:,3] - 0.5*u0[:,0]*((u0[:,1]/u0[:,0])**2 + (u0[:,2]/u0[:,0])**2))
     P = (1.4 - 1)*(u[:,3] - 0.5*u[:,0]*((u[:,1]/u[:,0])**2 + (u[:,2]/u[:,0])**2))
 
-    f = plt.figure(figsize=(8,8))
+    """
+    f = plt.figure()
     plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=P, cmap='jet', shading='flat')
     plt.axis('equal'); plt.axis('off')
     plt.colorbar()
     plt.show()
+    """
 
     # Part 2
     # Read and process mesh files
@@ -92,7 +99,7 @@ def vary_alpha():
 
 
 if __name__ == "__main__":
-    test_flux()
+    #test_flux()
     run_fvm()
     mesh_adapt()
     vary_alpha()

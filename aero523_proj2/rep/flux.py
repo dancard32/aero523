@@ -21,7 +21,7 @@ def RoeFlux(Ul, Ur, n, return_test):
     # Roe-Averages
     RHS, ls = ROE_Avg(ul,vl,rhol,Hl,rhoEl, ur,vr,rhor,Hr,rhoEr, n)
     F = 0.5*(FL + FR) - 0.5*RHS
-
+   
     if return_test:
         return F, FL, FR
     else:
@@ -45,12 +45,23 @@ def ROE_Avg(ul,vl,rhol,Hl,rhoEl, ur,vr,rhor,Hr,rhoEr, n):
     for i in range(3):
         if abs(ls[i]) < 0.1*c:
             ls[i] = ((0.1*c)**2 + ls[i]**2)/(2*0.1*c)
+    ls = abs(ls)
 
     delrho = rhor - rhol; delmo = np.array([rhor*ur - rhol*ul, rhor*vr - rhol*vl]); dele = rhoEr - rhoEl
     s1 = 0.5*(abs(ls[0]) + abs(ls[1])); s2 = 0.5*(abs(ls[0]) - abs(ls[1]))
     G1 = (gam-1.0)*(0.5*q**2*delrho - np.dot(v, delmo) + dele); G2 = -u*delrho + np.dot(delmo, n)
     C1 = G1*(c**-2)*(s1 - abs(ls[2])) + G2*(c**-1)*s2; C2 = G1*(c**-1)*s2 + (s1 - abs(ls[2]))*G2
 
-    RHS = np.array([ls[2]*delrho+C1, ls[2]*delmo[0]+C1*v[0]+C2*n[0], ls[2]*delmo[1]+C1*v[1]+C2*n[1], ls[2]*dele+C1*H+C2*u])
+    RHS = np.array([ls[2]*delrho+C1, ls[2]*delmo[0]+C1*v[0]+C2*n[0], ls[2]*delmo[1]+C1*v[1]+C2*n[1], ls[2]*dele+C1*H+C2*u]) 
 
-    return RHS, ls
+    return RHS, max(ls)
+
+def Rus(Ul,pl, Ur,pr):
+    gam = 1.4
+    cl = np.sqrt(gam*pl/Ul[0])
+    cr = np.sqrt(gam*pr/Ur[0])
+
+    s = np.array([abs(Ul[2]/Ul[0]) + cl, abs(Ul[1]/Ul[0]) + cl, abs(Ur[2]/Ur[0] + cr), abs(Ur[1]/Ur[0] + cr)])
+    
+    return max(s)
+
