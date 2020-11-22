@@ -44,8 +44,8 @@ def solve(alpha):
     u0 = getIC(alpha, E.shape[0]); u = u0.copy(); ATPR = np.array([calcATPR(u0,u,1,V,BE)])
     R = np.zeros((E.shape[0], 4)); dta = R.copy(); err = np.array([1]); itr = 0
 
-    #while err[err.shape[0]-1] > 10**(-5):
-    for k in range(10):
+    while err[err.shape[0]-1] > 10**(-5):
+    #for k in range(10):
         R *= 0; dta *= 0
         for i in range(IE.shape[0]):
             n1, n2, e1, e2 = IE[i,:]

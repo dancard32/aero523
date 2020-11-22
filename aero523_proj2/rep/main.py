@@ -99,14 +99,14 @@ def run_fvm():
     plt.show()
 
     plt.figure(figsize=(8,4.5))
-    plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, cmap='jet', shading='flat')
+    plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
     plt.axis('off')
     plt.colorbar(label='Mach Number')
     plt.savefig('q3/Machfield.pdf', bbox_inches='tight')
     plt.show()
 
     plt.figure(figsize=(8,4.5))
-    plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, cmap='jet', shading='flat')
+    plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
     plt.axis('off')
     plt.colorbar(label='Total Pressure')
     plt.savefig('q3/Pfield.pdf', bbox_inches='tight')
@@ -152,6 +152,6 @@ def vary_alpha():
 
 if __name__ == "__main__":
     #test_flux()
-    #run_fvm()
+    run_fvm()
     #mesh_adapt()
-    vary_alpha()
+    #vary_alpha()
