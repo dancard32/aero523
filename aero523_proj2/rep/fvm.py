@@ -15,93 +15,77 @@ def getIC(alpha, Ne):
 
     return u0
 
-def solve():
+def calcATPR(u0, u, alpha, V, BE):
+    Pinf = 0.4*(u0[0,3]-0.5*u0[0,0]*((u0[0,1]/u0[0,0])**2 + (u0[0,2]/u0[0,0])**2))
+    Ptinf = Pinf*(1 + 0.5*0.4*(u0[0,1]/np.cos(np.deg2rad(alpha)))**2)**(1.4/0.4)
+    
+    ATPR = 0; d = 0
+    for i in range(BE.shape[0]):
+        n1, n2, e1, bgroup = BE[i,:]
+        xl = V[n1,:]; xr = V[n2,:]
+        uedge = u[e1,:]
+
+        dy = xr[1] - xl[1]
+        
+        if bgroup == 1: # Exit
+            P = 0.4*(uedge[3]-0.5*uedge[0]*((uedge[1]/uedge[0])**2 + (uedge[2]/uedge[0])**2))
+            mach = np.sqrt(2*(uedge[3] - 1/(1.4*0.4)))
+            Pt = P*(1 + 0.5*0.4*mach**2)**(1.4/0.4)
+            d += dy
+            ATPR += Pt*dy/Ptinf
+            
+    ATPR *= 1/d
+    return ATPR
+                
+def solve(alpha):
     mesh = readgri('mesh0.gri')
     V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
 
-    # Get the initial state
-    u0 = getIC(1, E.shape[0]); u = u0.copy()
+    u0 = getIC(alpha, E.shape[0]); u = u0.copy(); ATPR = np.array([calcATPR(u0,u,1,V,BE)])
+    R = np.zeros((E.shape[0], 4)); dta = R.copy(); err = np.array([1]); itr = 0
 
-    # Initialize the residual matrix, dti/Ai, and error
-    R = np.zeros((E.shape[0], 4)); err = np.array([]); dta = np.zeros(E.shape[0])
-    
-    plt.figure()
-    print('Residual Norm\n' + 15*'-'); 
-    # Iterate while out of tolerance
-    for itr in range(1000):
-        R *= 0; dta *= 0    # Re-initialize
-
-        # Loop over Interior Edges
+    #while err[err.shape[0]-1] > 10**(-5):
+    for k in range(10):
+        R *= 0; dta *= 0
         for i in range(IE.shape[0]):
             n1, n2, e1, e2 = IE[i,:]
-            x1 = V[n1,:]; x2 = V[n2,:]
-            u1 = u[e1,:]; u2 = u[e2,:]
+            xl = V[n1,:]; xr = V[n2,:]
+            ul = u[e1,:]; ur = u[e2,:]
 
-            dx = x2 - x1; deltal = np.sqrt(dx[0]**2 + dx[1]**2)
-            nhat = np.array([-dx[1],dx[0]])/deltal
-            
-            # Determine the flux
-            F, ls = RoeFlux(u1, u2, nhat, False)
+            dx = xr - xl; deltal = LA.norm(dx)
+            nhat = np.array([dx[1], -dx[0]])/deltal
+            F, FL, FR, ls = RoeFlux(ul, ur, nhat)
             R[e1,:] += F*deltal; R[e2,:] -= F*deltal
-            dta[e1] += ls*deltal; dta[e2] += ls*deltal
+            dta[e1,:] += ls*deltal; dta[e2,:] += ls*deltal
 
-        # Implement Boundaries - FREE STREAM TEST
         for i in range(BE.shape[0]):
-            n1, n2, elem, bgroup = BE[i,:]
-            x1 = V[n1,:]; x2 = V[n2,:]
-            uedge = u[elem,:]
+            n1, n2, e1, bgroup = BE[i,:]
+            xl = V[n1,:]; xr = V[n2,:]
+            uedge = u[e1,:]
 
-            dx = x2 - x1; deltal = np.sqrt(dx[0]**2 + dx[1]**2)
-            nhat = np.array([dx[1],-dx[0]])/deltal
+            dx = xr - xl; deltal = LA.norm(dx)
+            nhat = np.array([dx[1], -dx[0]])/deltal
 
-            # Engine Boundary Condition
-            if bgroup == 0:
-                
-                # Inviscid Boundary Conditions
-                vplus = np.array([uedge[1], uedge[2]])/uedge[0]
-                vb = vplus - np.dot(vplus, nhat)*nhat
-                pb = (1.4-1)*(uedge[3] - 0.5*uedge[0]*(vb[0]**2 + vb[1]**2))
+            if bgroup == 0: # Engine - Invscid
+                vp = np.array([uedge[1], uedge[2]])/uedge[0]
+                vb = vp - np.dot(vp, nhat)*nhat
+                pb = 0.4*(uedge[3] - 0.5*uedge[0]*(vb[0]**2 + vb[1]**2))
+                ignore, FL, FR, ls = RoeFlux(uedge, u0[0,:], nhat)
 
-                # Call roe flux for eigenvalues of wave propagation (ls)
-                ignore, ls = RoeFlux(uedge, uedge, nhat, False) 
-
-                # Determine the flux
-                F = np.array([0, pb*nhat[0], pb*nhat[1], 0])
-
-                F, ls = RoeFlux(uedge,  u0[0,:], nhat, False)  # <- Un-comment for free-stream test
-                R[elem,:] -= F*deltal
-
-            # Exit and Outflow Boundary Condition
-            elif bgroup == 1 or bgroup == 2:
-
-                # Down-stream conditions are equal
-                F, ls = RoeFlux(uedge, uedge, nhat, False)
-                R[elem,:] -= F*deltal
+                F = pb*np.array([0, nhat[0], nhat[1], 0])
+            elif bgroup == 1 or bgroup == 2: # Exit/Outflow - Supersonic Outflow
+                F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
+            elif bgroup == 3: # Inflow
+                F, FL, FR, ls = RoeFlux(uedge, u0[0,:], nhat)
             
-            # Inflow Boundary Condition
-            elif bgroup == 3:
-                
-                # Set to the initial state for inflow
-                F, ls = RoeFlux(uedge, u0[0,:], nhat, False)
-                R[elem,:] -= F*deltal
-            
-            dta[elem] += ls*deltal
-
-        dta = 2*0.5/dta
-        for i in range(E.shape[0]):
-            u[i] -= dta[i]*R[i,:]
+            R[e1,:] += F*deltal
+            dta[e1,:] += ls*deltal
+        
+        dta = 2/dta
+        u -= np.multiply(dta, R)
         err = np.append(err, sum(sum(abs(R))))
 
+        ATPR = np.append(ATPR, calcATPR(u0,u,1,V,BE))
+        print('Iteration: %3d,\tError: %.3e, ATPR: %.3f'%(itr, err[err.shape[0]-1], ATPR[ATPR.shape[0]-2])); itr += 1
 
-        P = (1.4 - 1)*(u[:,3] - 0.5*u[:,0]*((u[:,1]/u[:,0])**2 + (u[:,2]/u[:,0])**2))
-            
-        plt.cla()
-        plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=P, cmap='jet', shading='flat')
-        plt.axis('equal'); plt.axis('off')
-        plt.draw()
-        plt.pause(0.1)
-
-
-        print('Iteration %3d, Error: %.3e'%(itr, err[len(err)-1]))
-
-    return u0, u, err, V, E, BE, IE
+    return u, err[1:], ATPR, V, E, BE, IE

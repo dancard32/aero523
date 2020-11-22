@@ -2,8 +2,49 @@
 \addappheadtotoc
 \begin{appendices}
     \appendixpage
-    \section{Additional Supporting Code}
+    \section{Python Implementation}
 
+    \subsection{Main Driving Code}
+    \lstinputlisting[
+        linewidth=0.95\textwidth,
+        xleftmargin=.1\textwidth,
+        language=python,
+        label=l:findb,
+        caption={Main Driving Code}\label{alg:main_code}
+    ]{rep/main.py}
+
+    \pagebreak
+    \subsection{Finite-Volume-Element Code}
+    \lstinputlisting[
+        linewidth=0.95\textwidth,
+        xleftmargin=.1\textwidth,
+        language=python,
+        label=l:findb,
+        caption={Finite-Volume-Element Code}\label{alg:fvm}
+    ]{rep/fvm.py}
+
+    \pagebreak
+    \subsection{Roe Flux Python Implementation}
+    \lstinputlisting[
+        linewidth=0.95\textwidth,
+        xleftmargin=.1\textwidth,
+        language=python,
+        label=l:findb,
+        caption={Roe Flux Implementation}\label{alg:roe_flux}
+    ]{rep/flux.py}
+
+    \pagebreak
+    \subsection{Adaptive Mesh Python Implementation}
+    \lstinputlisting[
+        linewidth=0.95\textwidth,
+        xleftmargin=.1\textwidth,
+        language=python,
+        label=l:findb,
+        caption={Adaptive Mesh Implementation}\label{alg:adapt_mesh}
+    ]{rep/adapt.py}
+
+    \pagebreak
+    \section{Additional Supporting Code}
     \lstinputlisting[
         linewidth=0.95\textwidth,
         xleftmargin=.1\textwidth,
@@ -29,17 +70,6 @@
         label=l:findb,
         caption={Python Read Grid}\label{alg:readgri}
     ]{rep/readgri.py}
-
-    \pagebreak
-    \section{Roe Flux Python Implementation}
-
-    \lstinputlisting[
-        linewidth=0.95\textwidth,
-        xleftmargin=.1\textwidth,
-        language=python,
-        label=l:findb,
-        caption={Roe Flux Implementation}\label{alg:roe_flux}
-    ]{rep/flux.py}
 
 
 \end{appendices}

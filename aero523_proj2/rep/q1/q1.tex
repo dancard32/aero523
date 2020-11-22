@@ -12,10 +12,10 @@ Roe flux, is an alternative flux that carefully upwinds waves one by one and is 
     {\bf \hat{F}} = \frac{1}{2}\left({\bf F_L + F_R}\right) - \frac{1}{2} \left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u}^*)\right\lvert({\bf u_R - u_L})
 \end{equation}\myequations{Roe Flux}
 
-\vspace{-0.25in}
+
 In this expression $\left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u}^*)\right\lvert$ refers to the absolute values of the eigenvalues, i.e. $\bf R|\Lambda | L$, in the eigenvalue decomposition. $\bf u^*$ is an intermediate state that is based on $\bf u_L$ and $\bf u_R$. This intermediate choice is important for nonlinear problems, and the Roe flux uses the Roe-average state, a choice that yields exact single-wave solutions to the Riemann problem. However, for Euler equations Roe flux is given by Equation \ref{eqn:euler_roe} below.
 
-\vspace{-0.25in}
+
 \begin{equation}\label{eqn:euler_roe}
     {\bf \hat{F}} = \frac{1}{2}({\bf F_L + F_R}) - \frac{1}{2} \begin{bmatrix}
         |\lambda|_3 \Delta \rho + C_1\\
@@ -24,13 +24,20 @@ In this expression $\left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u
     \end{bmatrix}
 \end{equation}\myequations{Roe Flux for Euler Equations}
 
-\vspace{-0.5in}
+
 \begin{align*}
     \shortintertext{Where further expansions of the constants above give,}
     \begin{bmatrix} \lambda_1, & \lambda_2, & \lambda_3, & \lambda_4 \end{bmatrix} & = \begin{bmatrix} u+c, & u-c, & u, & u \end{bmatrix}\\
+    \vec{v} = \frac{\sqrt{\rho_L}\vec{v}_L + \sqrt{\rho_R}\vec{v}_R}{\sqrt{\rho_L} + \sqrt{\rho_R}}, & \qquad H = \frac{\sqrt{\rho_L}H_L + \sqrt{\rho_R}H_R}{\sqrt{\rho_L} + \sqrt{\rho_R}}\\
     C_1 = \frac{G_1}{c^2}(s_1 - |\lambda|_3) + \frac{G_2}{c}s_2,& \qquad C_2 = \frac{G_1}{c}s_2 + (s_1 - |\lambda|_3)G_2\\ 
     G_1 = (\gamma-1)\left(\frac{q^2}{2}\Delta\rho - \vec{v}\cdot\Delta(\rho\vec{v}) +\Delta(\rho E) \right), & \qquad G_2 = -(\vec{v}\cdot \hat{n})\Delta\rho + \Delta(\rho\vec{v})\cdot\hat{n}\\ 
     s_1 = \frac{1}{2}\left(|\lambda|_1 + |\lambda|_2\right), & \qquad s_2 = \frac{1}{2}(|\lambda|_1 - |\lambda|_2)\\ 
+\end{align*}
+
+Where the difference in states is given by,
+
+\vspace{-0.5in}
+\begin{align*}
     \Delta {\bf u = u_R - u_L}, & \qquad q^2 = u^2 + v^2\\ 
     {\bf F_L = \vec{F}(u_L)}\cdot\hat{n}, & \qquad {\bf F_R = \vec{F}(u_R)}\cdot\hat{n}
     \shortintertext{However, to prevent expantion shocks, an entropy fix is required. The simple solution to this is to keep all eigenvalues away from zero such that,}
@@ -38,11 +45,11 @@ In this expression $\left\lvert \frac{\partial {\bf F}}{\partial {\bf u}}({\bf u
     \shortintertext{Where $\epsilon$ is a small fraction of the Roe-averaged speed of sound, e.g. $\epsilon = 0.1c$}
 \end{align*}
 
-\pagebreak
-\subsubsection{Roe Flux Function}
+
+\subsubsection{Roe Flux Function}\label{sec:roe_flux}
 In this project I will implement Roe Flux into Python3 that will be further implemented when writing the finite-volume method to determine the flow through the scramjet. Essentially this function is as follows:
 
-\paragraph{Inputs} This function inputs the left state and the right state of a given edge. This will allow the finite-volume method solver to simply call this function when determining the fluxes in and out of a given cell. Furthermore, this function will also input the normal vector and a logical on whether to return test cases or not.
+\paragraph{Inputs} This function inputs the left state and the right state of a given edge. This will allow the finite-volume method solver to simply call this function when determining the fluxes in and out of a given cell. Furthermore, this function will also input the normal vector that will determine the flux in a given direction.
 
 \paragraph{Generating Arguments} Going further, this code then will determine the states of the left and right side such as $\rho,\ u,\ v,\ P,\ H$ to determine the flux and approximate the Roe-average state. With the left and right hand fluxes determined what's left is the Roe-averages.
 

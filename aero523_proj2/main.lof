@@ -1,3 +1,14 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Engine Geometry and Boundary Conditions}}{4}{figure.caption.6}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Scramjet Baseline Mesh}}{8}{figure.caption.17}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Refinement of Triangles Given Edge Splittings}}{9}{figure.caption.19}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Engine Geometry and Boundary Conditions}}{4}{figure.caption.4}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Scramjet Baseline Mesh}}{8}{figure.caption.15}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Refinement of Triangles Given Edge Splittings}}{9}{figure.caption.17}%
+\contentsline {figure}{\numberline {4}{\ignorespaces $L_1$ Norm Convergence for Baseline Mesh}}{15}{figure.caption.30}%
+\contentsline {figure}{\numberline {5}{\ignorespaces ATPR Output for Baseline Mesh}}{16}{figure.caption.31}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Field Plot of Mach Number for Baseline Mesh}}{17}{figure.caption.32}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Field Plot of Total Pressure for Baseline Mesh}}{18}{figure.caption.34}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Adapted Meshes Versus Baseline Mesh}}{19}{figure.caption.36}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Field Plot of Mach Number for Adapted Mesh}}{20}{figure.caption.37}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Field Plot of Total Pressure for Adapted Mesh}}{21}{figure.caption.38}%
+\contentsline {figure}{\numberline {11}{\ignorespaces ATPR Convergence with Cell Number}}{22}{figure.caption.39}%
+\contentsline {figure}{\numberline {12}{\ignorespaces ATPR and Angle of Attack}}{23}{figure.caption.40}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Mach Field with Varying Angle of Attack}}{24}{figure.caption.41}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Total Pressure Field with Varying Angle of Attack}}{25}{figure.caption.43}%

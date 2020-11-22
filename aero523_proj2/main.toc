@@ -1,36 +1,57 @@
-\contentsline {section}{List of Figures}{3}{section*.3}%
-\contentsline {section}{List of Tables}{3}{section*.4}%
 \contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
-\contentsline {paragraph}{Geometry:}{4}{paragraph*.5}%
-\contentsline {paragraph}{Governing Equations:}{4}{paragraph*.7}%
-\contentsline {paragraph}{Units:}{4}{paragraph*.8}%
-\contentsline {paragraph}{Initial and Boundary Conditions:}{5}{paragraph*.9}%
-\contentsline {paragraph}{Output:}{5}{paragraph*.10}%
+\contentsline {paragraph}{Geometry:}{4}{paragraph*.3}%
+\contentsline {paragraph}{Governing Equations:}{4}{paragraph*.5}%
+\contentsline {paragraph}{Units:}{4}{paragraph*.6}%
+\contentsline {paragraph}{Initial and Boundary Conditions:}{5}{paragraph*.7}%
+\contentsline {paragraph}{Output:}{5}{paragraph*.8}%
 \contentsline {section}{\numberline {2}Numerical Method}{6}{section.2}%
-\contentsline {paragraph}{Discretization:}{6}{paragraph*.11}%
-\contentsline {paragraph}{Local Time Stepping:}{6}{paragraph*.12}%
-\contentsline {paragraph}{Residuals and Convergences:}{7}{paragraph*.13}%
-\contentsline {paragraph}{Numerical Flux:}{7}{paragraph*.14}%
-\contentsline {paragraph}{Time Stepping:}{7}{paragraph*.15}%
-\contentsline {paragraph}{Mesh:}{8}{paragraph*.16}%
-\contentsline {paragraph}{Output Calculation:}{8}{paragraph*.18}%
+\contentsline {paragraph}{Discretization:}{6}{paragraph*.9}%
+\contentsline {paragraph}{Local Time Stepping:}{6}{paragraph*.10}%
+\contentsline {paragraph}{Residuals and Convergences:}{7}{paragraph*.11}%
+\contentsline {paragraph}{Numerical Flux:}{7}{paragraph*.12}%
+\contentsline {paragraph}{Time Stepping:}{7}{paragraph*.13}%
+\contentsline {paragraph}{Mesh:}{8}{paragraph*.14}%
+\contentsline {paragraph}{Output Calculation:}{8}{paragraph*.16}%
 \contentsline {section}{\numberline {3}Adaptation}{9}{section.3}%
 \contentsline {section}{\numberline {4}Tasks and Deliverables}{10}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Roe Flux Overview}{10}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Roe Flux Function}{11}{subsubsection.4.1.1}%
-\contentsline {paragraph}{Inputs}{11}{paragraph*.20}%
-\contentsline {paragraph}{Generating Arguments}{11}{paragraph*.21}%
-\contentsline {paragraph}{Roe-Average}{11}{paragraph*.22}%
-\contentsline {paragraph}{Final Calculation}{11}{paragraph*.23}%
+\contentsline {paragraph}{Inputs}{11}{paragraph*.18}%
+\contentsline {paragraph}{Generating Arguments}{11}{paragraph*.19}%
+\contentsline {paragraph}{Roe-Average}{11}{paragraph*.20}%
+\contentsline {paragraph}{Final Calculation}{11}{paragraph*.21}%
 \contentsline {subsubsection}{\numberline {4.1.2}Subsonic and Supersonic Implementation Tests}{12}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Consistency Check:}{12}{paragraph*.24}%
-\contentsline {paragraph}{Direction Flipping}{12}{paragraph*.26}%
-\contentsline {paragraph}{Supersonic Normal Velocity}{12}{paragraph*.28}%
+\contentsline {paragraph}{Consistency Check:}{12}{paragraph*.22}%
+\contentsline {paragraph}{Direction Flipping}{12}{paragraph*.24}%
+\contentsline {paragraph}{Supersonic Normal Velocity}{12}{paragraph*.26}%
 \contentsline {subsection}{\numberline {4.2}Implementing Finite Volume Method}{13}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Convergences}{14}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Implementing Mach Number Jumps}{15}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{16}{subsection.4.5}%
-\contentsline {section}{Appendices}{16}{section*.30}%
-\contentsline {section}{Appendix \numberline {A}Additional Supporting Code}{17}{appendix.a.A}%
-\contentsline {section}{Appendix \numberline {B}Roe Flux Python Implementation}{21}{appendix.a.B}%
-\contentsline {section}{References}{22}{lstnumber.4.56}%
+\contentsline {subsubsection}{\numberline {4.2.1}Main Driving Code}{13}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Finite-Volume-Element Implementation}{13}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Flux Code Implementation}{14}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Mesh Adaption Implementation}{14}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Miscellaneous Code}{14}{subsubsection.4.2.5}%
+\contentsline {paragraph}{Initial Condition}{14}{paragraph*.28}%
+\contentsline {paragraph}{ATPR Calculation}{14}{paragraph*.29}%
+\contentsline {subsection}{\numberline {4.3}Convergences and Analysis of Baseline Mesh}{15}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}$L_1$ Norm Convergence}{15}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}ATPR Output}{16}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Baseline Field Plots}{17}{subsubsection.4.3.3}%
+\contentsline {paragraph}{Field Plot of Mach Number}{17}{paragraph*.33}%
+\contentsline {paragraph}{Field Plot of Total Pressure}{18}{paragraph*.35}%
+\contentsline {subsection}{\numberline {4.4}Implementing Mach Number Jumps}{19}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Adapted Meshes}{19}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Adapted Mesh Field Plots}{20}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Adapted Mesh ATPR Convergence}{22}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{23}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}ATPR Versus Angle of Attack}{23}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Flow Fields for Varyin Angle of Attacks}{24}{subsubsection.4.5.2}%
+\contentsline {paragraph}{Effect on Mach Field from Varying Angle of Attack}{24}{paragraph*.42}%
+\contentsline {paragraph}{Effect on Total Pressure Field from Varying Angle of Attack}{25}{paragraph*.44}%
+\contentsline {section}{Appendices}{25}{section*.45}%
+\contentsline {section}{Appendix \numberline {A}Python Implementation}{26}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Main Driving Code}{26}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Finite-Volume-Element Code}{29}{subsection.a.A.2}%
+\contentsline {subsection}{\numberline {A.3}Roe Flux Python Implementation}{31}{subsection.a.A.3}%
+\contentsline {subsection}{\numberline {A.4}Adaptive Mesh Python Implementation}{32}{subsection.a.A.4}%
+\contentsline {section}{Appendix \numberline {B}Additional Supporting Code}{34}{appendix.a.B}%
+\contentsline {section}{References}{38}{lstnumber.7.93}%

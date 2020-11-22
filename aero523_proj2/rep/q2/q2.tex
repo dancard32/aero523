@@ -1,14 +1,31 @@
 \pagebreak
 \subsection{Implementing Finite Volume Method}
-[25\%] Implement a first-order finite volume method to obtain a steady-state flow solution on a given mesh. The code should:
+%[25\%] Implement a first-order finite volume method to obtain a steady-state flow solution on a given mesh. The code should: read and process the mesh files, iterate until the residual norm is less than the specified tolerance, calculate the average total pressure recovery output, monitor and log the residual norm and output convergence.
 
-\begin{itemize}
-    \item read and process the mesh files,
-    \item iterate until the residual norm is less than the specified tolerance,
-    \item calculate the average total pressure recovery output,
-    \item monitor and log the residual norm and output convergence
-\end{itemize}
+%You may also wish to equip your code with the ability to write restart files at the end of the simulation and periodically during a run. In your report, describe your code structure, algorithms, and data structures.
 
-You may also wish to equip your code with the ability to write restart files at the end of
-the simulation and periodically during a run. In your report, describe your code structure,
-algorithms, and data structures.
+The structure of my code will have several key parts. First and foremost in my code is the driving code which will call into the functions that will solve and approximate the steady-state solution. There are 4 main code implementations, one that calls the appropriate solver code, the finite-volume-element code, the Roe-Flux code, then the mesh adaption code. Other additional codes will be discussed but from a low-level perspective.
+
+\subsubsection{Main Driving Code}
+Firstly, the main driving code is responsible for generating the plots and tables discussed in this report. This code is responsible for testing the Roe-Flux cases from the prior section and outputting the results in a table format in this report. Furthermore, this main code will call the solving code and will generate the steady-state solution and generate figures of the field plots in the upcoming sections.
+
+
+\subsubsection{Finite-Volume-Element Implementation}
+This code section will input a given mesh, process {\texttt{V}}, {\texttt{E}}, {\texttt{BE}}, {\texttt{IE}} and generate the initial free-stream state $\bf u_\infty$ that will start the initial approximation of the steady-state. This code will start with a {\texttt{while}} loop iterating until the solution's residuals are less than the specified project tolerance.
+
+Within this loop, the code will run through the interior edges({\texttt{IE}}) and will determine the fluxes from the normal and then add/subtract these fluxes and lengths into the corresponding residual for the specified element and neighboring element. Furthermore, the same will be applied for the wave-speed and lengths being added for the appropriate element and neighboring element.
+
+After the interior elements have been looped over, next will be to loop over the exterior elements ({\texttt{BE}}) and impose boundary conditions that will generate a physical solution. Then in this loop the code will determine which group the given edge is in and then impose the corresponding boundary condition. These boundary conditions will be free-stream -- where the exterior is equal to the initial condition, outflow -- where the exterior is equal to the interior state, or inviscid where it is assumed that no density or energy is transferred but momentum can still flux.
+
+\pagebreak
+\subsubsection{Flux Code Implementation}
+As discussed in Section \ref{sec:roe_flux}, the Roe flux will input a ``left'' state and a ``right'' state following a normal vector to determine the flux. It will determine the state values used for Euler's equations and then determine the Roe-Averages then finally determine the flux and return the approximation. This approximation will be used to determine the residuals in the approximation of the steady-state.
+
+
+\subsubsection{Mesh Adaption Implementation}
+\textcolor{red}{\large PLACE HOLDER}
+
+\subsubsection{Miscellaneous Code}
+\paragraph{Initial Condition} This supporting function will determine the initial condition depending on the angle of attack $\alpha$, and return the initial state for the solver code with the free-stream condition specified in Equation \ref{eqn:flow}.
+
+\paragraph{ATPR Calculation} This additional code will input the state at each iteration in the solver code and will determine the ATPR from a numerical integration along the exit of the engine. In this code, it will determine the free-stream total pressure as well as the total pressure in a given cell and then sum the total value of ATPR that will be solved for for each iteration.
