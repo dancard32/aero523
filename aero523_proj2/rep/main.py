@@ -128,13 +128,14 @@ def vary_alpha():
     # Vary alpha from 0.5:0.5:3 degrees
     # Run same adaptive iterations for each alpha at least 5
     # Plot ATPR from finest mesh vs. alpha and discuss trend
-
-    start = time.time()
-    u, err, ATPR, V, E, BE, IE = solve(1); end = time.time(); print('Elapsed Time %.2f'%(end - start))
-    mach, pt = post_process(u)
-
     alphas = np.arange(0.5,3.5, step=0.5)
+    atpr_out = np.zeros(6); k = 0
     for i in alphas:
+
+        start = time.time()
+        u, err, ATPR, V, E, BE, IE = solve(i); end = time.time(); print('Elapsed Time %.2f'%(end - start))
+        mach, pt = post_process(u)
+
         plt.figure(figsize=(8,4.5))
         plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
         plt.axis('off')
@@ -149,9 +150,25 @@ def vary_alpha():
         plt.pause(0.2)
         plt.close()
 
+        atpr_out[k] = ATPR[len(ATPR)-1]; k += 1
+
+
+    f = open('q5/atpr_out', 'w'); output = ''
+    for i in range(6):
+        output += r'%.1f\degree & %.3f \\'%(alphas[i], atpr_out[i])
+    f.write(output)
+    f.close()
+
+    plt.figure(figsize=(9,5))
+    plt.plot(alphas, atpr_out, lw=2, color='k')
+    plt.xlabel(r'Angle of attack, $\alpha$', fontsize=16)
+    plt.ylabel(r'ATPR Output', fontsize=16)
+    plt.savefig('q5/ATPR.pdf', bbox_inches='tight')
+    plt.show()
 
 if __name__ == "__main__":
-    #test_flux()
-    run_fvm()
+    test_flux()
+    #run_fvm()
     #mesh_adapt()
     #vary_alpha()
+    

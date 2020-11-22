@@ -1,11 +1,10 @@
 \pagebreak
 \subsection{Implementing Mach Number Jumps}
-% [25\%] Implement the mesh adaptation algorithm based on the Mach number jumps. Run your algorithm for $\alpha = 1\degree$ with at least 5 adaptive iterations, and perform the following post-processing: Plot the sequence of your adapted meshes. Plot the Mach number and total pressure fields on your finest mesh. Plot the ATPR output versus number of cells in the mesh -- one data point per adaptive iteration.
+% [25\%] Implement the mesh adaptation algorithm based on the Mach number jumps. Run your algorithm for $\alpha = 1\degree$ with at least 5 adaptive iterations, and perform the following post-processing: Plot the sequence of your adapted meshes. Plot the Mach number and total pressure fields on your finest mesh. Plot the ATPR output versus number of cells in the mesh -- one data point per adaptive iteration. Discuss the results, including areas targeted for adaption and the convergence of the output.
 
-Discuss the results, including areas targeted for adaption and the convergence of the output.
+In this section I will implement an adaptive mesh function that will flag edges shown in Figure \ref{fig:triangle_refinement} given the discrepancy in Mach number across cell edges. The purpose of this function is to refine the mesh in the areas that are more prone to error; most notably the areas where there is large jumps in the Mach number like across shocks. These shocks will be located at the inlet and then trained throughout the interior of the engine. In this section I will refine the mesh and then look at the results of the Mach field, the total pressure, and finally the ATPR at the end of each refinement iteration.
 
 \subsubsection{Adapted Meshes}
-
 \begin{figure}[h]
     \centering
     \begin{subfigure}[h]{0.32\linewidth}
@@ -43,7 +42,7 @@ Discuss the results, including areas targeted for adaption and the convergence o
     \label{fig:adapted_meshes}
 \end{figure}
 
-\textcolor{red}{\large PLACE HOLDER}
+Shown above in Figure \ref{fig:adapted_meshes}, are the meshes after each refinement. Most notable, is that the mesh refines at the location at which oblique shocks are forming -- the interior and inlet of the engine. This refinement makes sense intuitively since shocks provide a discontinuity in the flow which naturally cause large errors in calculation.
 
 \pagebreak
 \subsubsection{Adapted Mesh Field Plots}
@@ -54,8 +53,7 @@ Discuss the results, including areas targeted for adaption and the convergence o
     \label{fig:adapted_mach}
 \end{figure}
 
-\paragraph{Finest Mesh Field Plot of Mach Number}
-\textcolor{red}{\large PLACE HOLDER}
+\paragraph{Finest Mesh Field Plot of Mach Number} Shown above in Figure \ref{fig:adapted_mach}, is the Mach field for the most refined mesh after 5 adaptive iterations. Comparing the results from this refined mesh to that in Figure \ref{fig:mach_mesh0} shows \textcolor{red}{what \ldots}
 
 \pagebreak
 \begin{figure}[h]
@@ -65,8 +63,7 @@ Discuss the results, including areas targeted for adaption and the convergence o
     \label{fig:adapted_pt}
 \end{figure}
 
-\paragraph{Finest Mesh Field Plot of Total Pressure}
-\textcolor{red}{\large PLACE HOLDER}
+\paragraph{Finest Mesh Field Plot of Total Pressure} Shown above in Figure \ref{fig:adapted_pt}, is the total pressure field for the most refined mesh after 5 adaptive iterations. Comparing the results from this refined mesh to that in Figure \ref{fig:pt_mesh0} shows \textcolor{red}{what \ldots}
 
 \pagebreak
 \subsubsection{Adapted Mesh ATPR Convergence}
@@ -77,4 +74,5 @@ Discuss the results, including areas targeted for adaption and the convergence o
     \label{fig:adapted_ATPR}
 \end{figure}
 
-\textcolor{red}{\large PLACE HOLDER}
+Shown above in Figure \ref{fig:adapted_ATPR}, is the ATPR output versus the number of cells and its effect on the convergence of the ATPR. \textcolor{red}{Discuss \ldots}
+
