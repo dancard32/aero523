@@ -14,11 +14,13 @@ def getIC(alpha, Ne):
     u0[abs(u0) < 10**-10]
 
     return u0
-
-def calcATPR(u0, u, alpha, V, BE):
-    Pinf = 0.4*(u0[0,3]-0.5*u0[0,0]*((u0[0,1]/u0[0,0])**2 + (u0[0,2]/u0[0,0])**2))
-    Ptinf = Pinf*(1 + 0.5*0.4*(u0[0,1]/np.cos(np.deg2rad(alpha)))**2)**(1.4/0.4)
     
+def calcATPR(u0, u, alpha, V, BE):
+    gam = 1.4
+
+    Pinf = (gam-1)*(u0[0,3]-0.5*u0[0,0]*((u0[1,0]/u0[0,0])**2 + (u0[2,0]/u0[0,0])**2))
+    Ptinf = Pinf*(1 + 0.5*(gam-1)*(2.2)**2)*(gam/(gam-1))
+
     ATPR = 0; d = 0
     for i in range(BE.shape[0]):
         n1, n2, e1, bgroup = BE[i,:]
@@ -28,9 +30,13 @@ def calcATPR(u0, u, alpha, V, BE):
         dy = xr[1] - xl[1]
         
         if bgroup == 1: # Exit
-            P = 0.4*(uedge[3]-0.5*uedge[0]*((uedge[1]/uedge[0])**2 + (uedge[2]/uedge[0])**2))
-            mach = np.sqrt(2*(uedge[3] - 1/(1.4*0.4)))
-            Pt = P*(1 + 0.5*0.4*mach**2)**(1.4/0.4)
+            uvel = uedge[1]/uedge[0]; vvel = uedge[2]/uedge[0]
+            q = np.sqrt(uvel**2 + vvel**2)
+            P = (gam-1)*(uedge[3]-0.5*uedge[0]*q**2)  
+            c = np.sqrt(gam*P/uedge[0])
+            mach = q/c
+            Pt = P*(1 + 0.5*(gam-1)*mach**2)**(gam/(gam-1))
+
             d += dy
             ATPR += Pt*dy/Ptinf
             
@@ -38,14 +44,15 @@ def calcATPR(u0, u, alpha, V, BE):
     return ATPR
                 
 def solve(alpha):
-    mesh = readgri('mesh0.gri')
+    #mesh = readgri('mesh0.gri')
+    mesh = readgri('test0.gri')
     V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
 
     u0 = getIC(alpha, E.shape[0]); u = u0.copy(); ATPR = np.array([calcATPR(u0,u,1,V,BE)])
     R = np.zeros((E.shape[0], 4)); dta = R.copy(); err = np.array([1]); itr = 0
 
-    while err[err.shape[0]-1] > 10**(-5):
-    #for k in range(10):
+    #while err[err.shape[0]-1] > 10**(-5):
+    for k in range(5):
         R *= 0; dta *= 0
         for i in range(IE.shape[0]):
             n1, n2, e1, e2 = IE[i,:]

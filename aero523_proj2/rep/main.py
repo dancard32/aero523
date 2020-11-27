@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import rc
 import time
 
 # Project specific functions
@@ -7,9 +8,10 @@ from readgri import readgri
 from plotmesh import plotmesh
 from flux import RoeFlux
 from fvm import solve
+from adapt import adapt
 
-plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
+#plt.rc('text', usetex=True)
+#plt.rc('font', family='serif')
 
 def getIC(alpha, mach):
     gam = 1.4
@@ -113,15 +115,19 @@ def run_fvm():
     plt.show()
 
 
-def mesh_adapt():
+def mesh_adapt(alpha):
 
     # Plot sequence of adapted meshes
     # Plot two figs. (Mach Number and the Total Pressure) for the finest mesh
     # Plot ATPR output vs. number of cells in a mesh (last ATPR calculation per iteration)
 
-    mesh = readgri('mesh0.gri')
-    for i in range(6):
-        plotmesh(mesh, 'q4/mesh' + str(i) + '.pdf')
+    #mesh = readgri('mesh0.gri')
+    #for i in range(6):
+    #    plotmesh(mesh, 'q4/mesh' + str(i) + '.pdf')
+    
+    u, err, ATPR, V, E, BE, IE = solve(alpha)
+    mach, pt = post_process(u)
+    adapt(u, mach, V, E, IE, BE)
 
 def vary_alpha():
 
@@ -167,8 +173,8 @@ def vary_alpha():
     plt.show()
 
 if __name__ == "__main__":
-    test_flux()
+    #test_flux()
     #run_fvm()
-    #mesh_adapt()
+    mesh_adapt(1)
     #vary_alpha()
     
