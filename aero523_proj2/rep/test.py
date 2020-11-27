@@ -2,11 +2,10 @@ import numpy as np
 from numpy import linalg as LA
 import random
 import matplotlib.pyplot as plt
-from readgri import readgri, writegri
-from plotmesh import plotmesh
+import time
 
 # Project specific functions
-from readgri import readgri
+from readgri import readgri, writegri
 from plotmesh import plotmesh
 from flux import RoeFlux
 from fvm import solve
@@ -41,15 +40,24 @@ def post_process(u):
     Pt = P*(1 + 0.5*0.4*mach**2)**(1.4/0.4)
 
     return mach, Pt
-    
-def main ():
+
+def _3by3_():
     mesh = readgri('test0.gri')
     V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
 
     u = getIC(1, E.shape[0])
-    u[:,0] += np.random.rand(8)
+    #u[:,0] += np.random.rand(8)
+    u[:,0] += np.linspace(0,2, num=8)
     mach, Pt = post_process(u)
+
+def main():
+    mesh = readgri('mesh0.gri')
+    V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
     
+    start = time.time()
+    u, err, ATPR, V, E, BE, IE = solve(1); end = time.time(); print('Elapsed Time %.2f'%(end - start))
+    mach, pt = post_process(u)
+
     adapt(u, mach, V, E, IE, BE)
 
 
