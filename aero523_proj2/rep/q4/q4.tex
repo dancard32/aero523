@@ -5,35 +5,40 @@
 In this section I will implement an adaptive mesh function that will flag edges shown in Figure \ref{fig:triangle_refinement} given the discrepancy in Mach number across cell edges. The purpose of this function is to refine the mesh in the areas that are more prone to error; most notably the areas where there is large jumps in the Mach number like across shocks. These shocks will be located at the inlet and then trained throughout the interior of the engine. In this section I will refine the mesh and then look at the results of the Mach field, the total pressure, and finally the ATPR at the end of each refinement iteration.
 
 \subsubsection{Adapted Meshes}
-\begin{figure}[h]
+In this section, I will implement the Mach jumps into the code to refine the meshes to lower the error in the approximated solution. Using my code I will create a new mesh after each iterative solution and then refine the mesh that will be used on the next approximation. Shown on the following page in Figure \ref{fig:adapted_meshes}, are the meshes after each refinement. Most notable, is that the mesh refines at the location at which oblique shocks are forming -- the interior and inlet of the engine. This refinement makes sense intuitively since shocks provide a discontinuity in the flow which naturally cause large errors in calculation.
+
+
+\pagebreak
+\begin{figure}[h!]
     \centering
-    \begin{subfigure}[h]{0.32\linewidth}
+    \begin{subfigure}[h]{0.39\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q4/mesh0.pdf}
         \caption{Baseline mesh.}
     \end{subfigure}
-    \begin{subfigure}[h]{0.32\linewidth}
+    \begin{subfigure}[h]{0.39\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q4/mesh1.pdf}
         \caption{Adapted mesh, iteration 1.}
     \end{subfigure}
-    \begin{subfigure}[h]{0.32\linewidth}
+
+    \begin{subfigure}[h]{0.39\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q4/mesh2.pdf}
         \caption{Adapted mesh, iteration 2.}
     \end{subfigure}
-
-    \begin{subfigure}[h]{0.32\linewidth}
+    \begin{subfigure}[h]{0.39\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q4/mesh3.pdf}
         \caption{Adapted mesh, iteration 3.}
     \end{subfigure}
-    \begin{subfigure}[h]{0.32\linewidth}
+
+    \begin{subfigure}[h]{0.39\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q4/mesh4.pdf}
         \caption{Adapted mesh, iteration 4.}
     \end{subfigure}
-    \begin{subfigure}[h]{0.32\linewidth}
+    \begin{subfigure}[h]{0.39\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q4/mesh5.pdf}
         \caption{Adapted mesh, iteration 5.}
@@ -42,7 +47,7 @@ In this section I will implement an adaptive mesh function that will flag edges 
     \label{fig:adapted_meshes}
 \end{figure}
 
-Shown above in Figure \ref{fig:adapted_meshes}, are the meshes after each refinement. Most notable, is that the mesh refines at the location at which oblique shocks are forming -- the interior and inlet of the engine. This refinement makes sense intuitively since shocks provide a discontinuity in the flow which naturally cause large errors in calculation.
+
 
 \pagebreak
 \subsubsection{Adapted Mesh Field Plots}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.3)  21 NOV 2020 21:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.24)  28 NOV 2020 00:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.tex
-(/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.tex
+**/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.tex
+(/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
@@ -22,7 +22,7 @@ File: size12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
-) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/Format.sty
+) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/Format.sty
 Package: Format 
  (/usr/share/texlive/texmf-dist/tex/latex/import/import.sty
 Package: import 2009/03/23  v 5.1
@@ -782,10 +782,7 @@ Package tocbibind Info: The document has section divisions on input line 50.
 
 Package tocbibind Note: Using section or other style headings.
 
-) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.aux
-
-LaTeX Warning: Label `l:findb' multiply defined.
-
+) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.aux
 
 LaTeX Warning: Label `l:findb' multiply defined.
 
@@ -888,7 +885,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
 LaTeX Info: Redefining \nameref on input line 15.
- (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.out) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.out)
+ (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.out) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -927,7 +924,7 @@ LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 1
  (/usr/share/texlive/texmf-dist/tex/latex/yhmath/OMXyhex.fd
 File: OMXyhex.fd 
 File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
-) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/coverpage.tex
+) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/admin/coverpage.tex
 <admin/cover.jpg, id=135, 289.08pt x 185.9748pt>
 File: admin/cover.jpg Graphic file (type jpg)
 <use admin/cover.jpg>
@@ -935,33 +932,33 @@ Package pdftex.def Info: admin/cover.jpg  used on input line 19.
 (pdftex.def)             Requested size: 469.75502pt x 302.22531pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/cover.jpg>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/dan/Documents/Aerospace/aero523/aero523_proj2/admin/cover.jpg>]
 <admin/aero.jpg, id=144, 259.9311pt x 35.1714pt>
 File: admin/aero.jpg Graphic file (type jpg)
 <use admin/aero.jpg>
 Package pdftex.def Info: admin/aero.jpg  used on input line 30.
 (pdftex.def)             Requested size: 469.75502pt x 63.5682pt.
- (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.toc)
+ (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [2 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/aero.jpg>] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.lof)
+ [2 </home/dan/Documents/Aerospace/aero523/aero523_proj2/admin/aero.jpg>] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.equ)
+ (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.equ)
 \tf@equ=\write7
 \openout7 = `main.equ'.
 
- (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.lot)
+ (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.lol)
+ (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.lol)
 \tf@lol=\write9
 \openout9 = `main.lol'.
 
-) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/intro.tex [3]
+) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/admin/intro.tex [3]
 <admin/engine_geometry.png, id=327, 1522.68875pt x 929.4725pt>
 File: admin/engine_geometry.png Graphic file (type png)
 <use admin/engine_geometry.png>
@@ -974,7 +971,7 @@ Make it at least 14.49998pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[4 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/engine_geometry.png>] [5] [6] [7]
+[4 </home/dan/Documents/Aerospace/aero523/aero523_proj2/admin/engine_geometry.png>] [5] [6] [7]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 107.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -984,11 +981,11 @@ File: admin/baseline_mesh.pdf Graphic file (type pdf)
 <use admin/baseline_mesh.pdf>
 Package pdftex.def Info: admin/baseline_mesh.pdf  used on input line 111.
 (pdftex.def)             Requested size: 352.31625pt x 352.31891pt.
- [8 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/baseline_mesh.pdf>] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/triangles_refinement.tikz
+ [8 </home/dan/Documents/Aerospace/aero523/aero523_proj2/admin/baseline_mesh.pdf>] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/admin/triangles_refinement.tikz
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 52.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-))) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/q1.tex [9] [10] [11] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/consistency) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/flipped) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q1/supersonic_normal)) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q2/q2.tex [12] [13]) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q3/q3.tex [14]
+))) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q1/q1.tex [9] [10] [11] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q1/consistency) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q1/flipped) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q1/supersonic_normal)) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q2/q2.tex [12] [13]) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q3/q3.tex [14]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 7.
@@ -1001,203 +998,203 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 7.
 
-<rep/q3/l1_err.pdf, id=436, 508.02762pt x 326.84586pt>
+<rep/q3/l1_err.pdf, id=435, 508.02762pt x 326.84586pt>
 File: rep/q3/l1_err.pdf Graphic file (type pdf)
 <use rep/q3/l1_err.pdf>
 Package pdftex.def Info: rep/q3/l1_err.pdf  used on input line 10.
 (pdftex.def)             Requested size: 422.77664pt x 272.01012pt.
-[15 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q3/l1_err.pdf>]
-<rep/q3/ATPR.pdf, id=470, 504.6748pt x 326.84586pt>
+[15 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q3/l1_err.pdf>]
+<rep/q3/ATPR.pdf, id=469, 504.6748pt x 326.84586pt>
 File: rep/q3/ATPR.pdf Graphic file (type pdf)
 <use rep/q3/ATPR.pdf>
 Package pdftex.def Info: rep/q3/ATPR.pdf  used on input line 21.
 (pdftex.def)             Requested size: 422.77664pt x 273.81052pt.
- [16 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q3/ATPR.pdf>]
-<rep/q3/Machfield.pdf, id=490, 440.54562pt x 268.03314pt>
+ [16 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q3/ATPR.pdf>]
+<rep/q3/Machfield.pdf, id=489, 440.54562pt x 264.86955pt>
 File: rep/q3/Machfield.pdf Graphic file (type pdf)
 <use rep/q3/Machfield.pdf>
 Package pdftex.def Info: rep/q3/Machfield.pdf  used on input line 33.
-(pdftex.def)             Requested size: 422.77664pt x 257.22708pt.
- [17 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q3/Machfield.pdf>]
-<rep/q3/Pfield.pdf, id=509, 440.54562pt x 264.86955pt>
+(pdftex.def)             Requested size: 422.77664pt x 254.19102pt.
+ [17 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q3/Machfield.pdf>]
+<rep/q3/Pfield.pdf, id=508, 440.54562pt x 268.34178pt>
 File: rep/q3/Pfield.pdf Graphic file (type pdf)
 <use rep/q3/Pfield.pdf>
 Package pdftex.def Info: rep/q3/Pfield.pdf  used on input line 43.
-(pdftex.def)             Requested size: 422.77664pt x 254.19102pt.
-) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/q4.tex [18 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q3/Pfield.pdf>]
-<rep/q4/mesh0.pdf, id=527, 860.01299pt x 860.01299pt>
+(pdftex.def)             Requested size: 422.77664pt x 257.52328pt.
+) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/q4.tex [18 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q3/Pfield.pdf>] [19]
+<rep/q4/mesh0.pdf, id=533, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh0.pdf Graphic file (type pdf)
 <use rep/q4/mesh0.pdf>
-Package pdftex.def Info: rep/q4/mesh0.pdf  used on input line 13.
-(pdftex.def)             Requested size: 150.32504pt x 150.3208pt.
-<rep/q4/mesh1.pdf, id=528, 860.01299pt x 860.01299pt>
+Package pdftex.def Info: rep/q4/mesh0.pdf  used on input line 16.
+(pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
+<rep/q4/mesh1.pdf, id=534, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh1.pdf Graphic file (type pdf)
 <use rep/q4/mesh1.pdf>
-Package pdftex.def Info: rep/q4/mesh1.pdf  used on input line 18.
-(pdftex.def)             Requested size: 150.32504pt x 150.3208pt.
-<rep/q4/mesh2.pdf, id=529, 860.01299pt x 860.01299pt>
+Package pdftex.def Info: rep/q4/mesh1.pdf  used on input line 21.
+(pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
+<rep/q4/mesh2.pdf, id=535, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh2.pdf Graphic file (type pdf)
 <use rep/q4/mesh2.pdf>
-Package pdftex.def Info: rep/q4/mesh2.pdf  used on input line 23.
-(pdftex.def)             Requested size: 150.32504pt x 150.3208pt.
-<rep/q4/mesh3.pdf, id=530, 860.01299pt x 860.01299pt>
+Package pdftex.def Info: rep/q4/mesh2.pdf  used on input line 27.
+(pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
+<rep/q4/mesh3.pdf, id=536, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh3.pdf Graphic file (type pdf)
 <use rep/q4/mesh3.pdf>
-Package pdftex.def Info: rep/q4/mesh3.pdf  used on input line 29.
-(pdftex.def)             Requested size: 150.32504pt x 150.3208pt.
-<rep/q4/mesh4.pdf, id=531, 860.01299pt x 860.01299pt>
+Package pdftex.def Info: rep/q4/mesh3.pdf  used on input line 32.
+(pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
+<rep/q4/mesh4.pdf, id=537, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh4.pdf Graphic file (type pdf)
 <use rep/q4/mesh4.pdf>
-Package pdftex.def Info: rep/q4/mesh4.pdf  used on input line 34.
-(pdftex.def)             Requested size: 150.32504pt x 150.3208pt.
-<rep/q4/mesh5.pdf, id=532, 860.01299pt x 860.01299pt>
+Package pdftex.def Info: rep/q4/mesh4.pdf  used on input line 38.
+(pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
+<rep/q4/mesh5.pdf, id=538, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh5.pdf Graphic file (type pdf)
 <use rep/q4/mesh5.pdf>
-Package pdftex.def Info: rep/q4/mesh5.pdf  used on input line 39.
-(pdftex.def)             Requested size: 150.32504pt x 150.3208pt.
- [19 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh0.pdf> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh1.pdf
+Package pdftex.def Info: rep/q4/mesh5.pdf  used on input line 43.
+(pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
+ [20 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh0.pdf> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh1.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh1.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh2.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh1.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh2.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh3.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh3.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh3.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh4.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh3.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh4.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh4.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh5.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh4.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh5.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/mesh5.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/mesh5.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<rep/q4/Machfield.pdf, id=546, 461.80838pt x 338.20787pt>
+<rep/q4/Machfield.pdf, id=552, 461.80838pt x 338.20787pt>
 File: rep/q4/Machfield.pdf Graphic file (type pdf)
 <use rep/q4/Machfield.pdf>
-Package pdftex.def Info: rep/q4/Machfield.pdf  used on input line 52.
+Package pdftex.def Info: rep/q4/Machfield.pdf  used on input line 56.
 (pdftex.def)             Requested size: 422.77664pt x 309.63779pt.
- [20 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/Machfield.pdf>]
-<rep/q4/Pfield.pdf, id=565, 461.80838pt x 338.20787pt>
+ [21 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/Machfield.pdf>]
+<rep/q4/Pfield.pdf, id=573, 461.80838pt x 338.20787pt>
 File: rep/q4/Pfield.pdf Graphic file (type pdf)
 <use rep/q4/Pfield.pdf>
-Package pdftex.def Info: rep/q4/Pfield.pdf  used on input line 62.
+Package pdftex.def Info: rep/q4/Pfield.pdf  used on input line 66.
 (pdftex.def)             Requested size: 422.77664pt x 309.63779pt.
- [21 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/Pfield.pdf>]
-<rep/q4/ATPR.pdf, id=583, 504.6748pt x 271.19795pt>
+ [22 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/Pfield.pdf>]
+<rep/q4/ATPR.pdf, id=594, 504.6748pt x 271.19795pt>
 File: rep/q4/ATPR.pdf Graphic file (type pdf)
 <use rep/q4/ATPR.pdf>
-Package pdftex.def Info: rep/q4/ATPR.pdf  used on input line 73.
+Package pdftex.def Info: rep/q4/ATPR.pdf  used on input line 77.
 (pdftex.def)             Requested size: 422.77664pt x 227.19228pt.
-) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/q5.tex [22 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q4/ATPR.pdf>]
-<rep/q5/ATPR.pdf, id=599, 504.6748pt x 326.84586pt>
+) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/q5.tex [23 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q4/ATPR.pdf>]
+<rep/q5/ATPR.pdf, id=611, 561.57852pt x 326.84586pt>
 File: rep/q5/ATPR.pdf Graphic file (type pdf)
 <use rep/q5/ATPR.pdf>
-Package pdftex.def Info: rep/q5/ATPR.pdf  used on input line 8.
-(pdftex.def)             Requested size: 422.77664pt x 273.81052pt.
- [23 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/ATPR.pdf>]
-<rep/q5/mach_a5.pdf, id=615, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/ATPR.pdf  used on input line 10.
+(pdftex.def)             Requested size: 422.77664pt x 246.06639pt.
+ (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/atpr_out) [24 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/ATPR.pdf>]
+<rep/q5/mach_a5.pdf, id=632, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a5.pdf Graphic file (type pdf)
 <use rep/q5/mach_a5.pdf>
-Package pdftex.def Info: rep/q5/mach_a5.pdf  used on input line 21.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/mach_a10.pdf, id=616, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/mach_a5.pdf  used on input line 33.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/mach_a10.pdf, id=633, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a10.pdf Graphic file (type pdf)
 <use rep/q5/mach_a10.pdf>
-Package pdftex.def Info: rep/q5/mach_a10.pdf  used on input line 26.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/mach_a15.pdf, id=617, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/mach_a10.pdf  used on input line 38.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/mach_a15.pdf, id=634, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a15.pdf Graphic file (type pdf)
 <use rep/q5/mach_a15.pdf>
-Package pdftex.def Info: rep/q5/mach_a15.pdf  used on input line 31.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/mach_a20.pdf, id=618, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/mach_a15.pdf  used on input line 44.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/mach_a20.pdf, id=635, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a20.pdf Graphic file (type pdf)
 <use rep/q5/mach_a20.pdf>
-Package pdftex.def Info: rep/q5/mach_a20.pdf  used on input line 37.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/mach_a25.pdf, id=619, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/mach_a20.pdf  used on input line 49.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/mach_a25.pdf, id=636, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a25.pdf Graphic file (type pdf)
 <use rep/q5/mach_a25.pdf>
-Package pdftex.def Info: rep/q5/mach_a25.pdf  used on input line 42.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/mach_a30.pdf, id=620, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/mach_a25.pdf  used on input line 55.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/mach_a30.pdf, id=637, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a30.pdf Graphic file (type pdf)
 <use rep/q5/mach_a30.pdf>
-Package pdftex.def Info: rep/q5/mach_a30.pdf  used on input line 47.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
- [24 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a5.pdf> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a10.pdf
+Package pdftex.def Info: rep/q5/mach_a30.pdf  used on input line 60.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+ [25 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a5.pdf> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a10.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a10.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a15.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a10.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a15.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a15.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a20.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a15.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a20.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a20.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a25.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a20.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a25.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a25.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a30.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a25.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a30.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/mach_a30.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/mach_a30.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<rep/q5/pt_a5.pdf, id=634, 462.52798pt x 264.86955pt>
+<rep/q5/pt_a5.pdf, id=653, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a5.pdf Graphic file (type pdf)
 <use rep/q5/pt_a5.pdf>
-Package pdftex.def Info: rep/q5/pt_a5.pdf  used on input line 61.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/pt_a10.pdf, id=635, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/pt_a5.pdf  used on input line 74.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/pt_a10.pdf, id=654, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a10.pdf Graphic file (type pdf)
 <use rep/q5/pt_a10.pdf>
-Package pdftex.def Info: rep/q5/pt_a10.pdf  used on input line 66.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/pt_a15.pdf, id=636, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/pt_a10.pdf  used on input line 79.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/pt_a15.pdf, id=655, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a15.pdf Graphic file (type pdf)
 <use rep/q5/pt_a15.pdf>
-Package pdftex.def Info: rep/q5/pt_a15.pdf  used on input line 71.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/pt_a20.pdf, id=637, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/pt_a15.pdf  used on input line 85.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/pt_a20.pdf, id=656, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a20.pdf Graphic file (type pdf)
 <use rep/q5/pt_a20.pdf>
-Package pdftex.def Info: rep/q5/pt_a20.pdf  used on input line 77.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/pt_a25.pdf, id=638, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/pt_a20.pdf  used on input line 90.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/pt_a25.pdf, id=657, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a25.pdf Graphic file (type pdf)
 <use rep/q5/pt_a25.pdf>
-Package pdftex.def Info: rep/q5/pt_a25.pdf  used on input line 82.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-<rep/q5/pt_a30.pdf, id=639, 462.52798pt x 264.86955pt>
+Package pdftex.def Info: rep/q5/pt_a25.pdf  used on input line 96.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+<rep/q5/pt_a30.pdf, id=658, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a30.pdf Graphic file (type pdf)
 <use rep/q5/pt_a30.pdf>
-Package pdftex.def Info: rep/q5/pt_a30.pdf  used on input line 87.
-(pdftex.def)             Requested size: 150.32504pt x 86.08562pt.
-) (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/admin/apps.tex [25 </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a5.pdf> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a10.pdf
+Package pdftex.def Info: rep/q5/pt_a30.pdf  used on input line 101.
+(pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
+) (/home/dan/Documents/Aerospace/aero523/aero523_proj2/admin/apps.tex [26 </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a5.pdf> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a10.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a10.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a15.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a10.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a15.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a15.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a20.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a15.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a20.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a20.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a25.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a20.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a25.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a25.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> </home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a30.pdf
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a25.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a30.pdf
 
-pdfTeX warning: pdflatex (file /home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/q5/pt_a30.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: pdflatex (file /home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/q5/pt_a30.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 14.
- (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/main.py [26] [27]) [28] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/fvm.py [29]) [30] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/flux.py) [31] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/adapt.py [32]) [33] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/edgehash.py) [34] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/plotmesh.py) [35] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/rep/readgri.py [36])) [37] (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.bbl) [38]
+ (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/main.py [27] [28]) [29] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/fvm.py [30]) [31] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/flux.py) [32] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/adapt.py [33] [34]) [35] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/edgehash.py) [36] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/rep/plotmesh.py)) [37] (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.bbl) [38]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
- (/home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.aux)
+ (/home/dan/Documents/Aerospace/aero523/aero523_proj2/main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 31.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 31.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6DCD5AE3C8EFBC8F863FC33B9D4FD4BC;2423.
+(rerunfilecheck)             Checksum: A0E34D756F5E149FDE5D8520A1871CDD;2424.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1205,18 +1202,18 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 31.
  ) 
 Here is how much of TeX's memory you used:
- 26502 strings out of 481239
- 499177 string characters out of 5920378
- 1236254 words of memory out of 5000000
- 40408 multiletter control sequences out of 15000+600000
+ 26497 strings out of 481239
+ 499523 string characters out of 5920376
+ 1228409 words of memory out of 5000000
+ 40414 multiletter control sequences out of 15000+600000
  573119 words of font info for 133 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,13n,64p,792b,2585s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on /home/dcard/Dev/Aerospace/aero523/aero523_proj2/main.pdf (38 pages, 1707417 bytes).
+ 68i,13n,64p,796b,2582s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
+Output written on /home/dan/Documents/Aerospace/aero523/aero523_proj2/main.pdf (38 pages, 1726384 bytes).
 PDF statistics:
- 1540 PDF objects out of 1728 (max. 8388607)
- 1417 compressed objects within 15 object streams
- 706 named destinations out of 1000 (max. 500000)
+ 1537 PDF objects out of 1728 (max. 8388607)
+ 1415 compressed objects within 15 object streams
+ 695 named destinations out of 1000 (max. 500000)
  419 words of extra memory for PDF output out of 10000 (max. 10000000)
 

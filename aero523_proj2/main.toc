@@ -40,18 +40,20 @@
 \contentsline {paragraph}{Field Plot of Total Pressure}{18}{paragraph*.35}%
 \contentsline {subsection}{\numberline {4.4}Implementing Mach Number Jumps}{19}{subsection.4.4}%
 \contentsline {subsubsection}{\numberline {4.4.1}Adapted Meshes}{19}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Adapted Mesh Field Plots}{20}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Adapted Mesh ATPR Convergence}{22}{subsubsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{23}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}ATPR Versus Angle of Attack}{23}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Flow Fields for Varyin Angle of Attacks}{24}{subsubsection.4.5.2}%
-\contentsline {paragraph}{Effect on Mach Field from Varying Angle of Attack}{24}{paragraph*.42}%
-\contentsline {paragraph}{Effect on Total Pressure Field from Varying Angle of Attack}{25}{paragraph*.44}%
-\contentsline {section}{Appendices}{25}{section*.45}%
-\contentsline {section}{Appendix \numberline {A}Python Implementation}{26}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Main Driving Code}{26}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Finite-Volume-Element Code}{29}{subsection.a.A.2}%
-\contentsline {subsection}{\numberline {A.3}Roe Flux Python Implementation}{31}{subsection.a.A.3}%
-\contentsline {subsection}{\numberline {A.4}Adaptive Mesh Python Implementation}{32}{subsection.a.A.4}%
-\contentsline {section}{Appendix \numberline {B}Additional Supporting Code}{34}{appendix.a.B}%
-\contentsline {section}{References}{38}{lstnumber.7.93}%
+\contentsline {subsubsection}{\numberline {4.4.2}Adapted Mesh Field Plots}{21}{subsubsection.4.4.2}%
+\contentsline {paragraph}{Finest Mesh Field Plot of Mach Number}{21}{paragraph*.38}%
+\contentsline {paragraph}{Finest Mesh Field Plot of Total Pressure}{22}{paragraph*.40}%
+\contentsline {subsubsection}{\numberline {4.4.3}Adapted Mesh ATPR Convergence}{23}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{24}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}ATPR Versus Angle of Attack}{24}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Flow Fields for Varying Angle of Attacks}{25}{subsubsection.4.5.2}%
+\contentsline {paragraph}{Effect on Mach Field from Varying Angle of Attack}{25}{paragraph*.45}%
+\contentsline {paragraph}{Effect on Total Pressure Field from Varying Angle of Attack}{26}{paragraph*.47}%
+\contentsline {section}{Appendices}{27}{section*.48}%
+\contentsline {section}{Appendix \numberline {A}Python Implementation}{27}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Main Driving Code}{27}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Finite-Volume-Element Code}{30}{subsection.a.A.2}%
+\contentsline {subsection}{\numberline {A.3}Roe Flux Python Implementation}{32}{subsection.a.A.3}%
+\contentsline {subsection}{\numberline {A.4}Adaptive Mesh Python Implementation}{33}{subsection.a.A.4}%
+\contentsline {section}{Appendix \numberline {B}Additional Supporting Code}{36}{appendix.a.B}%
+\contentsline {section}{References}{38}{lstnumber.6.16}%

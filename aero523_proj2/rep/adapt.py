@@ -57,7 +57,7 @@ def genflags(u, mach, V, E, IE, BE):
     flags = flags[flags[:,1].argsort()]; flags = np.flipud(flags)
     # Remove all outliers to be refined
     ind = int(np.ceil(flags.shape[0] * 0.03))
-    #ind = int(np.ceil(flags.shape[0] * 0.1))
+    #ind = int(np.ceil(flags.shape[0] * 0.65))
     flags[ind:(flags.shape[0]-1),1] = 0
 
     # Sort the errors increasing the edge number to iterate
@@ -104,11 +104,15 @@ def genV(flags, V, E, IE, BE):
 
     return Vcopy
 
-def isboundary(BEvec):
+def isboundary(nodestate, BEvec, Vvec):
     check = False
-    for i in range(BEvec.shape[0]):
-        pass
-
+    for k in range(3):
+        node = Vvec[int(nodestate[k])]
+        for i in range(BEvec.shape[0]):
+            n1, ig, ig, ig = BEvec[i,:]        # Node and elements from boundary edge
+            x1 = Vvec[n1,:]
+            if node[0] == x1[0] and node[1] == x1[1]:
+                check = True
 
     return check
 def vert_ind(Vvec, x):
@@ -140,29 +144,29 @@ def adapt(u, mach, V, E, IE, BE):
                 nodes = np.append(nodes, ind)
 
         if nodes.shape[0] > 2:
+            
             Ecopy[i,:] = np.array([n1, nodes[1], nodes[0]])
 
             Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[2]], [n2], [nodes[0]]])), axis=0)
             Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[2]], [nodes[1]], [nodes[0]]])), axis=0)
             Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[1]], [nodes[2]], [n3]])), axis=0)
 
+
         elif nodes.shape[0] > 1:
-            temp1 = Vcopy[int(nodes[0]),:]; temp2 = Vcopy[int(nodes[1]),:]
+            pass
+
+        elif nodes.shape[0] > 0:            
+            nodesort = np.array([n1,n2,n3])
+            nodesort = nodesort[nodesort.argsort()]
             
-            if LA.norm(temp1) >= LA.norm(temp2):
-                nodes = np.flip(nodes)
+            # Fix if the node rests at a boundary
+            if isboundary(nodesort, BE, V):    
+                Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[0]], [nodesort[0]], [nodesort[2]]])), axis=0)
 
-            Ecopy[i,:] = np.array([n1, n3, nodes[0]])
-
-            Ecopy = np.append(Ecopy, np.transpose(np.array([[n2], [nodes[1]], [nodes[0]]])), axis=0)
-            Ecopy = np.append(Ecopy, np.transpose(np.array([[n3], [nodes[0]], [nodes[1]]])), axis=0)
-
-        elif nodes.shape[0] > 0:
-            Ecopy[i,:] = np.array([n1, n2, nodes[0]])
-
-            Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[0]], [n2], [n3]])), axis=0)
-        
-           
+                
+            
+    print(Vcopy.shape[0])
+    print(Ecopy.shape[0])
     plotmesh(Vcopy, BE, Ecopy)
     
 def plotmesh(V, B, E):

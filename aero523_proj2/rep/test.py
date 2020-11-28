@@ -46,20 +46,22 @@ def _3by3_():
     V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
 
     u = getIC(1, E.shape[0])
-    #u[:,0] += np.random.rand(8)
-    u[:,0] += np.linspace(0,2, num=8)
+    test = np.random.rand(8)
+    u[:,0] += test
+    #u[:,0] += np.linspace(0,2, num=8)
     mach, Pt = post_process(u)
+
+    adapt(u, mach, V, E, IE, BE)
 
 def main():
     mesh = readgri('mesh0.gri')
-    V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
     
     start = time.time()
-    u, err, ATPR, V, E, BE, IE = solve(1); end = time.time(); print('Elapsed Time %.2f'%(end - start))
+    u, err, ATPR, V, E, BE, IE = solve(1, mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
     mach, pt = post_process(u)
 
     adapt(u, mach, V, E, IE, BE)
 
 
 if __name__ == "__main__":
-    main()
+    _3by3_()

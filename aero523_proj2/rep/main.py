@@ -10,8 +10,8 @@ from flux import RoeFlux
 from fvm import solve
 from adapt import adapt
 
-#plt.rc('text', usetex=True)
-#plt.rc('font', family='serif')
+plt.rc('text', usetex=True)
+plt.rc('font', family='serif')
 
 def getIC(alpha, mach):
     gam = 1.4
@@ -79,9 +79,10 @@ def post_process(u):
     return mach, pt
 
 def run_fvm():
+    mesh = readgri('mesh0.gri')
 
     start = time.time()
-    u, err, ATPR, V, E, BE, IE = solve(1); end = time.time(); print('Elapsed Time %.2f'%(end - start))
+    u, err, ATPR, V, E, BE, IE = solve(1,mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
     mach, pt = post_process(u)
 
 
@@ -125,7 +126,7 @@ def mesh_adapt(alpha):
     #for i in range(6):
     #    plotmesh(mesh, 'q4/mesh' + str(i) + '.pdf')
     
-    u, err, ATPR, V, E, BE, IE = solve(alpha)
+    u, err, ATPR, V, E, BE, IE = solve(alpha, mesh)
     mach, pt = post_process(u)
     adapt(u, mach, V, E, IE, BE)
 
@@ -139,7 +140,7 @@ def vary_alpha():
     for i in alphas:
 
         start = time.time()
-        u, err, ATPR, V, E, BE, IE = solve(i); end = time.time(); print('Elapsed Time %.2f'%(end - start))
+        u, err, ATPR, V, E, BE, IE = solve(i, mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
         mach, pt = post_process(u)
 
         plt.figure(figsize=(8,4.5))
@@ -174,7 +175,7 @@ def vary_alpha():
 
 if __name__ == "__main__":
     #test_flux()
-    #run_fvm()
-    mesh_adapt(1)
+    run_fvm()
+    #mesh_adapt(1)
     #vary_alpha()
     
