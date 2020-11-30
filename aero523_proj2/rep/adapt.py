@@ -57,7 +57,7 @@ def genflags(u, mach, V, E, IE, BE):
     flags = flags[flags[:,1].argsort()]; flags = np.flipud(flags)
     # Remove all outliers to be refined
     ind = int(np.ceil(flags.shape[0] * 0.03))
-    #ind = int(np.ceil(flags.shape[0] * 0.1))
+    ind = int(np.ceil(flags.shape[0] * 0.1))
     flags[ind:(flags.shape[0]-1),1] = 0
 
     # Sort the errors increasing the edge number to iterate
@@ -116,13 +116,29 @@ def isboundary(nodestate, BEvec, Vvec):
 
 def isCCW(a, b, c):
     cross_val = (b[0] - a[0])*(c[1] - a[1]) - (c[0] - a[0])*(b[1] - a[1])
+    
 
-    if cross_val == 1:
-        check = 1
-    else:
-        check = -1
+    return cross_val
+
+def orientation(p, q, r):
+    val = (q[1] - p[1])*(r[0]-q[0]) - (q[0] - p[0])*(r[1] - q[1])
+    
+    return val
+
+def doIntersect(a, b, c, d):
+    
+    check = False
+    m = (b[1] - a[1])/(b[0] - a[0])
+
+    xlin = np.linspace(a[0], b[0], endpoint = True, num=25)
+    for i in range(25):
+        y = m*(xlin[i] - a[0]) + a[1]
+        
+        if y < max(np.array([c[1], d[1]])) and y > min(np.array([c[1], d[1]])) and xlin[i] < max(np.array([c[0], d[0]])) and xlin[i] > min(np.array([c[0], d[0]])):
+            check = True
 
     return check
+
 
 def vert_ind(Vvec, x):
     check = False; ind = np.array([])
@@ -153,12 +169,17 @@ def adapt(u, mach, V, E, IE, BE):
                 nodes = np.append(nodes, ind)
         
         if nodes.shape[0] == 3:
-            if isCCW(Vcopy[int(nodes[0]),:], Vcopy[int(nodes[1]),:], Vcopy[int(nodes[2]),:]) == -1:
+            # Ensure that the nodes are CCW
+            if isCCW(Vcopy[int(nodes[0]),:], Vcopy[int(nodes[1]),:], Vcopy[int(nodes[2]),:]) != 1:
                 nodes = np.flip(nodes)
-            for k in range(3):
-                if Vcopy[int(nodes[k]),0] == vals[0,0] and Vcopy[int(nodes[k]),1] == vals[0,1]:
-                    Ecopy[i,:] = np.array([n1, nodes[k], nodes[(k+2)%3]])
 
+            # Loop through the nodes
+            for k in range(3):
+                # Start at the nodes N1 -> N2 for consistency
+                if Vcopy[int(nodes[k]),0] == vals[0,0] and Vcopy[int(nodes[k]),1] == vals[0,1]:
+                    Ecopy[i,:] = np.array([n1, nodes[k], nodes[(k+2)%3]])   # Replace the ith element with new element
+
+                    # Append new elements
                     Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[k]], [n2], [nodes[(k+1)%3]]])), axis=0)
                     Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[k]], [nodes[(k+1)%3]], [nodes[(k+2)%3]]])), axis=0)
                     Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[(k+2)%3]], [nodes[(k+1)%3]], [n3]])), axis=0)
@@ -167,25 +188,51 @@ def adapt(u, mach, V, E, IE, BE):
         elif nodes.shape[0] == 2:
             
             node_ind = np.array([n1, n2, n3])
-            if isCCW(Vcopy[int(node_ind[0]),:], Vcopy[int(node_ind[1]),:], Vcopy[int(node_ind[2]),:]) == -1:
+            if isCCW(Vcopy[int(node_ind[0]),:], Vcopy[int(node_ind[1]),:], Vcopy[int(node_ind[2]),:]) != 1:
                 node_ind = np.flip(node_ind)
-            
-            angle_old = 0
-            for k in range(3):
-                xR = V[int(node_ind[k]),:] - V[int(node_ind[(k+1)%3]),:]; xL = V[int(int(node_ind[(k+2)%3])),:] - V[int(int(node_ind[(k+1)%3])),:]
-                angle = np.arccos(np.dot(xR, xL)/(LA.norm(xR)*LA.norm(xL)))*180/np.pi
-                if angle > angle_old:
-                    nodetemp = np.array([node_ind[(k+1)%3], node_ind[(k+0)%3], node_ind[((k+2)%3)]])
-                    
-                    ind1 = np.array([nodetemp[0], nodes[1], nodes[0]])
-                    ind2 = np.array([nodetemp[0], nodetemp[1], nodes[1]])
-                    ind3 = np.array([nodes[0], nodes[1], nodetemp[2]])
+            #if isCCW(Vcopy[int(node_ind[0]),:], Vcopy[int(nodes[0]),:], Vcopy[int(nodes[1]),:]) != 1:
+            #    nodes = np.flip(nodes)
 
-            if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) == -1:
+            edgevals = isboundary(node_ind, BE, Vcopy)
+            dl_old = 0
+            for k in range(3):
+                for j in range(2):
+                    dl = LA.norm(node_ind[k] - nodes[j])
+                    if dl > dl_old:
+                        dl_old = dl
+
+                        node_indtemp = np.array([node_ind[k], node_ind[(k-1)%3], node_ind[(k-2)%3]])
+                        ind1 = np.array([node_indtemp[0], nodes[0], nodes[1]])   
+                        ind2 = np.array([node_indtemp[0], node_indtemp[2], nodes[1]])
+                        ind3 = np.array([nodes[0], nodes[1], node_indtemp[1]])
+                        
+                        
+                        p1 = Vcopy[int(node_indtemp[2]),:]; q1 = Vcopy[int(nodes[1]),:]
+                        p2 = Vcopy[int(node_indtemp[1]),:]; q2 = Vcopy[int(nodes[0]),:]
+
+                        p3 = Vcopy[int(node_indtemp[0]),:]; q3 = Vcopy[int(nodes[1]),:]
+                        p4 = Vcopy[int(nodes[0]),:]; q4 = Vcopy[int(node_indtemp[1]),:]
+
+                        print(p1, q1)
+                        print(p2, q2)
+
+                        print(doIntersect(p1, q1, p2, q2))
+
+                        print(p3, q3)
+                        print(p4, q4)
+                        print(doIntersect(p3, q3, p4, q4))
+                        if doIntersect(p1, q1, p2, q2) or doIntersect(p3, q3, p4, q4):
+                            ind1 = np.array([node_indtemp[0], nodes[0], nodes[1]])   
+                            ind2 = np.array([node_indtemp[0], node_indtemp[1], nodes[1]])
+                            ind3 = np.array([nodes[0], nodes[1], node_indtemp[2]])
+                        
+                    
+
+            if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) != 1:
                 ind1 = np.flip(ind1)
-            if isCCW(Vcopy[int(ind2[0]),:], Vcopy[int(ind2[1]),:], Vcopy[int(ind2[2]),:]) == -1:
+            if isCCW(Vcopy[int(ind2[0]),:], Vcopy[int(ind2[1]),:], Vcopy[int(ind2[2]),:]) != 1:
                 ind2 = np.flip(ind2)
-            if isCCW(Vcopy[int(ind3[0]),:], Vcopy[int(ind3[1]),:], Vcopy[int(ind3[2]),:]) == -1:
+            if isCCW(Vcopy[int(ind3[0]),:], Vcopy[int(ind3[1]),:], Vcopy[int(ind3[2]),:]) != 1:
                 ind3 = np.flip(ind3)
 
             Ecopy[i,:] = np.array([ind1[0], ind1[1], ind1[2]])
@@ -207,9 +254,9 @@ def adapt(u, mach, V, E, IE, BE):
                         ind1 = np.array([n2, nodes[0], n1])
                         ind2 = np.array([n3, n1, nodes[0]])
                     
-            if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) == -1:
+            if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) != 1:
                 ind1 = np.flip(ind1)
-            if isCCW(Vcopy[int(ind2[0]),:], Vcopy[int(ind2[1]),:], Vcopy[int(ind2[2]),:]) == -1:
+            if isCCW(Vcopy[int(ind2[0]),:], Vcopy[int(ind2[1]),:], Vcopy[int(ind2[2]),:]) != 1:
                 ind2 = np.flip(ind2)
 
             Ecopy[i,:] = np.array([ind1[0], ind1[1], ind1[2]])
