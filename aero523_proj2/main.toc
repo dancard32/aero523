@@ -55,5 +55,5 @@
 \contentsline {subsection}{\numberline {A.2}Finite-Volume-Element Code}{30}{subsection.a.A.2}%
 \contentsline {subsection}{\numberline {A.3}Roe Flux Python Implementation}{32}{subsection.a.A.3}%
 \contentsline {subsection}{\numberline {A.4}Adaptive Mesh Python Implementation}{33}{subsection.a.A.4}%
-\contentsline {section}{Appendix \numberline {B}Additional Supporting Code}{36}{appendix.a.B}%
-\contentsline {section}{References}{38}{lstnumber.6.16}%
+\contentsline {section}{Appendix \numberline {B}Additional Supporting Code}{37}{appendix.a.B}%
+\contentsline {section}{References}{39}{lstnumber.6.16}%

@@ -46,17 +46,17 @@ def _3by3_():
     V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
 
     u = getIC(1, E.shape[0])
-    test = np.random.rand(8); print(test)
-    test = np.array([0.53189414, 0.58794786, 0.4576574,  0.24801386, 0.72982654, 0.02918595, 0.19271085, 0.26531498]) # Double flag case
-    test = np.array([0.0438649, 0.41647822, 0.98259851, 0.77928424, 0.53674341, 0.82151621, 0.0979844,  0.06814286])  # Double flag edge case
-    test = np.array([0.69202655, 0.35823124, 0.49821811, 0.31857253, 0.58021842, 0.42569984, 0.94716888, 0.89860787]) # Double flag edge case   
-    test = np.array([0.47834163, 0.99764052, 0.36555306, 0.24986927, 0.26026875, 0.34121071, 0.50115206, 0.04995461])  # Double flag edge case
+    test = np.random.rand(8)
+    #test = np.array([0.53189414, 0.58794786, 0.4576574,  0.24801386, 0.72982654, 0.02918595, 0.19271085, 0.26531498]) # Double flag case
+    #test = np.array([0.0438649, 0.41647822, 0.98259851, 0.77928424, 0.53674341, 0.82151621, 0.0979844,  0.06814286])  # Double flag edge case
+    #test = np.array([0.69202655, 0.35823124, 0.49821811, 0.31857253, 0.58021842, 0.42569984, 0.94716888, 0.89860787]) # Double flag edge case   
+    #test = np.array([0.47834163, 0.99764052, 0.36555306, 0.24986927, 0.26026875, 0.34121071, 0.50115206, 0.04995461])  # Double flag edge case
 
     u[:,0] += test
     #u[:,0] += np.linspace(0,0.5, num=8)
     mach, Pt = post_process(u)
 
-    adapt(u, mach, V, E, IE, BE)
+    u, Vcopy, Ecopy, IECopy, BEcopy = adapt(u, mach, V, E, IE, BE)
 
 def main():
     mesh = readgri('mesh0.gri')

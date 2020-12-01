@@ -158,16 +158,20 @@ def genUE(u, Vcopy, V, E, IE, BE):
                     if dl > dl_old:
                         dl_old = dl
                         
+                        nodetemp = nodes
                         node_indtemp = np.array([node_ind[k], node_ind[(k+1)%3], node_ind[(k+2)%3]])
-                        if isCCW(Vcopy[int(node_ind[k]),:], Vcopy[int(nodes[0]),:], Vcopy[int(nodes[1]),:]) == -1:
-                            nodetemp = np.flip(nodes)
-                            node_indtemp = np.flip(node_indtemp)
+                        if j == 0:
+                            ind1 = np.array([node_indtemp[0], nodetemp[0], nodetemp[1]])
+                            ind2 = np.array([node_indtemp[0], node_indtemp[1], nodetemp[1]])
+                            ind3 = np.array([nodetemp[1], node_indtemp[2], node_indtemp[2]])
                         else:
-                            nodetemp = nodes
+                            ind1 = np.array([node_indtemp[0], nodetemp[0], nodetemp[1]])
+                            ind2 = np.array([node_indtemp[0], node_indtemp[2], nodetemp[1]])
+                            ind3 = np.array([nodetemp[1], node_indtemp[2], node_indtemp[1]])
                             
-                        ind1 = np.array([node_indtemp[0], nodetemp[0], nodetemp[1]])
-                        ind2 = np.array([node_indtemp[0], node_indtemp[1], nodetemp[0]])
-                        ind3 = np.array([nodetemp[1], node_indtemp[2], nodetemp[0]])
+                            
+
+
 
 
                     
@@ -294,8 +298,10 @@ def adapt(u, mach, V, E, IE, BE):
     Ucopy, Ecopy = genUE(u, Vcopy, V, E, IE, BE)
     Bcopy = genB(u, V, Vcopy, BE)
 
-    plotmesh(Vcopy, BE, Ecopy)
-    IECopy, BEcopy = edgehash(Ecopy.astype(int), Bcopy.astype(int))
+    print(Bcopy[:,0:2].astype(int))
+    IECopy, BEcopy = edgehash(Ecopy.astype(int), Bcopy[:,0:2].astype(int))
+
+    plotmesh(Vcopy, Bcopy, Ecopy)
 
     return u, Vcopy, Ecopy, IECopy, BEcopy
     
