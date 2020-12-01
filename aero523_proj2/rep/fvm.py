@@ -20,6 +20,7 @@ def calcATPR(u0, u, alpha, V, BE):
 
     Pinf = (gam-1)*(u0[0,3]-0.5*u0[0,0]*((u0[1,0]/u0[0,0])**2 + (u0[2,0]/u0[0,0])**2))
     Ptinf = Pinf*(1 + 0.5*(gam-1)*(2.2)**2)*(gam/(gam-1))
+    print(Pinf, Ptinf)
 
     ATPR = 0; d = 0
     for i in range(BE.shape[0]):
@@ -43,10 +44,10 @@ def calcATPR(u0, u, alpha, V, BE):
     ATPR *= 1/d
     return ATPR
                 
-def solve(alpha, mesh):
+def solve(u0, mesh):
     V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
 
-    u0 = getIC(alpha, E.shape[0]); u = u0.copy(); ATPR = np.array([calcATPR(u0,u,1,V,BE)])
+    u = u0.copy(); ATPR = np.array([calcATPR(u0,u,1,V,BE)])
     R = np.zeros((E.shape[0], 4)); dta = R.copy(); err = np.array([1]); itr = 0
 
     while err[err.shape[0]-1] > 10**(-5):
@@ -78,10 +79,12 @@ def solve(alpha, mesh):
                 ignore, FL, FR, ls = RoeFlux(uedge, u0[0,:], nhat)
 
                 F = pb*np.array([0, nhat[0], nhat[1], 0])
+                #F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
             elif bgroup == 1 or bgroup == 2: # Exit/Outflow - Supersonic Outflow
                 F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
             elif bgroup == 3: # Inflow
                 F, FL, FR, ls = RoeFlux(uedge, u0[0,:], nhat)
+                #F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
             
             R[e1,:] += F*deltal
             dta[e1,:] += ls*deltal

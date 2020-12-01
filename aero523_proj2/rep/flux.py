@@ -43,7 +43,7 @@ def ROE_Avg(ul,vl,rhol,Hl,rhoEl, ur,vr,rhor,Hr,rhoEr, n):
 
     delrho = rhor - rhol; delmo = np.array([rhor*ur - rhol*ul, rhor*vr - rhol*vl]); dele = rhoEr - rhoEl
     s1 = 0.5*(abs(ls[0]) + abs(ls[1])); s2 = 0.5*(abs(ls[0]) - abs(ls[1]))
-    G1 = (gam-1.0)*(0.5*q**2*delrho - np.dot(v, delmo) + dele); G2 = -u*delrho + np.dot(delmo, n)
+    G1 = (gam-1.0)*(0.5*q**2*delrho - np.dot(v, delmo) + dele); G2 = -1.0*u*delrho + np.dot(delmo, n)
     C1 = G1*(c**-2)*(s1 - abs(ls[2])) + G2*(c**-1)*s2; C2 = G1*(c**-1)*s2 + (s1 - abs(ls[2]))*G2
 
     RHS = np.array([ls[2]*delrho+C1, ls[2]*delmo[0]+C1*v[0]+C2*n[0], ls[2]*delmo[1]+C1*v[1]+C2*n[1], ls[2]*dele+C1*H+C2*u]) 

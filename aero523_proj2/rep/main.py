@@ -20,6 +20,17 @@ def getIC(alpha, mach):
 
     return uinf
 
+def FVMIC(alpha, Ne):
+    alpha = np.deg2rad(alpha); Minf = 2.2; gam = 1.4
+    uinf = np.array([1, Minf*np.cos(alpha), Minf*np.sin(alpha), 1/(gam*(gam-1)) + Minf**2/2])
+
+    u0 = np.zeros((Ne, 4))
+    for i in range(4):
+        u0[:,i] = uinf[i]
+    u0[abs(u0) < 10**-10]
+
+    return u0
+
 def test_flux():
     alpha = 0   
     ul = getIC(alpha, 0.8); ur = getIC(alpha, 0.8)
@@ -79,10 +90,11 @@ def post_process(u):
     return mach, pt
 
 def run_fvm():
-    mesh = readgri('mesh0.gri')
+    mesh = readgri('mesh0.gri'); E = mesh['E']
+    u = FVMIC(1, E.shape[0])
 
     start = time.time()
-    u, err, ATPR, V, E, BE, IE = solve(1,mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
+    u, err, ATPR, V, E, BE, IE = solve(u, mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
     mach, pt = post_process(u)
 
 
@@ -117,17 +129,52 @@ def run_fvm():
 
 def mesh_adapt(alpha):
 
-    # Plot sequence of adapted meshes
-    # Plot two figs. (Mach Number and the Total Pressure) for the finest mesh
-    # Plot ATPR output vs. number of cells in a mesh (last ATPR calculation per iteration)
+    # First iteration - IC
+    mesh = readgri('test0.gri'); E = mesh['E']
+    u = FVMIC(alpha, E.shape[0])
+    #test = np.array([0.53189414, 0.58794786, 0.4576574,  0.24801386, 0.72982654, 0.02918595, 0.19271085, 0.26531498]) # Double flag case
+    #u[:,0] += test
 
-    #mesh = readgri('mesh0.gri')
-    #for i in range(6):
-    #    plotmesh(mesh, 'q4/mesh' + str(i) + '.pdf')
+    ATPRlin = np.array([]); Numcells = np.array([])
+    for i in range(6):
+        
+        # Load in mesh 
+        mesh = readgri('test'+ str(i) + '.gri')
+
+        plotmesh(mesh, 'q4/mesh' + str(i) + '.pdf')
+        u, err, ATPR, V, E, BE, IE = solve(u, mesh)
+        mach, pt = post_process(u)
+        
+        
+        # Append the values
+        ATPRlin = np.append(ATPRlin, ATPR[ATPR.shape[0]-1])
+        Numcells = np.append(Numcells, E.shape[0])
+
+        # Adapt the mesh
+        u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, i+1)
+        mach, pt = post_process(u)
     
-    u, err, ATPR, V, E, BE, IE = solve(alpha, mesh)
-    mach, pt = post_process(u)
-    adapt(u, mach, V, E, IE, BE)
+    # Generate plots
+    plt.figure(figsize=(8,4.5))
+    plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
+    plt.axis('off')
+    plt.colorbar(label='Mach Number')
+    plt.savefig('q4/Machfield.pdf', bbox_inches='tight')
+    plt.show()
+
+    plt.figure(figsize=(8,4.5))
+    plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
+    plt.axis('off')
+    plt.colorbar(label='Total Pressure')
+    plt.savefig('q4/Pfield.pdf', bbox_inches='tight')
+    plt.show()
+
+    plt.figure(figsize=(8,5))
+    plt.plot(Numcells, ATPRlin, lw=2, color='k')
+    plt.xlabel(r'Number of cells', fontsize=16)
+    plt.ylabel(r'ATPR Output', fontsize=16)
+    plt.savefig('q4/ATPR.pdf', bbox_inches='tight')
+    plt.show()
 
 def vary_alpha():
 
@@ -173,7 +220,7 @@ def vary_alpha():
     plt.show()
 
 if __name__ == "__main__":
-    #test_flux()
+    test_flux()
     run_fvm()
     #mesh_adapt(1)
     #vary_alpha()

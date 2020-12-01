@@ -58,7 +58,7 @@ def genflags(u, mach, V, E, IE, BE):
     flags = flags[flags[:,1].argsort()]; flags = np.flipud(flags)
     # Remove all outliers to be refined
     ind = int(np.ceil(flags.shape[0] * 0.03))
-    ind = int(np.ceil(flags.shape[0] * 0.1))
+    #ind = int(np.ceil(flags.shape[0] * 0.1))
     flags[ind:(flags.shape[0]-1),1] = 0
 
     # Sort the errors increasing the edge number to iterate
@@ -170,12 +170,6 @@ def genUE(u, Vcopy, V, E, IE, BE):
                             ind2 = np.array([node_indtemp[0], node_indtemp[2], nodetemp[1]])
                             ind3 = np.array([nodetemp[1], node_indtemp[2], node_indtemp[1]])
                             
-                            
-
-
-
-
-                    
             if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) != 1:
                 ind1 = np.flip(ind1)
             if isCCW(Vcopy[int(ind2[0]),:], Vcopy[int(ind2[1]),:], Vcopy[int(ind2[2]),:]) != 1:
@@ -306,27 +300,30 @@ def genArea(a,b,c):
 
     return area
 
-def adapt(u, mach, V, E, IE, BE):
+def adapt(u, mach, V, E, IE, BE, itr):
 
-    flags = genflags(u, mach, V, E, IE, BE)
-    Vcopy = genV(flags, V, E, IE, BE)
-    Ucopy, Ecopy = genUE(u, Vcopy, V, E, IE, BE)
-    B = genB(u, V, Vcopy, BE)    
+    flags = genflags(u, mach, V, E, IE, BE)         # Flag edges along the interior and exterior
+    Vcopy = genV(flags, V, E, IE, BE)               # With the flags determine the nodes on the elements to split
+    Ucopy, Ecopy = genUE(u, Vcopy, V, E, IE, BE)    # Determine the new Elements and with them the new U
+    B = genB(u, V, Vcopy, BE)                       # With the old boundary edges determine which are on the edges
     IEcopy, BEcopy = edgehash(Ecopy, B)
 
-    Mesh = {'V':Vcopy, 'E':Ecopy, 'IE':IEcopy, 'BE':BEcopy, 'Bname':['Engine', 'Exit', 'Outflow', 'Inflow'] }
-    writegri(Mesh, 'test1.gri')
+    plotmesh(Vcopy, BEcopy, Ecopy)
 
-    return u, Vcopy, Ecopy, IEcopy, BEcopy
+    # Prepare for input to writegri       
+    Mesh = {'V':Vcopy, 'E':Ecopy, 'IE':IEcopy, 'BE':BEcopy, 'Bname':['Engine', 'Exit', 'Outflow', 'Inflow'] }
+    writegri(Mesh, 'test' + str(itr) + '.gri')
+
+    return Ucopy, Vcopy, Ecopy, IEcopy, BEcopy
     
-def plotmesh(V, B, E):
+def plotmesh(V, BE, E):
 
     f = plt.figure(figsize=(12,12))
     plt.triplot(V[:,0], V[:,1], E, 'k-')
     plt.scatter(V[:,0], V[:,1])
-    #for i in range(BE.shape[0]):
-    #    plt.plot(V[BE[i,0:2],0],V[BE[i,0:2],1], '-', linewidth=2, color='black')
+    for i in range(BE.shape[0]):
+        plt.plot(V[BE[i,0:2],0],V[BE[i,0:2],1], '-', linewidth=2, color='blue')
     plt.axis('equal'); plt.axis('off')
     f.tight_layout(); 
-    plt.show()
+    plt.draw()
     

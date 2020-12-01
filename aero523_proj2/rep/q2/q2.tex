@@ -25,7 +25,7 @@ As discussed in Section \ref{sec:roe_flux}, the Roe flux will input a ``left'' s
 \subsubsection{Mesh Adaption Implementation}
 In order to increase the accuracy of the approximated solution I will write a function {\texttt{adapt}} that will determine the error between cells from the Mach number and increase the resolution in the cells that make up the top 3\% of the errors for a given converged solution. In this code it will flag the cells and keep track of how many times a given cell has been flagged for a large discrepancy in the Mach number and then will refine the mesh.
 
-After determining which meshes will be refined, the code will re-arrange the boundary and vertices to ``adapt'' the mesh to include \textcolor{red}{add later \ldots}
+After determining which meshes will be refined, the code will re-arrange the boundary and vertices to ``adapt'' the mesh and create new vertices on this mesh. Next will be to iterate through and determine how many new vertices are on a new element and from here generate an updated $U$ and {\texttt{E}}. Next will be to then use the old boundary elements with the updated vertices matrix to determine the new boundary nodes and the elements that they are located at. Finally is to generate new interior and exterior edges from {\texttt{edgehash(E,B)}} and then write this out to a new {\texttt{.gri}} file for later mesh refinement.
 
 \subsubsection{Miscellaneous Code}
 \paragraph{Initial Condition} This supporting function will determine the initial condition depending on the angle of attack $\alpha$, and return the initial state for the solver code with the free-stream condition specified in Equation \ref{eqn:flow}.

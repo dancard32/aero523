@@ -56,7 +56,7 @@ def _3by3_():
     #u[:,0] += np.linspace(0,0.5, num=8)
     mach, Pt = post_process(u)
 
-    u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE)
+    u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 1)
     mesh = readgri('test1.gri')
     
 
@@ -67,7 +67,7 @@ def main():
     u, err, ATPR, V, E, BE, IE = solve(1, mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
     mach, pt = post_process(u)
 
-    adapt(u, mach, V, E, IE, BE)
+    u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 1)
 
 
 if __name__ == "__main__":
