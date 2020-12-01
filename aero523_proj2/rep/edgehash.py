@@ -24,7 +24,8 @@ def edgehash(E, B):
     IE = IE[0:ni,:]
     # boundaries
     nb0 = nb = 0
-    for g in range(len(B)): nb0 += B[g].shape[0]
+    for g in range(len(B)): 
+        nb0 += B[g].shape[0]
     BE = np.zeros([nb0,4], dtype=np.int)
     for g in range(len(B)):
         Bi = B[g]

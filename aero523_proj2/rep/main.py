@@ -115,7 +115,6 @@ def run_fvm():
     plt.savefig('q3/Pfield.pdf', bbox_inches='tight')
     plt.show()
 
-
 def mesh_adapt(alpha):
 
     # Plot sequence of adapted meshes

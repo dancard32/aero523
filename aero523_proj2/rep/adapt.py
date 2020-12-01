@@ -1,6 +1,7 @@
 import numpy as np
 from numpy import linalg as LA
-from readgri import edgehash, writegri
+from readgri import writegri
+from edgehash import edgehash
 import matplotlib.pyplot as plt
 
 def mach_perp(u, nhat):
@@ -214,7 +215,7 @@ def genUE(u, Vcopy, V, E, IE, BE):
 
             
             Ucopy = np.append(Ucopy, np.transpose(np.array([[u[i,0]], [u[i,1]], [u[i,2]], [u[i,3]]])), axis=0)
-
+    Ecopy = Ecopy.astype(int)
     return Ucopy, Ecopy
 
 def genB(u, V, Vcopy, BE):
@@ -229,7 +230,21 @@ def genB(u, V, Vcopy, BE):
             Bcopy[i,:] = np.array([n1, ind.item(), i, bgroup])
             Bcopy = np.append(Bcopy, np.transpose(np.array([[ind.item()],[n2], [Bcopy.shape[0]+1], [bgroup]])), axis=0)
 
-    return Bcopy
+    B0 = np.array([[-1,-1]]); B1 = B0.copy(); B2 = B0.copy(); B3 = B0.copy()
+    for i in range(Bcopy.shape[0]):
+        n1, n2, e, bname = Bcopy[i,:]
+        if bname == 0:
+            B0 = np.append(B0, np.transpose(np.array([[n1], [n2]])), axis=0)
+        if bname == 1:
+            B1 = np.append(B1, np.transpose(np.array([[n1], [n2]])), axis=0)
+        if bname == 2:
+            B2 = np.append(B2, np.transpose(np.array([[n1], [n2]])), axis=0)
+        if bname == 3:
+            B3 = np.append(B3, np.transpose(np.array([[n1], [n2]])), axis=0)
+    B0 = B0[1:,:]; B1 = B1[1:,:]; B2 = B2[1:,:];  B3 = B3[1:,:];  
+    B = [B0.astype(int), B1.astype(int), B2.astype(int), B3.astype(int)]
+
+    return B
 
 def isboundary(nodestate, BEvec, Vvec):
     edgevals = np.array([])
@@ -296,14 +311,13 @@ def adapt(u, mach, V, E, IE, BE):
     flags = genflags(u, mach, V, E, IE, BE)
     Vcopy = genV(flags, V, E, IE, BE)
     Ucopy, Ecopy = genUE(u, Vcopy, V, E, IE, BE)
-    Bcopy = genB(u, V, Vcopy, BE)
+    B = genB(u, V, Vcopy, BE)    
+    IEcopy, BEcopy = edgehash(Ecopy, B)
 
-    print(Bcopy[:,0:2].astype(int))
-    IECopy, BEcopy = edgehash(Ecopy.astype(int), Bcopy[:,0:2].astype(int))
+    Mesh = {'V':Vcopy, 'E':Ecopy, 'IE':IEcopy, 'BE':BEcopy, 'Bname':['Engine', 'Exit', 'Outflow', 'Inflow'] }
+    writegri(Mesh, 'test1.gri')
 
-    plotmesh(Vcopy, Bcopy, Ecopy)
-
-    return u, Vcopy, Ecopy, IECopy, BEcopy
+    return u, Vcopy, Ecopy, IEcopy, BEcopy
     
 def plotmesh(V, B, E):
 
