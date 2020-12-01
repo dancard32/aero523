@@ -102,60 +102,8 @@ def genV(flags, V, E, IE, BE):
 
     return Vcopy
 
-def isboundary(nodestate, BEvec, Vvec):
-    edgevals = np.array([])
-    for k in range(3):
-        node = Vvec[int(nodestate[k])]
-        for i in range(BEvec.shape[0]):
-            n1, ig, ig, ig = BEvec[i,:]        # Node and elements from boundary edge
-            x1 = Vvec[n1,:]
-            if node[0] == x1[0] and node[1] == x1[1]:
-                edgevals = np.append(edgevals, nodestate[k])
-
-    return edgevals
-
-def isCCW(a, b, c):
-    cross_val = (b[0] - a[0])*(c[1] - a[1]) - (c[0] - a[0])*(b[1] - a[1])
-    
-
-    return cross_val
-
-def orientation(p, q, r):
-    val = (q[1] - p[1])*(r[0]-q[0]) - (q[0] - p[0])*(r[1] - q[1])
-    
-    return val
-
-def doIntersect(a, b, c, d):
-    
-    check = False
-    m = (b[1] - a[1])/(b[0] - a[0])
-
-    xlin = np.linspace(a[0], b[0], endpoint = True, num=25)
-    for i in range(25):
-        y = m*(xlin[i] - a[0]) + a[1]
-        
-        if y < max(np.array([c[1], d[1]])) and y > min(np.array([c[1], d[1]])) and xlin[i] < max(np.array([c[0], d[0]])) and xlin[i] > min(np.array([c[0], d[0]])):
-            check = True
-
-    return check
-
-
-def vert_ind(Vvec, x):
-    check = False; ind = np.array([])
-    # Loop over the vertices
-    for i in range(Vvec.shape[0]):
-        # If this vertex exists return False
-        if x[0] == Vvec[i,0] and x[1] == Vvec[i,1]:
-            check = True; ind = np.append(ind, [i])
-    
-    return check, ind
-
-def adapt(u, mach, V, E, IE, BE):
-
-    flags = genflags(u, mach, V, E, IE, BE)
-    Vcopy = genV(flags, V, E, IE, BE)
-
-    Ecopy = E.copy()
+def genUE(u, Vcopy, V, E, IE, BE):
+    Ecopy = E.copy(); Ucopy = u.copy()
     for i in range(Ecopy.shape[0]):
         n1, n2, n3 = Ecopy[i,:]
         x1 = V[int(n1),:]; x2 = V[int(n2),:]; x3 = V[int(n3),:]
@@ -179,55 +127,50 @@ def adapt(u, mach, V, E, IE, BE):
                 if Vcopy[int(nodes[k]),0] == vals[0,0] and Vcopy[int(nodes[k]),1] == vals[0,1]:
                     Ecopy[i,:] = np.array([n1, nodes[k], nodes[(k+2)%3]])   # Replace the ith element with new element
 
+                    ind1 = np.array([nodes[k], n2, nodes[(k+1)%3]])
+                    ind2 = np.array([nodes[k], nodes[(k+1)%3], nodes[(k+2)%3]])
+                    ind3 = np.array([nodes[(k+1)%3], nodes[(k+2)%3], n3])
+                    if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) != 1:
+                        ind1 = np.flip(ind1)
+                    if isCCW(Vcopy[int(ind2[0]),:], Vcopy[int(ind2[1]),:], Vcopy[int(ind2[2]),:]) != 1:
+                        ind2 = np.flip(ind2)
+                    if isCCW(Vcopy[int(ind3[0]),:], Vcopy[int(ind3[1]),:], Vcopy[int(ind3[2]),:]) != 1:
+                        ind3 = np.flip(ind3)
                     # Append new elements
-                    Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[k]], [n2], [nodes[(k+1)%3]]])), axis=0)
-                    Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[k]], [nodes[(k+1)%3]], [nodes[(k+2)%3]]])), axis=0)
-                    Ecopy = np.append(Ecopy, np.transpose(np.array([[nodes[(k+2)%3]], [nodes[(k+1)%3]], [n3]])), axis=0)
+                    Ecopy = np.append(Ecopy, np.transpose(np.array([[ind1[0]], [ind1[1]], [ind1[2]]])), axis=0)
+                    Ecopy = np.append(Ecopy, np.transpose(np.array([[ind2[0]], [ind2[1]], [ind2[2]]])), axis=0)
+                    Ecopy = np.append(Ecopy, np.transpose(np.array([[ind3[0]], [ind3[1]], [ind3[2]]])), axis=0)
+
+                    for l in range(3):
+                        Ucopy = np.append(Ucopy, np.transpose(np.array([[u[i,0]], [u[i,1]], [u[i,2]], [u[i,3]]])), axis=0)
                     break
             
         elif nodes.shape[0] == 2:
-            
             node_ind = np.array([n1, n2, n3])
+            
             if isCCW(Vcopy[int(node_ind[0]),:], Vcopy[int(node_ind[1]),:], Vcopy[int(node_ind[2]),:]) != 1:
                 node_ind = np.flip(node_ind)
-            #if isCCW(Vcopy[int(node_ind[0]),:], Vcopy[int(nodes[0]),:], Vcopy[int(nodes[1]),:]) != 1:
-            #    nodes = np.flip(nodes)
 
-            edgevals = isboundary(node_ind, BE, Vcopy)
             dl_old = 0
             for k in range(3):
                 for j in range(2):
-                    dl = LA.norm(node_ind[k] - nodes[j])
+                    dl = LA.norm(Vcopy[int(node_ind[k]),:] - Vcopy[int(nodes[j]),:])
                     if dl > dl_old:
                         dl_old = dl
-
-                        node_indtemp = np.array([node_ind[k], node_ind[(k-1)%3], node_ind[(k-2)%3]])
-                        ind1 = np.array([node_indtemp[0], nodes[0], nodes[1]])   
-                        ind2 = np.array([node_indtemp[0], node_indtemp[2], nodes[1]])
-                        ind3 = np.array([nodes[0], nodes[1], node_indtemp[1]])
                         
-                        
-                        p1 = Vcopy[int(node_indtemp[2]),:]; q1 = Vcopy[int(nodes[1]),:]
-                        p2 = Vcopy[int(node_indtemp[1]),:]; q2 = Vcopy[int(nodes[0]),:]
+                        node_indtemp = np.array([node_ind[k], node_ind[(k+1)%3], node_ind[(k+2)%3]])
+                        if isCCW(Vcopy[int(node_ind[k]),:], Vcopy[int(nodes[0]),:], Vcopy[int(nodes[1]),:]) == -1:
+                            nodetemp = np.flip(nodes)
+                            node_indtemp = np.flip(node_indtemp)
+                        else:
+                            nodetemp = nodes
+                            
+                        ind1 = np.array([node_indtemp[0], nodetemp[0], nodetemp[1]])
+                        ind2 = np.array([node_indtemp[0], node_indtemp[1], nodetemp[0]])
+                        ind3 = np.array([nodetemp[1], node_indtemp[2], nodetemp[0]])
 
-                        p3 = Vcopy[int(node_indtemp[0]),:]; q3 = Vcopy[int(nodes[1]),:]
-                        p4 = Vcopy[int(nodes[0]),:]; q4 = Vcopy[int(node_indtemp[1]),:]
 
-                        print(p1, q1)
-                        print(p2, q2)
-
-                        print(doIntersect(p1, q1, p2, q2))
-
-                        print(p3, q3)
-                        print(p4, q4)
-                        print(doIntersect(p3, q3, p4, q4))
-                        if doIntersect(p1, q1, p2, q2) or doIntersect(p3, q3, p4, q4):
-                            ind1 = np.array([node_indtemp[0], nodes[0], nodes[1]])   
-                            ind2 = np.array([node_indtemp[0], node_indtemp[1], nodes[1]])
-                            ind3 = np.array([nodes[0], nodes[1], node_indtemp[2]])
-                        
                     
-
             if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) != 1:
                 ind1 = np.flip(ind1)
             if isCCW(Vcopy[int(ind2[0]),:], Vcopy[int(ind2[1]),:], Vcopy[int(ind2[2]),:]) != 1:
@@ -239,6 +182,9 @@ def adapt(u, mach, V, E, IE, BE):
 
             Ecopy = np.append(Ecopy, np.transpose(np.array([[ind2[0]], [ind2[1]], [ind2[2]]])), axis=0)
             Ecopy = np.append(Ecopy, np.transpose(np.array([[ind3[0]], [ind3[1]], [ind3[2]]])), axis=0)
+
+            for k in range(2):
+                Ucopy = np.append(Ucopy, np.transpose(np.array([[u[i,0]], [u[i,1]], [u[i,2]], [u[i,3]]])), axis=0)
 
         elif nodes.shape[0] == 1:
             
@@ -262,8 +208,96 @@ def adapt(u, mach, V, E, IE, BE):
             Ecopy[i,:] = np.array([ind1[0], ind1[1], ind1[2]])
             Ecopy = np.append(Ecopy, np.transpose(np.array([[ind2[0]], [ind2[1]], [ind2[2]]])), axis=0)
 
+            
+            Ucopy = np.append(Ucopy, np.transpose(np.array([[u[i,0]], [u[i,1]], [u[i,2]], [u[i,3]]])), axis=0)
+
+    return Ucopy, Ecopy
+
+def genB(u, V, Vcopy, BE):
+    Bcopy = BE.copy()
+    for i in range(Bcopy.shape[0]):
+        n1, n2, e1, bgroup = BE[i,:]
+        xl = V[n1,:]; xr = V[n2,:]
         
+        check, ind = vert_ind(Vcopy, 0.5*(xr-xl) + xl)
+        if check:
+            
+            Bcopy[i,:] = np.array([n1, ind.item(), i, bgroup])
+            Bcopy = np.append(Bcopy, np.transpose(np.array([[ind.item()],[n2], [Bcopy.shape[0]+1], [bgroup]])), axis=0)
+
+    return Bcopy
+
+def isboundary(nodestate, BEvec, Vvec):
+    edgevals = np.array([])
+    for k in range(3):
+        node = Vvec[int(nodestate[k])]
+        for i in range(BEvec.shape[0]):
+            n1, ig, ig, ig = BEvec[i,:]        # Node and elements from boundary edge
+            x1 = Vvec[n1,:]
+            if node[0] == x1[0] and node[1] == x1[1]:
+                edgevals = np.append(edgevals, nodestate[k])
+
+    return edgevals
+
+def isCCW(a, b, c):
+    cross_val = (b[0] - a[0])*(c[1] - a[1]) - (c[0] - a[0])*(b[1] - a[1])
+    
+    if cross_val > 0:
+        cross_val = 1
+    elif cross_val < 0:
+        cross_val = -1
+    else:
+        cross_val = 0
+
+    return cross_val
+
+def orientation(p, q, r):
+    val = (q[1] - p[1])*(r[0]-q[0]) - (q[0] - p[0])*(r[1] - q[1])
+    
+    return val
+
+def doIntersect(a, b, c, d):
+    
+    check = False
+
+    m = (b[1] - a[1])/(b[0] - a[0])
+
+    xlin = np.linspace(a[0], b[0], endpoint = True, num=25)
+    for i in range(25):
+        y = m*(xlin[i] - a[0]) + a[1]
+        
+        if y < max(np.array([c[1], d[1]])) and y > min(np.array([c[1], d[1]])) and xlin[i] < max(np.array([c[0], d[0]])) and xlin[i] > min(np.array([c[0], d[0]])):
+            check = True
+    
+    return check
+
+def vert_ind(Vvec, x):
+    check = False; ind = np.array([])
+    # Loop over the vertices
+    for i in range(Vvec.shape[0]):
+        # If this vertex exists return False
+        if x[0] == Vvec[i,0] and x[1] == Vvec[i,1]:
+            check = True; ind = np.append(ind, [i])
+    
+    return check, ind
+
+def genArea(a,b,c):
+    s = 0.5*(a+b+c)
+    area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
+
+    return area
+
+def adapt(u, mach, V, E, IE, BE):
+
+    flags = genflags(u, mach, V, E, IE, BE)
+    Vcopy = genV(flags, V, E, IE, BE)
+    Ucopy, Ecopy = genUE(u, Vcopy, V, E, IE, BE)
+    Bcopy = genB(u, V, Vcopy, BE)
+
     plotmesh(Vcopy, BE, Ecopy)
+    IECopy, BEcopy = edgehash(Ecopy.astype(int), Bcopy.astype(int))
+
+    return u, Vcopy, Ecopy, IECopy, BEcopy
     
 def plotmesh(V, B, E):
 
@@ -275,3 +309,4 @@ def plotmesh(V, B, E):
     plt.axis('equal'); plt.axis('off')
     f.tight_layout(); 
     plt.show()
+    
