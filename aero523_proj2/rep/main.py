@@ -144,6 +144,18 @@ def mesh_adapt():
         u, err, ATPR, V, E, BE, IE = solve(u, mesh)
         mach, pt = post_process(u)
                 
+        plt.figure(figsize=(8,4.5))
+        plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
+        plt.axis('off')
+        plt.colorbar(label='Mach Number')
+        plt.show()
+
+        plt.figure(figsize=(8,4.5))
+        plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
+        plt.axis('off')
+        plt.colorbar(label='Total Pressure')
+        plt.show()
+
         # Append the values
         ATPRlin = np.append(ATPRlin, ATPR[ATPR.shape[0]-1])
         Numcells = np.append(Numcells, E.shape[0])
@@ -193,44 +205,43 @@ def vary_alpha():
             
             u, err, ATPR, V, E, BE, IE = solve(u, mesh)
             mach, pt = post_process(u)
-            
+              
+            plt.figure(figsize=(8,4.5))
+            plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
+            plt.axis('off')
+            #plt.savefig('q5/mach_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
+            plt.pause(1)
+            plt.close()
+
+            plt.figure(figsize=(8,4.5))
+            plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
+            plt.axis('off')
+            #plt.savefig('q5/pt_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
+            plt.pause(1)
+            plt.close()
+
             # Adapt the mesh
             u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 'q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i+1) +'.gri')
-
-
-        plt.figure(figsize=(8,4.5))
-        plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
-        plt.axis('off')
-        plt.savefig('q5/mach_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
-        plt.pause(0.2)
-        plt.close()
-
-        plt.figure(figsize=(8,4.5))
-        plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
-        plt.axis('off')
-        plt.savefig('q5/pt_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
-        plt.pause(0.2)
-        plt.close()
-
         ATPRlin = np.append(ATPRlin, ATPR[ATPR.shape[0]-1])
 
-
-    f = open('q5/atpr_out', 'w'); output = ''
-    for i in range(6):
-        output += r'%.1f\degree & %.3f \\'%(alphas[i], atpr_out[i])
-    f.write(output)
-    f.close()
+    SaveOut = False
+    if SaveOut == True:
+        f = open('q5/atpr_out', 'w'); output = ''
+        for i in range(6):
+            output += r'%.1f\degree & %.3f \\'%(alphas[i], ATPRlin[i])
+        f.write(output)
+        f.close()
 
     plt.figure(figsize=(9,5))
-    plt.plot(alphas, atpr_out, lw=2, color='k')
+    plt.plot(alphas, ATPRlin, lw=2, color='k')
     plt.xlabel(r'Angle of attack, $\alpha$', fontsize=16)
     plt.ylabel(r'ATPR Output', fontsize=16)
-    plt.savefig('q5/ATPR.pdf', bbox_inches='tight')
+    #plt.savefig('q5/ATPR.pdf', bbox_inches='tight')
     plt.show()
 
 if __name__ == "__main__":
     #test_flux()
     #run_fvm()
-    mesh_adapt()
-    #vary_alpha()
+    #mesh_adapt()
+    vary_alpha()
     

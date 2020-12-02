@@ -58,7 +58,6 @@ def genflags(u, mach, V, E, IE, BE):
     flags = flags[flags[:,1].argsort()]; flags = np.flipud(flags)
     # Remove all outliers to be refined
     ind = int(np.ceil(flags.shape[0] * 0.03))
-    #ind = int(np.ceil(flags.shape[0] * 0.1))
     flags[ind:(flags.shape[0]-1),1] = 0
 
     # Sort the errors increasing the edge number to iterate
@@ -259,7 +258,7 @@ def genB(u, V, Vcopy, BE):
         if bname == 2:
             B2 = np.append(B2, np.transpose(np.array([[n1], [n2]])), axis=0)
         if bname == 3:
-            B3 = np.append(B3, np.transpose(np.array([[n2], [n1]])), axis=0)
+            B3 = np.append(B3, np.transpose(np.array([[n1], [n2]])), axis=0)
     B0 = B0[1:,:]; B1 = B1[1:,:]; B2 = B2[1:,:];  B3 = B3[1:,:];  
     B = [B0.astype(int), B1.astype(int), B2.astype(int), B3.astype(int)]
 
@@ -287,12 +286,6 @@ def vert_ind(Vvec, x):
             check = True; ind = np.append(ind, [i])
     
     return check, ind
-
-def correctIE(IE):
-    for i in range(IE.shape[0]):
-        IE[i,:] = np.array([IE[i,0]-2, IE[i,1]-2, IE[i,2], IE[i,3]])
-
-    return IE
 
 def adapt(u, mach, V, E, IE, BE, filepath):
 
