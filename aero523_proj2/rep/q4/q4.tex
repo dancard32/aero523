@@ -7,7 +7,6 @@ In this section I will implement an adaptive mesh function that will flag edges 
 \subsubsection{Adapted Meshes}
 In this section, I will implement the Mach jumps into the code to refine the meshes to lower the error in the approximated solution. Using my code I will create a new mesh after each iterative solution and then refine the mesh that will be used on the next approximation. Shown on the following page in Figure \ref{fig:adapted_meshes}, are the meshes after each refinement. Most notable, is that the mesh refines at the location at which oblique shocks are forming -- the interior and inlet of the engine. This refinement makes sense intuitively since shocks provide a discontinuity in the flow which naturally cause large errors in calculation.
 
-
 \pagebreak
 \begin{figure}[h!]
     \centering

@@ -127,32 +127,30 @@ def run_fvm():
     plt.savefig('q3/Pfield.pdf', bbox_inches='tight')
     plt.show()
 
-def mesh_adapt(alpha):
-
+def mesh_adapt():
+    alpha = 1
     # First iteration - IC
-    mesh = readgri('test0.gri'); E = mesh['E']
+    mesh = readgri('mesh0.gri'); E = mesh['E']
     u = FVMIC(alpha, E.shape[0])
-    #test = np.array([0.53189414, 0.58794786, 0.4576574,  0.24801386, 0.72982654, 0.02918595, 0.19271085, 0.26531498]) # Double flag case
-    #u[:,0] += test
-
+    
+    print('Mesh Adaptations\n' + 25*'-')
     ATPRlin = np.array([]); Numcells = np.array([])
     for i in range(6):
-        
-        # Load in mesh 
-        mesh = readgri('test'+ str(i) + '.gri')
-
+        print('Mesh - %.f \n'%i + 15*'-')
+        mesh = readgri('q4/meshs/mesh'+ str(i) + '.gri'); E = mesh['E']
+        u = FVMIC(alpha, E.shape[0])
+    
         plotmesh(mesh, 'q4/mesh' + str(i) + '.pdf')
         u, err, ATPR, V, E, BE, IE = solve(u, mesh)
         mach, pt = post_process(u)
-        
-        
+                
         # Append the values
         ATPRlin = np.append(ATPRlin, ATPR[ATPR.shape[0]-1])
         Numcells = np.append(Numcells, E.shape[0])
 
         # Adapt the mesh
-        u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, i+1)
-        mach, pt = post_process(u)
+        u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 'q4/meshs/mesh' + str(i+1) + '.gri')
+        
     
     # Generate plots
     plt.figure(figsize=(8,4.5))
@@ -182,28 +180,39 @@ def vary_alpha():
     # Run same adaptive iterations for each alpha at least 5
     # Plot ATPR from finest mesh vs. alpha and discuss trend
     alphas = np.arange(0.5,3.5, step=0.5)
-    atpr_out = np.zeros(6); k = 0
-    for i in alphas:
+    ATPRlin = np.array([])
+    for alpha in alphas:
+        # First iteration - IC
+        mesh = readgri('q5/meshs/'+ str(int(alpha*10))+'/mesh0.gri'); E = mesh['E']
+        u = FVMIC(alpha, E.shape[0])
+    
+        print('Mesh Adaptations\n' + 25*'-')
+        for i in range(6):
+            print('Mesh - %.f \n'%i + 15*'-')
+            mesh = readgri('q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i) +'.gri')
+            
+            u, err, ATPR, V, E, BE, IE = solve(u, mesh)
+            mach, pt = post_process(u)
+            
+            # Adapt the mesh
+            u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 'q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i+1) +'.gri')
 
-        start = time.time()
-        u, err, ATPR, V, E, BE, IE = solve(i, mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
-        mach, pt = post_process(u)
 
         plt.figure(figsize=(8,4.5))
         plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
         plt.axis('off')
-        plt.savefig('q5/mach_a' + str(int(i*10)) + '.pdf', bbox_inches='tight')
+        plt.savefig('q5/mach_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
         plt.pause(0.2)
         plt.close()
 
         plt.figure(figsize=(8,4.5))
         plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
         plt.axis('off')
-        plt.savefig('q5/pt_a' + str(int(i*10)) + '.pdf', bbox_inches='tight')
+        plt.savefig('q5/pt_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
         plt.pause(0.2)
         plt.close()
 
-        atpr_out[k] = ATPR[len(ATPR)-1]; k += 1
+        ATPRlin = np.append(ATPRlin, ATPR[ATPR.shape[0]-1])
 
 
     f = open('q5/atpr_out', 'w'); output = ''
@@ -220,8 +229,8 @@ def vary_alpha():
     plt.show()
 
 if __name__ == "__main__":
-    test_flux()
-    run_fvm()
-    #mesh_adapt(1)
+    #test_flux()
+    #run_fvm()
+    mesh_adapt()
     #vary_alpha()
     

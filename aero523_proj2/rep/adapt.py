@@ -121,6 +121,10 @@ def genUE(u, Vcopy, V, E, IE, BE):
             # Ensure that the nodes are CCW
             if isCCW(Vcopy[int(nodes[0]),:], Vcopy[int(nodes[1]),:], Vcopy[int(nodes[2]),:]) != 1:
                 nodes = np.flip(nodes)
+            
+            nodeint = np.array([n1, n2, n3])
+            if isCCW(Vcopy[int(nodeint[0]),:], Vcopy[int(nodeint[1]),:], Vcopy[int(nodeint[2]),:]) != 1:
+                nodeint = np.flip(nodeint)
 
             # Loop through the nodes
             for k in range(3):
@@ -151,24 +155,40 @@ def genUE(u, Vcopy, V, E, IE, BE):
             
             if isCCW(Vcopy[int(node_ind[0]),:], Vcopy[int(node_ind[1]),:], Vcopy[int(node_ind[2]),:]) != 1:
                 node_ind = np.flip(node_ind)
-
-            dl_old = 0
+            
+            ccw_count = 0
             for k in range(3):
-                for j in range(2):
-                    dl = LA.norm(Vcopy[int(node_ind[k]),:] - Vcopy[int(nodes[j]),:])
-                    if dl > dl_old:
-                        dl_old = dl
-                        
-                        nodetemp = nodes
-                        node_indtemp = np.array([node_ind[k], node_ind[(k+1)%3], node_ind[(k+2)%3]])
-                        if j == 0:
-                            ind1 = np.array([node_indtemp[0], nodetemp[0], nodetemp[1]])
-                            ind2 = np.array([node_indtemp[0], node_indtemp[1], nodetemp[1]])
-                            ind3 = np.array([nodetemp[1], node_indtemp[2], node_indtemp[2]])
-                        else:
-                            ind1 = np.array([node_indtemp[0], nodetemp[0], nodetemp[1]])
-                            ind2 = np.array([node_indtemp[0], node_indtemp[2], nodetemp[1]])
-                            ind3 = np.array([nodetemp[1], node_indtemp[2], node_indtemp[1]])
+                if isCCW(Vcopy[int(node_ind[k]),:], Vcopy[int(nodes[0]),:], Vcopy[int(nodes[1]),:]) != 1:
+                    ccw_count += 1
+            if ccw_count == 2:
+                nodes = np.flip(nodes)
+
+            for k in range(3):
+                xn1 = Vcopy[int(node_ind[k]),:]; xn2 = Vcopy[int(node_ind[(k+1)%3]),:]; xn3 = Vcopy[int(node_ind[(k-1)%3]),:]
+
+                test1 = (xn2-xn1)/2 + xn1; test2 = (xn1-xn3)/2 + xn3
+
+                if '%.5f'%test1[0] == '%.5f'%Vcopy[int(nodes[1]),0] and '%.5f'%test1[1] == '%.5f'%Vcopy[int(nodes[1]),1] and '%.5f'%test2[0] == '%.5f'%Vcopy[int(nodes[0]),0] and '%.5f'%test2[1] == '%.5f'%Vcopy[int(nodes[0]),1]:
+                    ind1 = np.array([node_ind[k], nodes[1], nodes[0]])
+                    newnodes = np.array([node_ind[(k+1)%3], node_ind[(k+2)%3]])
+            
+            
+            vn1 = Vcopy[int(nodes[0]),:]; vn2 = Vcopy[int(nodes[1]),:]
+            xn1 = Vcopy[int(newnodes[0]),:]; xn2 = Vcopy[int(newnodes[1]),:]
+
+            temp1 = (vn1-xn1)/2 + xn1; temp2 = (vn2-xn1)/2 + xn1
+            theta1 = np.arccos(np.dot(temp1, temp2)/(LA.norm(temp1)*LA.norm(temp2)))
+
+            temp1 = (vn1-xn2)/2 + xn2; temp2 = (vn2-xn2)/2 + xn2
+            theta2 = np.arccos(np.dot(temp1, temp2)/(LA.norm(temp1)*LA.norm(temp2)))
+                
+            if theta1 >= theta2:
+                ind2 = np.array([newnodes[1], nodes[0], nodes[1]])
+                ind3 = np.array([newnodes[0], newnodes[1], nodes[1]])
+            else:
+                ind2 = np.array([newnodes[0], nodes[0], nodes[1]])
+                ind3 = np.array([newnodes[0], newnodes[1], nodes[0]])
+            
                             
             if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) != 1:
                 ind1 = np.flip(ind1)
@@ -207,8 +227,15 @@ def genUE(u, Vcopy, V, E, IE, BE):
             Ecopy[i,:] = np.array([ind1[0], ind1[1], ind1[2]])
             Ecopy = np.append(Ecopy, np.transpose(np.array([[ind2[0]], [ind2[1]], [ind2[2]]])), axis=0)
 
-            
             Ucopy = np.append(Ucopy, np.transpose(np.array([[u[i,0]], [u[i,1]], [u[i,2]], [u[i,3]]])), axis=0)
+
+    for i in range(Ecopy.shape[0]):
+        n1, n2, n3 = Ecopy[i,:]
+        ind1 = np.array([n1, n2, n3])
+        if isCCW(Vcopy[int(ind1[0]),:], Vcopy[int(ind1[1]),:], Vcopy[int(ind1[2]),:]) != 1:
+            Ecopy[i,:] = np.array([Ecopy[i,2], Ecopy[i,1], Ecopy[i,0]])
+
+
     Ecopy = Ecopy.astype(int)
     return Ucopy, Ecopy
 
@@ -217,10 +244,8 @@ def genB(u, V, Vcopy, BE):
     for i in range(Bcopy.shape[0]):
         n1, n2, e1, bgroup = BE[i,:]
         xl = V[n1,:]; xr = V[n2,:]
-        
-        check, ind = vert_ind(Vcopy, 0.5*(xr-xl) + xl)
+        check, ind = vert_ind(Vcopy, 0.5*(xr+xl))
         if check:
-            
             Bcopy[i,:] = np.array([n1, ind.item(), i, bgroup])
             Bcopy = np.append(Bcopy, np.transpose(np.array([[ind.item()],[n2], [Bcopy.shape[0]+1], [bgroup]])), axis=0)
 
@@ -234,23 +259,11 @@ def genB(u, V, Vcopy, BE):
         if bname == 2:
             B2 = np.append(B2, np.transpose(np.array([[n1], [n2]])), axis=0)
         if bname == 3:
-            B3 = np.append(B3, np.transpose(np.array([[n1], [n2]])), axis=0)
+            B3 = np.append(B3, np.transpose(np.array([[n2], [n1]])), axis=0)
     B0 = B0[1:,:]; B1 = B1[1:,:]; B2 = B2[1:,:];  B3 = B3[1:,:];  
     B = [B0.astype(int), B1.astype(int), B2.astype(int), B3.astype(int)]
 
     return B
-
-def isboundary(nodestate, BEvec, Vvec):
-    edgevals = np.array([])
-    for k in range(3):
-        node = Vvec[int(nodestate[k])]
-        for i in range(BEvec.shape[0]):
-            n1, ig, ig, ig = BEvec[i,:]        # Node and elements from boundary edge
-            x1 = Vvec[n1,:]
-            if node[0] == x1[0] and node[1] == x1[1]:
-                edgevals = np.append(edgevals, nodestate[k])
-
-    return edgevals
 
 def isCCW(a, b, c):
     cross_val = (b[0] - a[0])*(c[1] - a[1]) - (c[0] - a[0])*(b[1] - a[1])
@@ -264,66 +277,45 @@ def isCCW(a, b, c):
 
     return cross_val
 
-def orientation(p, q, r):
-    val = (q[1] - p[1])*(r[0]-q[0]) - (q[0] - p[0])*(r[1] - q[1])
-    
-    return val
-
-def doIntersect(a, b, c, d):
-    
-    check = False
-
-    m = (b[1] - a[1])/(b[0] - a[0])
-
-    xlin = np.linspace(a[0], b[0], endpoint = True, num=25)
-    for i in range(25):
-        y = m*(xlin[i] - a[0]) + a[1]
-        
-        if y < max(np.array([c[1], d[1]])) and y > min(np.array([c[1], d[1]])) and xlin[i] < max(np.array([c[0], d[0]])) and xlin[i] > min(np.array([c[0], d[0]])):
-            check = True
-    
-    return check
-
 def vert_ind(Vvec, x):
     check = False; ind = np.array([])
     # Loop over the vertices
     for i in range(Vvec.shape[0]):
         # If this vertex exists return False
+        
         if x[0] == Vvec[i,0] and x[1] == Vvec[i,1]:
             check = True; ind = np.append(ind, [i])
     
     return check, ind
 
-def genArea(a,b,c):
-    s = 0.5*(a+b+c)
-    area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
+def correctIE(IE):
+    for i in range(IE.shape[0]):
+        IE[i,:] = np.array([IE[i,0]-2, IE[i,1]-2, IE[i,2], IE[i,3]])
 
-    return area
+    return IE
 
-def adapt(u, mach, V, E, IE, BE, itr):
+def adapt(u, mach, V, E, IE, BE, filepath):
 
     flags = genflags(u, mach, V, E, IE, BE)         # Flag edges along the interior and exterior
     Vcopy = genV(flags, V, E, IE, BE)               # With the flags determine the nodes on the elements to split
     Ucopy, Ecopy = genUE(u, Vcopy, V, E, IE, BE)    # Determine the new Elements and with them the new U
     B = genB(u, V, Vcopy, BE)                       # With the old boundary edges determine which are on the edges
     IEcopy, BEcopy = edgehash(Ecopy, B)
-
-    plotmesh(Vcopy, BEcopy, Ecopy)
-
+    
     # Prepare for input to writegri       
     Mesh = {'V':Vcopy, 'E':Ecopy, 'IE':IEcopy, 'BE':BEcopy, 'Bname':['Engine', 'Exit', 'Outflow', 'Inflow'] }
-    writegri(Mesh, 'test' + str(itr) + '.gri')
+    writegri(Mesh, filepath)
 
     return Ucopy, Vcopy, Ecopy, IEcopy, BEcopy
     
 def plotmesh(V, BE, E):
 
-    f = plt.figure(figsize=(12,12))
+    f = plt.figure(figsize=(10,10))
     plt.triplot(V[:,0], V[:,1], E, 'k-')
     plt.scatter(V[:,0], V[:,1])
     for i in range(BE.shape[0]):
         plt.plot(V[BE[i,0:2],0],V[BE[i,0:2],1], '-', linewidth=2, color='blue')
     plt.axis('equal'); plt.axis('off')
     f.tight_layout(); 
-    plt.draw()
+    plt.show()
     

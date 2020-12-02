@@ -20,7 +20,6 @@ def calcATPR(u0, u, alpha, V, BE):
 
     Pinf = (gam-1)*(u0[0,3]-0.5*u0[0,0]*((u0[1,0]/u0[0,0])**2 + (u0[2,0]/u0[0,0])**2))
     Ptinf = Pinf*(1 + 0.5*(gam-1)*(2.2)**2)*(gam/(gam-1))
-    print(Pinf, Ptinf)
 
     ATPR = 0; d = 0
     for i in range(BE.shape[0]):
@@ -54,7 +53,7 @@ def solve(u0, mesh):
     #for k in range(50):
         R *= 0; dta *= 0
         for i in range(IE.shape[0]):
-            n1, n2, e1, e2 = IE[i,:]
+            n1, n2, e1, e2 = IE[i,:]            
             xl = V[n1,:]; xr = V[n2,:]
             ul = u[e1,:]; ur = u[e2,:]
 
@@ -85,6 +84,7 @@ def solve(u0, mesh):
             elif bgroup == 3: # Inflow
                 F, FL, FR, ls = RoeFlux(uedge, u0[0,:], nhat)
                 #F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
+                
             
             R[e1,:] += F*deltal
             dta[e1,:] += ls*deltal
