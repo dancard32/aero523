@@ -17,10 +17,11 @@ def getIC(alpha, Ne):
     
 def calcATPR(u0, u, alpha, V, BE):
     gam = 1.4
-
-    Pinf = (gam-1)*(u0[0,3]-0.5*u0[0,0]*((u0[1,0]/u0[0,0])**2 + (u0[2,0]/u0[0,0])**2))
-    Ptinf = Pinf*(1 + 0.5*(gam-1)*(2.2)**2)*(gam/(gam-1))
-
+    q = np.sqrt((u0[1]/u0[0])**2 + (u0[2]/u0[0])**2)
+    Pinf = (gam-1)*(u0[3]-0.5*u0[0]*q**2)
+    Ptinf = Pinf*(1 + 0.5*(gam-1)*(2.2)**2)**(gam/(gam-1))
+    
+    
     ATPR = 0; d = 0
     for i in range(BE.shape[0]):
         n1, n2, e1, bgroup = BE[i,:]
@@ -40,13 +41,23 @@ def calcATPR(u0, u, alpha, V, BE):
             d += dy
             ATPR += Pt*dy/Ptinf
             
+        
     ATPR *= 1/d
     return ATPR
-                
-def solve(u0, mesh):
+
+def getUinf(alpha):
+    gam = 1.4; mach = 2.2
+    alpha = np.deg2rad(alpha)
+    uinf = np.transpose(np.array([1, mach*np.cos(alpha), mach*np.sin(alpha), 1/(gam*(gam-1)) + mach**2/2]))
+
+    return uinf
+
+def solve(alpha, u0, mesh):
     V = mesh['V']; E = mesh['E']; BE = mesh['BE']; IE = mesh['IE']
 
-    u = u0.copy(); ATPR = np.array([calcATPR(u0,u,1,V,BE)])
+    uinf = getUinf(alpha)
+
+    u = u0.copy(); ATPR = np.array([calcATPR(uinf,u,alpha,V,BE)])
     R = np.zeros((E.shape[0], 4)); dta = R.copy(); err = np.array([1]); itr = 0
 
     while err[err.shape[0]-1] > 10**(-5):
@@ -93,7 +104,7 @@ def solve(u0, mesh):
         u -= np.multiply(dta, R)
         err = np.append(err, sum(sum(abs(R))))
 
-        ATPR = np.append(ATPR, calcATPR(u0,u,1,V,BE))
+        ATPR = np.append(ATPR, calcATPR(uinf,u,alpha,V,BE))
         print('Iteration: %3d,\tError: %.3e, ATPR: %.3f'%(itr, err[err.shape[0]-1], ATPR[ATPR.shape[0]-2])); itr += 1
 
     return u, err[1:], ATPR, V, E, BE, IE

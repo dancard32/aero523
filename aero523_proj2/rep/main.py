@@ -94,9 +94,8 @@ def run_fvm():
     u = FVMIC(1, E.shape[0])
 
     start = time.time()
-    u, err, ATPR, V, E, BE, IE = solve(u, mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
+    u, err, ATPR, V, E, BE, IE = solve(1, u, mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
     mach, pt = post_process(u)
-
 
     plt.figure(figsize=(8,5))
     plt.plot(np.arange(err.shape[0]), err, lw=2, color='k')
@@ -141,7 +140,7 @@ def mesh_adapt():
         u = FVMIC(alpha, E.shape[0])
     
         plotmesh(mesh, 'q4/mesh' + str(i) + '.pdf')
-        u, err, ATPR, V, E, BE, IE = solve(u, mesh)
+        u, err, ATPR, V, E, BE, IE = solve(alpha, u, mesh)
         mach, pt = post_process(u)
                 
         plt.figure(figsize=(8,4.5))
@@ -199,11 +198,11 @@ def vary_alpha():
         u = FVMIC(alpha, E.shape[0])
     
         print('Mesh Adaptations\n' + 25*'-')
-        for i in range(6):
+        for i in range(1):
             print('Mesh - %.f \n'%i + 15*'-')
             mesh = readgri('q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i) +'.gri')
             
-            u, err, ATPR, V, E, BE, IE = solve(u, mesh)
+            u, err, ATPR, V, E, BE, IE = solve(alpha, u, mesh)
             mach, pt = post_process(u)
               
             plt.figure(figsize=(8,4.5))
@@ -224,7 +223,7 @@ def vary_alpha():
             u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 'q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i+1) +'.gri')
         ATPRlin = np.append(ATPRlin, ATPR[ATPR.shape[0]-1])
 
-    SaveOut = False
+    SaveOut = True
     if SaveOut == True:
         f = open('q5/atpr_out', 'w'); output = ''
         for i in range(6):
@@ -236,7 +235,7 @@ def vary_alpha():
     plt.plot(alphas, ATPRlin, lw=2, color='k')
     plt.xlabel(r'Angle of attack, $\alpha$', fontsize=16)
     plt.ylabel(r'ATPR Output', fontsize=16)
-    #plt.savefig('q5/ATPR.pdf', bbox_inches='tight')
+    plt.savefig('q5/ATPR.pdf', bbox_inches='tight')
     plt.show()
 
 if __name__ == "__main__":
