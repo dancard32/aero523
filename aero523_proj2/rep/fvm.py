@@ -61,7 +61,6 @@ def solve(alpha, u0, mesh):
     R = np.zeros((E.shape[0], 4)); dta = R.copy(); err = np.array([1]); itr = 0
 
     while err[err.shape[0]-1] > 10**(-5):
-    #for k in range(50):
         R *= 0; dta *= 0
         for i in range(IE.shape[0]):
             n1, n2, e1, e2 = IE[i,:]            
@@ -86,16 +85,13 @@ def solve(alpha, u0, mesh):
                 vp = np.array([uedge[1], uedge[2]])/uedge[0]
                 vb = vp - np.dot(vp, nhat)*nhat
                 pb = 0.4*(uedge[3] - 0.5*uedge[0]*(vb[0]**2 + vb[1]**2))
-                ignore, FL, FR, ls = RoeFlux(uedge, u0[0,:], nhat)
+                ignore, FL, FR, ls = RoeFlux(uedge, uinf, nhat)
 
                 F = pb*np.array([0, nhat[0], nhat[1], 0])
-                #F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
             elif bgroup == 1 or bgroup == 2: # Exit/Outflow - Supersonic Outflow
                 F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
             elif bgroup == 3: # Inflow
-                F, FL, FR, ls = RoeFlux(uedge, u0[0,:], nhat)
-                #F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
-                
+                F, FL, FR, ls = RoeFlux(uedge, uinf, nhat)
             
             R[e1,:] += F*deltal
             dta[e1,:] += ls*deltal

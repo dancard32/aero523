@@ -19,7 +19,7 @@ def check_vert(Vvec, x):
     # Loop over the vertices
     for i in range(Vvec.shape[0]):
         # If this vertex exists return False
-        if x[0] == Vvec[i,0] and x[1] == Vvec[i,1]:
+        if '%.5f'%x[0] == '%.5f'%Vvec[i,0] and '%.5f'%x[1] == '%.5f'%Vvec[i,1]:
             check = False
             break
     
@@ -128,7 +128,7 @@ def genUE(u, Vcopy, V, E, IE, BE):
             # Loop through the nodes
             for k in range(3):
                 # Start at the nodes N1 -> N2 for consistency
-                if Vcopy[int(nodes[k]),0] == vals[0,0] and Vcopy[int(nodes[k]),1] == vals[0,1]:
+                if '%.5f'%Vcopy[int(nodes[k]),0] == '%.5f'%vals[0,0] and '%.5f'%Vcopy[int(nodes[k]),1] == '%.5f'%vals[0,1]:
                     Ecopy[i,:] = np.array([n1, nodes[k], nodes[(k+2)%3]])   # Replace the ith element with new element
 
                     ind1 = np.array([nodes[k], n2, nodes[(k+1)%3]])
@@ -207,7 +207,7 @@ def genUE(u, Vcopy, V, E, IE, BE):
         elif nodes.shape[0] == 1:
             
             for k in range(3):
-                if vals[k,0] == Vcopy[int(nodes[0]),0] and vals[k,1] == Vcopy[int(nodes[0]),1]:
+                if '%.5f'%vals[k,0] == '%.5f'%Vcopy[int(nodes[0]),0] and '%.5f'%vals[k,1] == '%.5f'%Vcopy[int(nodes[0]),1]:
                     if k == 0:
                         ind1 = np.array([n1, nodes[0], n3])
                         ind2 = np.array([n2, n3, nodes[0]])
@@ -243,10 +243,10 @@ def genB(u, V, Vcopy, BE):
     for i in range(Bcopy.shape[0]):
         n1, n2, e1, bgroup = BE[i,:]
         xl = V[n1,:]; xr = V[n2,:]
-        check, ind = vert_ind(Vcopy, 0.5*(xr+xl))
+        check, ind = vert_ind(Vcopy, (xl+xr)/2)
         if check:
-            Bcopy[i,:] = np.array([n1, ind.item(), i, bgroup])
-            Bcopy = np.append(Bcopy, np.transpose(np.array([[ind.item()],[n2], [Bcopy.shape[0]+1], [bgroup]])), axis=0)
+            Bcopy[i,:] = np.array([n1, ind[0], e1, bgroup])
+            Bcopy = np.append(Bcopy, np.transpose(np.array([[ind[0]],[n2], [Bcopy.shape[0]+1], [bgroup]])), axis=0)
 
     B0 = np.array([[-1,-1]]); B1 = B0.copy(); B2 = B0.copy(); B3 = B0.copy()
     for i in range(Bcopy.shape[0]):
@@ -259,6 +259,7 @@ def genB(u, V, Vcopy, BE):
             B2 = np.append(B2, np.transpose(np.array([[n1], [n2]])), axis=0)
         if bname == 3:
             B3 = np.append(B3, np.transpose(np.array([[n1], [n2]])), axis=0)
+    
     B0 = B0[1:,:]; B1 = B1[1:,:]; B2 = B2[1:,:];  B3 = B3[1:,:];  
     B = [B0.astype(int), B1.astype(int), B2.astype(int), B3.astype(int)]
 
@@ -282,8 +283,8 @@ def vert_ind(Vvec, x):
     for i in range(Vvec.shape[0]):
         # If this vertex exists return False
         
-        if x[0] == Vvec[i,0] and x[1] == Vvec[i,1]:
-            check = True; ind = np.append(ind, [i])
+        if '%.5f'%x[0] == '%.5f'%Vvec[i,0] and '%.5f'%x[1] == '%.5f'%Vvec[i,1]:
+            check = True; ind = np.append(ind, np.array([i]))
     
     return check, ind
 
@@ -294,6 +295,7 @@ def adapt(u, mach, V, E, IE, BE, filepath):
     Ucopy, Ecopy = genUE(u, Vcopy, V, E, IE, BE)    # Determine the new Elements and with them the new U
     B = genB(u, V, Vcopy, BE)                       # With the old boundary edges determine which are on the edges
     IEcopy, BEcopy = edgehash(Ecopy, B)
+    
     
     # Prepare for input to writegri       
     Mesh = {'V':Vcopy, 'E':Ecopy, 'IE':IEcopy, 'BE':BEcopy, 'Bname':['Engine', 'Exit', 'Outflow', 'Inflow'] }
