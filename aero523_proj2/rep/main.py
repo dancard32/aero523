@@ -186,9 +186,6 @@ def mesh_adapt():
 
 def vary_alpha():
 
-    # Vary alpha from 0.5:0.5:3 degrees
-    # Run same adaptive iterations for each alpha at least 5
-    # Plot ATPR from finest mesh vs. alpha and discuss trend
     alphas = np.arange(0.5,3.5, step=0.5)
     ATPRlin = np.array([])
     for alpha in alphas:
@@ -199,7 +196,8 @@ def vary_alpha():
         print('Mesh Adaptations\n' + 25*'-')
         for i in range(6):
             print('Mesh - %.f \n'%i + 15*'-')
-            mesh = readgri('q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i) +'.gri')
+            mesh = readgri('q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i) +'.gri'); E = mesh['E']
+            u = FVMIC(alpha, E.shape[0])
             
             u, err, ATPR, V, E, BE, IE = solve(alpha, u, mesh)
             mach, pt = post_process(u)
@@ -207,12 +205,13 @@ def vary_alpha():
             plt.figure(figsize=(8,4.5))
             plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
             plt.axis('off')
-            #plt.savefig('q5/mach_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
+            plt.savefig('q5/a' + str(int(alpha*10)) +'/mach_a' + str(int(alpha*10)) + '_'+ str(int(i))+ '.pdf', bbox_inches='tight')
             plt.pause(1)
             plt.close()
 
             plt.figure(figsize=(8,4.5))
             plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
+            plt.savefig('q5/a' + str(int(alpha*10)) +'/pt_a' + str(int(alpha*10)) + '_'+ str(int(i))+ '.pdf', bbox_inches='tight')
             plt.axis('off')
             plt.pause(1)
             plt.close()

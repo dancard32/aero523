@@ -88,12 +88,10 @@ def solve(alpha, u0, mesh):
                 ignore, FL, FR, ls = RoeFlux(uedge, uinf, nhat)
 
                 F = pb*np.array([0, nhat[0], nhat[1], 0])
-                F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
             elif bgroup == 1 or bgroup == 2: # Exit/Outflow - Supersonic Outflow
                 F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
             elif bgroup == 3: # Inflow
                 F, FL, FR, ls = RoeFlux(uedge, uinf, nhat)
-                F, FL, FR, ls = RoeFlux(uedge, uedge, nhat)
             
             R[e1,:] += F*deltal
             dta[e1,:] += ls*deltal
