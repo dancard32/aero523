@@ -251,8 +251,8 @@ def vary_alpha():
     plt.show()
 
 if __name__ == "__main__":
-    #test_flux()
-    #run_fvm()
-    #mesh_adapt()
+    test_flux()
+    run_fvm()
+    mesh_adapt()
     vary_alpha()
     

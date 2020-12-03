@@ -88,7 +88,7 @@ In this section, I will implement the Mach jumps into the code to refine the mes
     \begin{subfigure}[h]{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q4/Pfield0.pdf}
-        \caption{Baseline pressure field.}
+        \caption{Baseline pressure field.}\label{fig:pfield0}
     \end{subfigure}
     \begin{subfigure}[h]{0.49\linewidth}
         \centering
@@ -115,7 +115,7 @@ In this section, I will implement the Mach jumps into the code to refine the mes
     \begin{subfigure}[h]{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q4/Pfield5.pdf}
-        \caption{Pressure field, iteration 5.}
+        \caption{Pressure field, iteration 5.}\label{fig:pfield5}
     \end{subfigure}
     \caption[Adapted Meshes Versus Baseline Mesh]{Adapted meshes versus baseline mesh.}
     \label{fig:adapted_meshes}
@@ -132,7 +132,7 @@ In this section, I will implement the Mach jumps into the code to refine the mes
     \label{fig:adapted_mach}
 \end{figure}
 
-\paragraph{Finest Mesh Field Plot of Mach Number} Shown above in Figure \ref{fig:adapted_mach}, is the Mach field for the most refined mesh after 5 adaptive iterations. Comparing the results from this refined mesh to that in Figure \ref{fig:mach_mesh0} shows more refinement resolution to the mach number throughout the inlet of the engine and the shock train within the engine.
+\paragraph{Finest Mesh Field Plot of Mach Number} Shown above in Figure \ref{fig:adapted_mach}, is the Mach field for the most refined mesh after 5 adaptive iterations. Comparing the results from this refined mesh to that in Figure \ref{fig:mach_mesh0} shows more refinement resolution to the mach number throughout the inlet of the engine and the shock train within the engine. In this case these shock trains throughout the engine can be viewed as the differences in the Mach number in given regions indicating an oblique shock.
 
 \pagebreak
 \begin{figure}[h]
@@ -142,7 +142,7 @@ In this section, I will implement the Mach jumps into the code to refine the mes
     \label{fig:adapted_pt}
 \end{figure}
 
-\paragraph{Finest Mesh Field Plot of Total Pressure} Shown above in Figure \ref{fig:adapted_pt}, is the total pressure field for the most refined mesh after 5 adaptive iterations. Comparing the results from this refined mesh to that in Figure \ref{fig:pt_mesh0} shows better qualitatively how the total pressure decreases throughout the nozzle towards the exit of the engine.
+\paragraph{Finest Mesh Field Plot of Total Pressure} Shown above in Figure \ref{fig:adapted_pt}, is the total pressure field for the most refined mesh after 5 adaptive iterations. Comparing the results from this refined mesh to that in Figure \ref{fig:pt_mesh0} shows better qualitatively how the total pressure decreases throughout the nozzle towards the exit of the engine. However, what is shown better qualitatively through this figure is that the total pressure does not decrease as much as the coarse mesh had indicated and as a result the ATPR output will increase to a more physical answer.
 
 \pagebreak
 \subsubsection{Adapted Mesh ATPR Convergence}
@@ -153,5 +153,9 @@ In this section, I will implement the Mach jumps into the code to refine the mes
     \label{fig:adapted_ATPR}
 \end{figure}
 
-Shown above in Figure \ref{fig:adapted_ATPR}, is the ATPR output versus the number of cells and its effect on the convergence of the ATPR. As shown above, the ATPR output will converge towards an approximated solution as the cells increase the resolution of the mesh. Looking above, after the 5\textsuperscript{th} adaptation the ATPR output will start to reach diminishing returns on the increases on accuracy resulting in longer run times.
+Shown above in Figure \ref{fig:adapted_ATPR}, is the ATPR output versus the number of cells and its effect on the convergence of the ATPR. As shown above, the ATPR output will converge towards an approximated solution as the cells increase the resolution of the mesh. Looking above, after the 5\textsuperscript{th} adaptation the ATPR output will start to reach diminishing returns on the increases on accuracy resulting in longer run times (for me the finest mesh took approximately $1\frac{1}{2}$ hours to run, whereas the coarsest mesh was approximately 2 minutes).
+
+This increase in ATPR can be view qualitatively in Figures \ref{fig:pfield0}-\ref{fig:pfield5} as the rise of the total pressure at the exit of the engine after each mesh adaptation. It is this rise in the total pressure that attributes to the rise in the ATPR output with the given number of cells.
+
+However, increasing the number of cells greatly increases the runtime of the approximated solution even though the solutions are much more accurate. This is because to determine nodal locations it scales $\mathcal{O}(N^2)$ resulting in an almost exponential increase in runtime resulting from the number of cells in the mesh.
 

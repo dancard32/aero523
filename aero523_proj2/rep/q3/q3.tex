@@ -25,6 +25,8 @@ Shown above in Figure \ref{fig:l1_mesh0}, is the convergence of $L_1$ norm as my
 
 Next, was to check and confirm that the solution is giving a physical answer returning an ATPR that is less than one at the exit of the engine. The reason for the less than one is due to the fact that shocks are forming at the inlet of the engine resulting in a loss of total pressure due to entropy that cannot be recovered. Using Equation \ref{eqn:ATPR}, with the approximated state values I get Figure \ref{fig:ATPR_mesh0} above confirming that the solution is converging to a value that physically makes sense.
 
+Also noteworthy is that the ATPR output dips as the simulations starts as the approximated state starts iterating towards a more physical starting condition. This can be seen as the large decrease in ATPR followed by another increase in ATPR until it starts to gradually smooth out to the physical approximation.
+
 \pagebreak
 \subsubsection{Baseline Field Plots}
 
@@ -35,7 +37,7 @@ Next, was to check and confirm that the solution is giving a physical answer ret
     \label{fig:mach_mesh0}
 \end{figure}
 
-\paragraph{Field Plot of Mach Number} Above in Figure \ref{fig:mach_mesh0}, is the field plot of the mach number at $M_\infty = 2.2$ at an angle of $\alpha=1\degree$. This plot shows the free-stream mach number at the steady-state with visible oblique shocks at the inlet of the engine. However, due to the coarseness of the mesh, much information is lost within the interior of the engine resulting from the train of shocks inside the inlet of the engine. The next section aims to refine this mesh to return a more refined result.
+\paragraph{Field Plot of Mach Number} Above in Figure \ref{fig:mach_mesh0}, is the field plot of the mach number at $M_\infty = 2.2$ at an angle of $\alpha=1\degree$. This plot shows the free-stream mach number at the steady-state with visible oblique shocks at the inlet of the engine. However, due to the coarseness of the mesh, much information is lost within the interior of the engine resulting from the train of shocks inside the inlet of the engine. This loss of information is show by purely shaded regions with no visible Mach lines throughout the diffusor of the engine. The next section aims to refine this mesh to return a more refined result.
 
 \pagebreak
 \begin{figure}[h]
