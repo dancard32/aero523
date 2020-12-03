@@ -42,6 +42,81 @@ In this section, I will implement the Mach jumps into the code to refine the mes
         \includegraphics[width=\linewidth]{rep/q4/mesh5.pdf}
         \caption{Adapted mesh, iteration 5.}
     \end{subfigure}
+\end{figure}
+
+\pagebreak
+\begin{figure}[h!]\ContinuedFloat
+    \centering
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Machfield0.pdf}
+        \caption{Baseline mesh.}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Machfield1.pdf}
+        \caption{Adapted mesh, iteration 1.}
+    \end{subfigure}
+
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Machfield2.pdf}
+        \caption{Adapted mesh, iteration 2.}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Machfield3.pdf}
+        \caption{Adapted mesh, iteration 3.}
+    \end{subfigure}
+
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Machfield4.pdf}
+        \caption{Adapted mesh, iteration 4.}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Machfield5.pdf}
+        \caption{Adapted mesh, iteration 5.}
+    \end{subfigure}
+\end{figure}
+
+
+\pagebreak
+\begin{figure}[h!]\ContinuedFloat
+    \centering
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Pfield0.pdf}
+        \caption{Baseline mesh.}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Pfield1.pdf}
+        \caption{Adapted mesh, iteration 1.}
+    \end{subfigure}
+
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Pfield2.pdf}
+        \caption{Adapted mesh, iteration 2.}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Pfield3.pdf}
+        \caption{Adapted mesh, iteration 3.}
+    \end{subfigure}
+
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Pfield4.pdf}
+        \caption{Adapted mesh, iteration 4.}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{rep/q4/Pfield5.pdf}
+        \caption{Adapted mesh, iteration 5.}
+    \end{subfigure}
     \caption[Adapted Meshes Versus Baseline Mesh]{Adapted meshes versus baseline mesh.}
     \label{fig:adapted_meshes}
 \end{figure}
@@ -52,7 +127,7 @@ In this section, I will implement the Mach jumps into the code to refine the mes
 \subsubsection{Adapted Mesh Field Plots}
 \begin{figure}[h]
     \centering
-    \includegraphics[width = 0.9\linewidth]{rep/q4/Machfield.pdf}
+    \includegraphics[width = 0.9\linewidth]{rep/q4/Machfield5.pdf}
     \caption[Field Plot of Mach Number for Adapted Mesh]{Field plot of Mach number with $\alpha = 1\degree$ for the finest mesh.}
     \label{fig:adapted_mach}
 \end{figure}
@@ -62,7 +137,7 @@ In this section, I will implement the Mach jumps into the code to refine the mes
 \pagebreak
 \begin{figure}[h]
     \centering
-    \includegraphics[width = 0.9\linewidth]{rep/q4/Pfield.pdf}
+    \includegraphics[width = 0.9\linewidth]{rep/q4/Pfield5.pdf}
     \caption[Field Plot of Total Pressure for Adapted Mesh]{Field plot of total pressure with $\alpha = 1\degree$ for the finest mesh.}
     \label{fig:adapted_pt}
 \end{figure}
@@ -78,5 +153,5 @@ In this section, I will implement the Mach jumps into the code to refine the mes
     \label{fig:adapted_ATPR}
 \end{figure}
 
-Shown above in Figure \ref{fig:adapted_ATPR}, is the ATPR output versus the number of cells and its effect on the convergence of the ATPR. As shown above, the ATPR output will converge towards an approximated solution fairly fast specifically reaching the approximated solution after the 2\textsuperscript{nd} or 3\textsuperscript{rd} iteration. Increasing the number of cells can aid in the resolution of the solution, but at the cost of longer run times.
+Shown above in Figure \ref{fig:adapted_ATPR}, is the ATPR output versus the number of cells and its effect on the convergence of the ATPR. As shown above, the ATPR output will converge towards an approximated solution as the cells increase the resolution of the mesh. Looking above, after the 5\textsuperscript{th} adaptation the ATPR output will start to reach diminishing returns on the increases on accuracy resulting in longer run times.
 

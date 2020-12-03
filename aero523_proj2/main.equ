@@ -1,10 +1,10 @@
-\contentsline {myequations}{\hspace {0.6cm}\numberline {1}Freestream State}{4}{equation.1.1}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {2}Average Total Pressure Recovery}{5}{equation.1.2}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {3}Cell Average}{6}{equation.2.3}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {4}Flux Residual}{6}{equation.2.4}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {5}CFL Definition}{6}{equation.2.5}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {6}Time Stepping}{6}{equation.2.6}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {7}Residual Vector}{7}{equation.2.7}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {8}Forward-Euler Time Stepping Scheme}{7}{equation.2.8}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {9}Roe Flux}{10}{equation.4.9}%
-\contentsline {myequations}{\hspace {0.6cm}\numberline {10}Roe Flux for Euler Equations}{10}{equation.4.10}%
+\contentsline {myequations}{\hspace {0.6cm}\numberline {1}Freestream State}{4}{equation.1.1}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {2}Average Total Pressure Recovery}{5}{equation.1.2}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {3}Cell Average}{6}{equation.2.3}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {4}Flux Residual}{6}{equation.2.4}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {5}CFL Definition}{6}{equation.2.5}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {6}Time Stepping}{6}{equation.2.6}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {7}Residual Vector}{7}{equation.2.7}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {8}Forward-Euler Time Stepping Scheme}{7}{equation.2.8}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {9}Roe Flux}{10}{equation.4.9}% 
+\contentsline {myequations}{\hspace {0.6cm}\numberline {10}Roe Flux for Euler Equations}{10}{equation.4.10}% 

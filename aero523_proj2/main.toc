@@ -1,59 +1,59 @@
-\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
-\contentsline {paragraph}{Geometry:}{4}{paragraph*.3}%
-\contentsline {paragraph}{Governing Equations:}{4}{paragraph*.5}%
-\contentsline {paragraph}{Units:}{4}{paragraph*.6}%
-\contentsline {paragraph}{Initial and Boundary Conditions:}{5}{paragraph*.7}%
-\contentsline {paragraph}{Output:}{5}{paragraph*.8}%
-\contentsline {section}{\numberline {2}Numerical Method}{6}{section.2}%
-\contentsline {paragraph}{Discretization:}{6}{paragraph*.9}%
-\contentsline {paragraph}{Local Time Stepping:}{6}{paragraph*.10}%
-\contentsline {paragraph}{Residuals and Convergences:}{7}{paragraph*.11}%
-\contentsline {paragraph}{Numerical Flux:}{7}{paragraph*.12}%
-\contentsline {paragraph}{Time Stepping:}{7}{paragraph*.13}%
-\contentsline {paragraph}{Mesh:}{8}{paragraph*.14}%
-\contentsline {paragraph}{Output Calculation:}{8}{paragraph*.16}%
-\contentsline {section}{\numberline {3}Adaptation}{9}{section.3}%
-\contentsline {section}{\numberline {4}Tasks and Deliverables}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Roe Flux Overview}{10}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Roe Flux Function}{11}{subsubsection.4.1.1}%
-\contentsline {paragraph}{Inputs}{11}{paragraph*.18}%
-\contentsline {paragraph}{Generating Arguments}{11}{paragraph*.19}%
-\contentsline {paragraph}{Roe-Average}{11}{paragraph*.20}%
-\contentsline {paragraph}{Final Calculation}{11}{paragraph*.21}%
-\contentsline {subsubsection}{\numberline {4.1.2}Subsonic and Supersonic Implementation Tests}{12}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Consistency Check:}{12}{paragraph*.22}%
-\contentsline {paragraph}{Direction Flipping}{12}{paragraph*.24}%
-\contentsline {paragraph}{Supersonic Normal Velocity}{12}{paragraph*.26}%
-\contentsline {subsection}{\numberline {4.2}Implementing Finite Volume Method}{13}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Main Driving Code}{13}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Finite-Volume-Element Implementation}{13}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Flux Code Implementation}{14}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Mesh Adaption Implementation}{14}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Miscellaneous Code}{14}{subsubsection.4.2.5}%
-\contentsline {paragraph}{Initial Condition}{14}{paragraph*.28}%
-\contentsline {paragraph}{ATPR Calculation}{14}{paragraph*.29}%
-\contentsline {subsection}{\numberline {4.3}Convergences and Analysis of Baseline Mesh}{15}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}$L_1$ Norm Convergence}{15}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}ATPR Output}{16}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Baseline Field Plots}{17}{subsubsection.4.3.3}%
-\contentsline {paragraph}{Field Plot of Mach Number}{17}{paragraph*.33}%
-\contentsline {paragraph}{Field Plot of Total Pressure}{18}{paragraph*.35}%
-\contentsline {subsection}{\numberline {4.4}Implementing Mach Number Jumps}{19}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Adapted Meshes}{19}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Adapted Mesh Field Plots}{21}{subsubsection.4.4.2}%
-\contentsline {paragraph}{Finest Mesh Field Plot of Mach Number}{21}{paragraph*.38}%
-\contentsline {paragraph}{Finest Mesh Field Plot of Total Pressure}{22}{paragraph*.40}%
-\contentsline {subsubsection}{\numberline {4.4.3}Adapted Mesh ATPR Convergence}{23}{subsubsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{24}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}ATPR Versus Angle of Attack}{24}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Flow Fields for Varying Angle of Attacks}{25}{subsubsection.4.5.2}%
-\contentsline {paragraph}{Effect on Mach Field from Varying Angle of Attack}{25}{paragraph*.45}%
-\contentsline {paragraph}{Effect on Total Pressure Field from Varying Angle of Attack}{26}{paragraph*.47}%
-\contentsline {section}{Appendices}{27}{section*.48}%
-\contentsline {section}{Appendix \numberline {A}Python Implementation}{27}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Main Driving Code}{27}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Finite-Volume-Element Code}{30}{subsection.a.A.2}%
-\contentsline {subsection}{\numberline {A.3}Roe Flux Python Implementation}{32}{subsection.a.A.3}%
-\contentsline {subsection}{\numberline {A.4}Adaptive Mesh Python Implementation}{33}{subsection.a.A.4}%
-\contentsline {section}{Appendix \numberline {B}Additional Supporting Code}{39}{appendix.a.B}%
-\contentsline {section}{References}{41}{lstnumber.6.16}%
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}% 
+\contentsline {paragraph}{Geometry:}{4}{paragraph*.3}% 
+\contentsline {paragraph}{Governing Equations:}{4}{paragraph*.5}% 
+\contentsline {paragraph}{Units:}{4}{paragraph*.6}% 
+\contentsline {paragraph}{Initial and Boundary Conditions:}{5}{paragraph*.7}% 
+\contentsline {paragraph}{Output:}{5}{paragraph*.8}% 
+\contentsline {section}{\numberline {2}Numerical Method}{6}{section.2}% 
+\contentsline {paragraph}{Discretization:}{6}{paragraph*.9}% 
+\contentsline {paragraph}{Local Time Stepping:}{6}{paragraph*.10}% 
+\contentsline {paragraph}{Residuals and Convergences:}{7}{paragraph*.11}% 
+\contentsline {paragraph}{Numerical Flux:}{7}{paragraph*.12}% 
+\contentsline {paragraph}{Time Stepping:}{7}{paragraph*.13}% 
+\contentsline {paragraph}{Mesh:}{8}{paragraph*.14}% 
+\contentsline {paragraph}{Output Calculation:}{8}{paragraph*.16}% 
+\contentsline {section}{\numberline {3}Adaptation}{9}{section.3}% 
+\contentsline {section}{\numberline {4}Tasks and Deliverables}{10}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Roe Flux Overview}{10}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}Roe Flux Function}{11}{subsubsection.4.1.1}% 
+\contentsline {paragraph}{Inputs}{11}{paragraph*.18}% 
+\contentsline {paragraph}{Generating Arguments}{11}{paragraph*.19}% 
+\contentsline {paragraph}{Roe-Average}{11}{paragraph*.20}% 
+\contentsline {paragraph}{Final Calculation}{11}{paragraph*.21}% 
+\contentsline {subsubsection}{\numberline {4.1.2}Subsonic and Supersonic Implementation Tests}{12}{subsubsection.4.1.2}% 
+\contentsline {paragraph}{Consistency Check:}{12}{paragraph*.22}% 
+\contentsline {paragraph}{Direction Flipping}{12}{paragraph*.24}% 
+\contentsline {paragraph}{Supersonic Normal Velocity}{12}{paragraph*.26}% 
+\contentsline {subsection}{\numberline {4.2}Implementing Finite Volume Method}{13}{subsection.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1}Main Driving Code}{13}{subsubsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2}Finite-Volume-Element Implementation}{13}{subsubsection.4.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.3}Flux Code Implementation}{14}{subsubsection.4.2.3}% 
+\contentsline {subsubsection}{\numberline {4.2.4}Mesh Adaption Implementation}{14}{subsubsection.4.2.4}% 
+\contentsline {subsubsection}{\numberline {4.2.5}Miscellaneous Code}{14}{subsubsection.4.2.5}% 
+\contentsline {paragraph}{Initial Condition}{14}{paragraph*.28}% 
+\contentsline {paragraph}{ATPR Calculation}{14}{paragraph*.29}% 
+\contentsline {subsection}{\numberline {4.3}Convergences and Analysis of Baseline Mesh}{15}{subsection.4.3}% 
+\contentsline {subsubsection}{\numberline {4.3.1}$L_1$ Norm Convergence}{15}{subsubsection.4.3.1}% 
+\contentsline {subsubsection}{\numberline {4.3.2}ATPR Output}{16}{subsubsection.4.3.2}% 
+\contentsline {subsubsection}{\numberline {4.3.3}Baseline Field Plots}{17}{subsubsection.4.3.3}% 
+\contentsline {paragraph}{Field Plot of Mach Number}{17}{paragraph*.33}% 
+\contentsline {paragraph}{Field Plot of Total Pressure}{18}{paragraph*.35}% 
+\contentsline {subsection}{\numberline {4.4}Implementing Mach Number Jumps}{19}{subsection.4.4}% 
+\contentsline {subsubsection}{\numberline {4.4.1}Adapted Meshes}{19}{subsubsection.4.4.1}% 
+\contentsline {subsubsection}{\numberline {4.4.2}Adapted Mesh Field Plots}{23}{subsubsection.4.4.2}% 
+\contentsline {paragraph}{Finest Mesh Field Plot of Mach Number}{23}{paragraph*.40}% 
+\contentsline {paragraph}{Finest Mesh Field Plot of Total Pressure}{24}{paragraph*.42}% 
+\contentsline {subsubsection}{\numberline {4.4.3}Adapted Mesh ATPR Convergence}{25}{subsubsection.4.4.3}% 
+\contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{26}{subsection.4.5}% 
+\contentsline {subsubsection}{\numberline {4.5.1}ATPR Versus Angle of Attack}{26}{subsubsection.4.5.1}% 
+\contentsline {subsubsection}{\numberline {4.5.2}Flow Fields for Varying Angle of Attacks}{27}{subsubsection.4.5.2}% 
+\contentsline {paragraph}{Effect on Mach Field from Varying Angle of Attack}{27}{paragraph*.47}% 
+\contentsline {paragraph}{Effect on Total Pressure Field from Varying Angle of Attack}{28}{paragraph*.49}% 
+\contentsline {section}{Appendices}{29}{section*.50}% 
+\contentsline {section}{Appendix \numberline {A}Python Implementation}{29}{Appendix.a.A}% 
+\contentsline {subsection}{\numberline {A.1}Main Driving Code}{29}{subsection.a.A.1}% 
+\contentsline {subsection}{\numberline {A.2}Finite-Volume-Element Code}{34}{subsection.a.A.2}% 
+\contentsline {subsection}{\numberline {A.3}Roe Flux Python Implementation}{36}{subsection.a.A.3}% 
+\contentsline {subsection}{\numberline {A.4}Adaptive Mesh Python Implementation}{37}{subsection.a.A.4}% 
+\contentsline {section}{Appendix \numberline {B}Additional Supporting Code}{43}{Appendix.a.B}% 
+\contentsline {section}{References}{45}{lstnumber.6.16}% 

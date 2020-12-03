@@ -130,61 +130,59 @@ def mesh_adapt():
     alpha = 1
     # First iteration - IC
     mesh = readgri('mesh0.gri'); E = mesh['E']
-    u = FVMIC(alpha, E.shape[0])
+    u = FVMIC(alpha, E.shape[0]); sim_start = time.time()
     
     print('Mesh Adaptations\n' + 25*'-')
     ATPRlin = np.array([]); Numcells = np.array([])
     for i in range(6):
         print('Mesh - %.f \n'%i + 15*'-')
-        mesh = readgri('q4/meshs/mesh'+ str(i) + '.gri')
+        mesh = readgri('q4/meshs/mesh'+ str(i) + '.gri'); E = mesh['E']
+        u = FVMIC(alpha, E.shape[0])
         
-    
         plotmesh(mesh, 'q4/mesh' + str(i) + '.pdf')
         start = time.time()
         u, err, ATPR, V, E, BE, IE = solve(alpha, u, mesh); end = time.time(); print('Elapsed Time %.2f'%(end - start))
         mach, pt = post_process(u)
                 
+
+        # Generate plots
         plt.figure(figsize=(8,4.5))
         plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
         plt.axis('off')
         plt.colorbar(label='Mach Number')
-        plt.show()
+        plt.savefig('q4/Machfield'+ str(i) + '.pdf', bbox_inches='tight')
+        plt.draw()
+        plt.pause(5)
+        plt.close()
 
         plt.figure(figsize=(8,4.5))
         plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
         plt.axis('off')
         plt.colorbar(label='Total Pressure')
-        plt.show()
+        plt.savefig('q4/Pfield' + str(i) + '.pdf' , bbox_inches='tight')
+        plt.draw()
+        plt.pause(5)
+        plt.close()
+
 
         # Append the values
         ATPRlin = np.append(ATPRlin, ATPR[ATPR.shape[0]-1])
         Numcells = np.append(Numcells, E.shape[0])
 
         # Adapt the mesh
-        u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 'q4/meshs/mesh' + str(i+1) + '.gri')
+        if i != 5:
+            u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 'q4/meshs/mesh' + str(i+1) + '.gri')
         
-    
-    # Generate plots
-    plt.figure(figsize=(8,4.5))
-    plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
-    plt.axis('off')
-    plt.colorbar(label='Mach Number')
-    #plt.savefig('q4/Machfield.pdf', bbox_inches='tight')
-    plt.show()
-
-    plt.figure(figsize=(8,4.5))
-    plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
-    plt.axis('off')
-    plt.colorbar(label='Total Pressure')
-    #plt.savefig('q4/Pfield.pdf', bbox_inches='tight')
-    plt.show()
+    sim_end = time.time(); 
+    print('\nAdapative Mesh' + 15*'-' + '\nElapsed Time: %.2f sec'%(sim_end - sim_start))
 
     plt.figure(figsize=(8,5))
     plt.plot(Numcells, ATPRlin, lw=2, color='k')
     plt.xlabel(r'Number of cells', fontsize=16)
     plt.ylabel(r'ATPR Output', fontsize=16)
-    #plt.savefig('q4/ATPR.pdf', bbox_inches='tight')
-    plt.show()
+    plt.savefig('q4/ATPR.pdf', bbox_inches='tight')
+    plt.show()    
+
 
 def vary_alpha():
 
@@ -220,7 +218,8 @@ def vary_alpha():
             plt.close()
 
             # Adapt the mesh
-            u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 'q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i+1) +'.gri')
+            if i != 5:
+                u, V, E, IE, BE = adapt(u, mach, V, E, IE, BE, 'q5/meshs/'+ str(int(alpha*10))+ '/mesh'+ str(i+1) +'.gri')
         ATPRlin = np.append(ATPRlin, ATPR[ATPR.shape[0]-1])
 
         # Field plots per alpha iteration (Post-Refinement)
@@ -255,6 +254,6 @@ def vary_alpha():
 if __name__ == "__main__":
     #test_flux()
     #run_fvm()
-    mesh_adapt()
-    #vary_alpha()
+    #mesh_adapt()
+    vary_alpha()
     
