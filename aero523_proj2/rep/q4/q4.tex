@@ -155,6 +155,8 @@ In this section, I will implement the Mach jumps into the code to refine the mes
 
 Shown above in Figure \ref{fig:adapted_ATPR}, is the ATPR output versus the number of cells and its effect on the convergence of the ATPR. As shown above, the ATPR output will converge towards an approximated solution as the cells increase the resolution of the mesh. Looking above, after the 5\textsuperscript{th} adaptation the ATPR output will start to reach diminishing returns on the increases on accuracy resulting in longer run times (for me the finest mesh took approximately $1\frac{1}{2}$ hours to run, whereas the coarsest mesh was approximately 2 minutes).
 
+Given the plot above, the converge rate from the baseline to the first iteration is $\mathcal{O}(2.49)$, from first iteration to second is $\mathcal{O}(5.37)$ which is not first-order since ATPR is a nonlinear function of the state and we are not uniformly refining the mesh.
+
 This increase in ATPR can be view qualitatively in Figures \ref{fig:pfield0}-\ref{fig:pfield5} as the rise of the total pressure at the exit of the engine after each mesh adaptation. It is this rise in the total pressure that attributes to the rise in the ATPR output with the given number of cells.
 
 However, increasing the number of cells greatly increases the runtime of the approximated solution even though the solutions are much more accurate. This is because to determine nodal locations it scales $\mathcal{O}(N^2)$ resulting in an almost exponential increase in runtime resulting from the number of cells in the mesh.

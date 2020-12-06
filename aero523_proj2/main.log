@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.5)  2 DEC 2020 18:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.5)  5 DEC 2020 23:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1315,56 +1315,56 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 7.
 
-<rep/q3/l1_err.pdf, id=435, 508.02762pt x 326.84586pt>
+<rep/q3/l1_err.pdf, id=437, 508.02762pt x 326.84586pt>
 File: rep/q3/l1_err.pdf Graphic file (type pdf)
 <use rep/q3/l1_err.pdf>
 Package pdftex.def Info: rep/q3/l1_err.pdf  used on input line 10.
 (pdftex.def)             Requested size: 422.77664pt x 272.01012pt.
 [15 <c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q3/l1_err.pdf>]
-<rep/q3/ATPR.pdf, id=469, 504.6748pt x 326.84586pt>
+<rep/q3/ATPR.pdf, id=471, 504.6748pt x 326.84586pt>
 File: rep/q3/ATPR.pdf Graphic file (type pdf)
 <use rep/q3/ATPR.pdf>
 Package pdftex.def Info: rep/q3/ATPR.pdf  used on input line 21.
 (pdftex.def)             Requested size: 422.77664pt x 273.81052pt.
  [16 <c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q3/ATPR.pdf>]
-<rep/q3/Machfield.pdf, id=489, 440.54562pt x 264.86955pt>
+<rep/q3/Machfield.pdf, id=491, 440.54562pt x 264.86955pt>
 File: rep/q3/Machfield.pdf Graphic file (type pdf)
 <use rep/q3/Machfield.pdf>
-Package pdftex.def Info: rep/q3/Machfield.pdf  used on input line 33.
+Package pdftex.def Info: rep/q3/Machfield.pdf  used on input line 35.
 (pdftex.def)             Requested size: 422.77664pt x 254.19102pt.
  [17 <c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q3/Machfield.pdf>]
-<rep/q3/Pfield.pdf, id=508, 440.54562pt x 268.34178pt>
+<rep/q3/Pfield.pdf, id=510, 440.54562pt x 268.34178pt>
 File: rep/q3/Pfield.pdf Graphic file (type pdf)
 <use rep/q3/Pfield.pdf>
-Package pdftex.def Info: rep/q3/Pfield.pdf  used on input line 43.
+Package pdftex.def Info: rep/q3/Pfield.pdf  used on input line 45.
 (pdftex.def)             Requested size: 422.77664pt x 257.52328pt.
 ) (c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q4/q4.tex [18 <c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q3/Pfield.pdf>] [19]
-<rep/q4/mesh0.pdf, id=533, 860.01299pt x 860.01299pt>
+<rep/q4/mesh0.pdf, id=535, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh0.pdf Graphic file (type pdf)
 <use rep/q4/mesh0.pdf>
 Package pdftex.def Info: rep/q4/mesh0.pdf  used on input line 15.
 (pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
-<rep/q4/mesh1.pdf, id=534, 860.01299pt x 860.01299pt>
+<rep/q4/mesh1.pdf, id=536, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh1.pdf Graphic file (type pdf)
 <use rep/q4/mesh1.pdf>
 Package pdftex.def Info: rep/q4/mesh1.pdf  used on input line 20.
 (pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
-<rep/q4/mesh2.pdf, id=535, 860.01299pt x 860.01299pt>
+<rep/q4/mesh2.pdf, id=537, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh2.pdf Graphic file (type pdf)
 <use rep/q4/mesh2.pdf>
 Package pdftex.def Info: rep/q4/mesh2.pdf  used on input line 26.
 (pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
-<rep/q4/mesh3.pdf, id=536, 860.01299pt x 860.01299pt>
+<rep/q4/mesh3.pdf, id=538, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh3.pdf Graphic file (type pdf)
 <use rep/q4/mesh3.pdf>
 Package pdftex.def Info: rep/q4/mesh3.pdf  used on input line 31.
 (pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
-<rep/q4/mesh4.pdf, id=537, 860.01299pt x 860.01299pt>
+<rep/q4/mesh4.pdf, id=539, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh4.pdf Graphic file (type pdf)
 <use rep/q4/mesh4.pdf>
 Package pdftex.def Info: rep/q4/mesh4.pdf  used on input line 37.
 (pdftex.def)             Requested size: 183.20416pt x 183.20634pt.
-<rep/q4/mesh5.pdf, id=538, 860.01299pt x 860.01299pt>
+<rep/q4/mesh5.pdf, id=540, 860.01299pt x 860.01299pt>
 File: rep/q4/mesh5.pdf Graphic file (type pdf)
 <use rep/q4/mesh5.pdf>
 Package pdftex.def Info: rep/q4/mesh5.pdf  used on input line 42.
@@ -1385,32 +1385,32 @@ pdfTeX warning: pdflatex.exe (file c:/Users/danca/Documents/MATLAB/Aero 523/aero
 
 pdfTeX warning: pdflatex.exe (file c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q4/mesh5.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<rep/q4/Machfield0.pdf, id=553, 440.54562pt x 264.86955pt>
+<rep/q4/Machfield0.pdf, id=555, 440.54562pt x 264.86955pt>
 File: rep/q4/Machfield0.pdf Graphic file (type pdf)
 <use rep/q4/Machfield0.pdf>
 Package pdftex.def Info: rep/q4/Machfield0.pdf  used on input line 52.
 (pdftex.def)             Requested size: 230.18253pt x 138.39577pt.
-<rep/q4/Machfield1.pdf, id=554, 440.54562pt x 264.86955pt>
+<rep/q4/Machfield1.pdf, id=556, 440.54562pt x 264.86955pt>
 File: rep/q4/Machfield1.pdf Graphic file (type pdf)
 <use rep/q4/Machfield1.pdf>
 Package pdftex.def Info: rep/q4/Machfield1.pdf  used on input line 57.
 (pdftex.def)             Requested size: 230.18253pt x 138.39577pt.
-<rep/q4/Machfield2.pdf, id=555, 440.54562pt x 264.86955pt>
+<rep/q4/Machfield2.pdf, id=557, 440.54562pt x 264.86955pt>
 File: rep/q4/Machfield2.pdf Graphic file (type pdf)
 <use rep/q4/Machfield2.pdf>
 Package pdftex.def Info: rep/q4/Machfield2.pdf  used on input line 63.
 (pdftex.def)             Requested size: 230.18253pt x 138.39577pt.
-<rep/q4/Machfield3.pdf, id=556, 440.54562pt x 264.86955pt>
+<rep/q4/Machfield3.pdf, id=558, 440.54562pt x 264.86955pt>
 File: rep/q4/Machfield3.pdf Graphic file (type pdf)
 <use rep/q4/Machfield3.pdf>
 Package pdftex.def Info: rep/q4/Machfield3.pdf  used on input line 68.
 (pdftex.def)             Requested size: 230.18253pt x 138.39577pt.
-<rep/q4/Machfield4.pdf, id=557, 440.54562pt x 264.86955pt>
+<rep/q4/Machfield4.pdf, id=559, 440.54562pt x 264.86955pt>
 File: rep/q4/Machfield4.pdf Graphic file (type pdf)
 <use rep/q4/Machfield4.pdf>
 Package pdftex.def Info: rep/q4/Machfield4.pdf  used on input line 74.
 (pdftex.def)             Requested size: 230.18253pt x 138.39577pt.
-<rep/q4/Machfield5.pdf, id=558, 440.54562pt x 264.86955pt>
+<rep/q4/Machfield5.pdf, id=560, 440.54562pt x 264.86955pt>
 File: rep/q4/Machfield5.pdf Graphic file (type pdf)
 <use rep/q4/Machfield5.pdf>
 Package pdftex.def Info: rep/q4/Machfield5.pdf  used on input line 79.
@@ -1431,32 +1431,32 @@ pdfTeX warning: pdflatex.exe (file c:/Users/danca/Documents/MATLAB/Aero 523/aero
 
 pdfTeX warning: pdflatex.exe (file c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q4/Machfield5.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<rep/q4/Pfield0.pdf, id=619, 440.54562pt x 268.34178pt>
+<rep/q4/Pfield0.pdf, id=621, 440.54562pt x 268.34178pt>
 File: rep/q4/Pfield0.pdf Graphic file (type pdf)
 <use rep/q4/Pfield0.pdf>
 Package pdftex.def Info: rep/q4/Pfield0.pdf  used on input line 90.
 (pdftex.def)             Requested size: 230.18253pt x 140.21004pt.
-<rep/q4/Pfield1.pdf, id=620, 440.54562pt x 268.34178pt>
+<rep/q4/Pfield1.pdf, id=622, 440.54562pt x 268.34178pt>
 File: rep/q4/Pfield1.pdf Graphic file (type pdf)
 <use rep/q4/Pfield1.pdf>
 Package pdftex.def Info: rep/q4/Pfield1.pdf  used on input line 95.
 (pdftex.def)             Requested size: 230.18253pt x 140.21004pt.
-<rep/q4/Pfield2.pdf, id=621, 440.54562pt x 268.34178pt>
+<rep/q4/Pfield2.pdf, id=623, 440.54562pt x 268.34178pt>
 File: rep/q4/Pfield2.pdf Graphic file (type pdf)
 <use rep/q4/Pfield2.pdf>
 Package pdftex.def Info: rep/q4/Pfield2.pdf  used on input line 101.
 (pdftex.def)             Requested size: 230.18253pt x 140.21004pt.
-<rep/q4/Pfield3.pdf, id=622, 440.54562pt x 268.34178pt>
+<rep/q4/Pfield3.pdf, id=624, 440.54562pt x 268.34178pt>
 File: rep/q4/Pfield3.pdf Graphic file (type pdf)
 <use rep/q4/Pfield3.pdf>
 Package pdftex.def Info: rep/q4/Pfield3.pdf  used on input line 106.
 (pdftex.def)             Requested size: 230.18253pt x 140.21004pt.
-<rep/q4/Pfield4.pdf, id=623, 440.54562pt x 268.34178pt>
+<rep/q4/Pfield4.pdf, id=625, 440.54562pt x 268.34178pt>
 File: rep/q4/Pfield4.pdf Graphic file (type pdf)
 <use rep/q4/Pfield4.pdf>
 Package pdftex.def Info: rep/q4/Pfield4.pdf  used on input line 112.
 (pdftex.def)             Requested size: 230.18253pt x 140.21004pt.
-<rep/q4/Pfield5.pdf, id=624, 440.54562pt x 268.34178pt>
+<rep/q4/Pfield5.pdf, id=626, 440.54562pt x 268.34178pt>
 File: rep/q4/Pfield5.pdf Graphic file (type pdf)
 <use rep/q4/Pfield5.pdf>
 Package pdftex.def Info: rep/q4/Pfield5.pdf  used on input line 117.
@@ -1487,44 +1487,44 @@ File: rep/q4/Pfield5.pdf Graphic file (type pdf)
 Package pdftex.def Info: rep/q4/Pfield5.pdf  used on input line 140.
 (pdftex.def)             Requested size: 422.77664pt x 257.52328pt.
  [24]
-<rep/q4/ATPR.pdf, id=701, 505.56929pt x 326.84586pt>
+<rep/q4/ATPR.pdf, id=703, 505.56929pt x 326.84586pt>
 File: rep/q4/ATPR.pdf Graphic file (type pdf)
 <use rep/q4/ATPR.pdf>
 Package pdftex.def Info: rep/q4/ATPR.pdf  used on input line 151.
 (pdftex.def)             Requested size: 422.77664pt x 273.32176pt.
 ) (c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q5/q5.tex [25 <c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q4/ATPR.pdf>]
-<rep/q5/ATPR.pdf, id=719, 576.5786pt x 326.84586pt>
+<rep/q5/ATPR.pdf, id=723, 571.57858pt x 326.84586pt>
 File: rep/q5/ATPR.pdf Graphic file (type pdf)
 <use rep/q5/ATPR.pdf>
 Package pdftex.def Info: rep/q5/ATPR.pdf  used on input line 10.
-(pdftex.def)             Requested size: 422.77664pt x 239.66275pt.
+(pdftex.def)             Requested size: 422.77664pt x 241.76239pt.
  (c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q5/atpr_out) [26 <c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q5/ATPR.pdf>]
-<rep/q5/mach_a5.pdf, id=740, 462.52798pt x 264.86955pt>
+<rep/q5/mach_a5.pdf, id=745, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a5.pdf Graphic file (type pdf)
 <use rep/q5/mach_a5.pdf>
 Package pdftex.def Info: rep/q5/mach_a5.pdf  used on input line 33.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/mach_a10.pdf, id=741, 462.52798pt x 264.86955pt>
+<rep/q5/mach_a10.pdf, id=746, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a10.pdf Graphic file (type pdf)
 <use rep/q5/mach_a10.pdf>
 Package pdftex.def Info: rep/q5/mach_a10.pdf  used on input line 38.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/mach_a15.pdf, id=742, 462.52798pt x 264.86955pt>
+<rep/q5/mach_a15.pdf, id=747, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a15.pdf Graphic file (type pdf)
 <use rep/q5/mach_a15.pdf>
 Package pdftex.def Info: rep/q5/mach_a15.pdf  used on input line 44.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/mach_a20.pdf, id=743, 462.52798pt x 264.86955pt>
+<rep/q5/mach_a20.pdf, id=748, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a20.pdf Graphic file (type pdf)
 <use rep/q5/mach_a20.pdf>
 Package pdftex.def Info: rep/q5/mach_a20.pdf  used on input line 49.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/mach_a25.pdf, id=744, 462.52798pt x 264.86955pt>
+<rep/q5/mach_a25.pdf, id=749, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a25.pdf Graphic file (type pdf)
 <use rep/q5/mach_a25.pdf>
 Package pdftex.def Info: rep/q5/mach_a25.pdf  used on input line 55.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/mach_a30.pdf, id=745, 462.52798pt x 264.86955pt>
+<rep/q5/mach_a30.pdf, id=750, 462.52798pt x 264.86955pt>
 File: rep/q5/mach_a30.pdf Graphic file (type pdf)
 <use rep/q5/mach_a30.pdf>
 Package pdftex.def Info: rep/q5/mach_a30.pdf  used on input line 60.
@@ -1545,32 +1545,32 @@ pdfTeX warning: pdflatex.exe (file c:/Users/danca/Documents/MATLAB/Aero 523/aero
 
 pdfTeX warning: pdflatex.exe (file c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/rep/q5/mach_a30.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<rep/q5/pt_a5.pdf, id=760, 462.52798pt x 264.86955pt>
+<rep/q5/pt_a5.pdf, id=765, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a5.pdf Graphic file (type pdf)
 <use rep/q5/pt_a5.pdf>
 Package pdftex.def Info: rep/q5/pt_a5.pdf  used on input line 74.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/pt_a10.pdf, id=761, 462.52798pt x 264.86955pt>
+<rep/q5/pt_a10.pdf, id=766, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a10.pdf Graphic file (type pdf)
 <use rep/q5/pt_a10.pdf>
 Package pdftex.def Info: rep/q5/pt_a10.pdf  used on input line 79.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/pt_a15.pdf, id=762, 462.52798pt x 264.86955pt>
+<rep/q5/pt_a15.pdf, id=767, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a15.pdf Graphic file (type pdf)
 <use rep/q5/pt_a15.pdf>
 Package pdftex.def Info: rep/q5/pt_a15.pdf  used on input line 85.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/pt_a20.pdf, id=763, 462.52798pt x 264.86955pt>
+<rep/q5/pt_a20.pdf, id=768, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a20.pdf Graphic file (type pdf)
 <use rep/q5/pt_a20.pdf>
 Package pdftex.def Info: rep/q5/pt_a20.pdf  used on input line 90.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/pt_a25.pdf, id=764, 462.52798pt x 264.86955pt>
+<rep/q5/pt_a25.pdf, id=769, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a25.pdf Graphic file (type pdf)
 <use rep/q5/pt_a25.pdf>
 Package pdftex.def Info: rep/q5/pt_a25.pdf  used on input line 96.
 (pdftex.def)             Requested size: 225.4804pt x 129.12437pt.
-<rep/q5/pt_a30.pdf, id=765, 462.52798pt x 264.86955pt>
+<rep/q5/pt_a30.pdf, id=770, 462.52798pt x 264.86955pt>
 File: rep/q5/pt_a30.pdf Graphic file (type pdf)
 <use rep/q5/pt_a30.pdf>
 Package pdftex.def Info: rep/q5/pt_a30.pdf  used on input line 101.
@@ -1609,18 +1609,18 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 31.
  ) 
 Here is how much of TeX's memory you used:
- 36775 strings out of 492166
- 692015 string characters out of 6129147
- 1271473 words of memory out of 5000000
- 39574 multiletter control sequences out of 15000+600000
+ 36808 strings out of 492166
+ 692531 string characters out of 6129147
+ 1337727 words of memory out of 5000000
+ 39577 multiletter control sequences out of 15000+600000
  573119 words of font info for 133 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,13n,71p,801b,2566s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,13n,71p,801b,2568s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on "c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/main.pdf" (45 pages, 2794280 bytes).
+Output written on "c:/Users/danca/Documents/MATLAB/Aero 523/aero523_proj2/main.pdf" (45 pages, 4439310 bytes).
 PDF statistics:
- 1938 PDF objects out of 2073 (max. 8388607)
- 1784 compressed objects within 18 object streams
- 929 named destinations out of 1000 (max. 500000)
+ 1979 PDF objects out of 2073 (max. 8388607)
+ 1824 compressed objects within 19 object streams
+ 959 named destinations out of 1000 (max. 500000)
  469 words of extra memory for PDF output out of 10000 (max. 10000000)
 

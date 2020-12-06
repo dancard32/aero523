@@ -6,4 +6,7 @@ K.~Fidkowski, ``Computational fluid dynamics,'' September 2020.
 \bibitem{notes:gryphon}
 Gryphon, ``Roe flux differencing scheme: The approximate riemann problem.''
 
+\bibitem{notes:CCW_princeton}
+R.~Sedgewik and K.~Wayne, ``Geometric primitives,'' December 2016.
+
 \end{thebibliography}

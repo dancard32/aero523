@@ -14,22 +14,41 @@ plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
 
 def getIC(alpha, mach):
-    gam = 1.4
-    alpha = np.deg2rad(alpha)
+    # Constants
+    gam = 1.4; alpha = np.deg2rad(alpha)
+
+    # Initial state
     uinf = np.transpose(np.array([1, mach*np.cos(alpha), mach*np.sin(alpha), 1/(gam*(gam-1)) + mach**2/2]))
 
     return uinf
 
 def FVMIC(alpha, Ne):
+    # Constants and the initial state
     alpha = np.deg2rad(alpha); Minf = 2.2; gam = 1.4
     uinf = np.array([1, Minf*np.cos(alpha), Minf*np.sin(alpha), 1/(gam*(gam-1)) + Minf**2/2])
 
+    # Loop through and form the initial state 
     u0 = np.zeros((Ne, 4))
     for i in range(4):
         u0[:,i] = uinf[i]
-    u0[abs(u0) < 10**-10]
+    u0[abs(u0) < 10**-10]   # Adjust for machine precision
 
     return u0
+
+def post_process(u):
+    gam = 1.4   # Constant
+    uvel = u[:,1]/u[:,0]; vvel = u[:,2]/u[:,0]  # Velocity
+
+    q = np.sqrt(uvel**2 + vvel**2)          # Magnitude of velocity
+    p = (gam-1)*(u[:,3]-0.5*u[:,0]*q**2)    # Pressure
+    H = (u[:,3] + p)/u[:,0]                 # Enthalpy
+    c = np.sqrt((gam-1.0)*(H - 0.5*q**2))   # Speed of sound
+
+    # Calculate Mach number and the total pressure
+    mach = q/c                              
+    pt = p*(1 + 0.5*0.4*mach**2)**(gam/(gam-1))
+
+    return mach, pt
 
 def test_flux():
     alpha = 0   
@@ -75,20 +94,6 @@ def test_flux():
     f.write(r'$F_R$ & %.3f & %.3f & %.3f & %.3f'%(FR[0],FR[1],FR[2],FR[3]))
     f.close()
      
-def post_process(u):
-    gam = 1.4
-    uvel = u[:,1]/u[:,0]; vvel = u[:,2]/u[:,0]
-
-    q = np.sqrt(uvel**2 + vvel**2)
-    p = (gam-1)*(u[:,3]-0.5*u[:,0]*q**2)
-    H = (u[:,3] + p)/u[:,0]    
-
-    c = np.sqrt((gam-1.0)*(H - 0.5*q**2))
-    mach = q/c
-    pt = p*(1 + 0.5*0.4*mach**2)**(gam/(gam-1))
-
-    return mach, pt
-
 def run_fvm():
     mesh = readgri('mesh0.gri'); E = mesh['E']
     u = FVMIC(1, E.shape[0])
@@ -202,6 +207,7 @@ def vary_alpha():
             u, err, ATPR, V, E, BE, IE = solve(alpha, u, mesh)
             mach, pt = post_process(u)
               
+            # Generate Mach field plot per Alpha - Iteration
             plt.figure(figsize=(8,4.5))
             plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
             plt.axis('off')
@@ -209,10 +215,11 @@ def vary_alpha():
             plt.pause(1)
             plt.close()
 
+            # Generate Pressure field plot per Alpha - Iteration
             plt.figure(figsize=(8,4.5))
             plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
-            plt.savefig('q5/a' + str(int(alpha*10)) +'/pt_a' + str(int(alpha*10)) + '_'+ str(int(i))+ '.pdf', bbox_inches='tight')
             plt.axis('off')
+            plt.savefig('q5/a' + str(int(alpha*10)) +'/pt_a' + str(int(alpha*10)) + '_'+ str(int(i))+ '.pdf', bbox_inches='tight')
             plt.pause(1)
             plt.close()
 
@@ -226,22 +233,23 @@ def vary_alpha():
         plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=mach, vmin=0.9, vmax=2.5, cmap='jet', shading='flat')
         plt.axis('off')
         plt.savefig('q5/mach_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
-        plt.show()
+        plt.pause(1)
+        plt.close()
         
         plt.figure(figsize=(8,4.5))
         plt.tripcolor(V[:,0], V[:,1], triangles=E, facecolors=pt, vmin=6.5, vmax=7.6, cmap='jet', shading='flat')
         plt.axis('off')
         plt.savefig('q5/pt_a' + str(int(alpha*10)) + '.pdf', bbox_inches='tight')
-        plt.show()
+        plt.pause(1)
+        plt.close()
     
 
-    SaveOut = True
-    if SaveOut == True:
-        f = open('q5/atpr_out', 'w'); output = ''
-        for i in range(6):
-            output += r'%.1f\degree & %.3f \\'%(alphas[i], ATPRlin[i])
-        f.write(output)
-        f.close()
+    # Output ATPR values to file for LaTeX table format
+    f = open('q5/atpr_out', 'w'); output = ''
+    for i in range(6):
+        output += r'%.1f\degree & %.3f \\'%(alphas[i], ATPRlin[i])
+    f.write(output)
+    f.close()
 
     plt.figure(figsize=(9,5))
     plt.plot(alphas, ATPRlin, lw=2, color='k')
