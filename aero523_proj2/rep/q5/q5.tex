@@ -12,17 +12,7 @@ In the final section, I will vary the angle of attack as well as performing adap
     \label{fig:aoa_ATPR}
 \end{figure}
 
-Shown above in Figure \ref{fig:aoa_ATPR}, is the effect of varying the angle of attack on ATPR output. As shown from the Figure above, the ATPR increases with the angle of attack $\alpha$ since at an angled attack the flow enters the engine more optimally and the oblique shocks have a less prominent effect along the interior of the engine (which can be seen in Figure \ref{fig:mach_fields} on the following page). Looking to Table \ref{tab:ATPR_alpha}, below for the tabulated values for more accuracy.
-
-\begin{table}[h]
-    \centering
-    \caption[ATPR Versus Angle of Attack]{ATPR versus angle of attack $\alpha$.}
-    \label{tab:ATPR_alpha}
-    \begin{tabular}{c|l}
-        $\alpha$ & ATPR\\ \hline\hline
-        \input{rep/q5/atpr_out}
-    \end{tabular}
-\end{table}
+Shown above in Figure \ref{fig:aoa_ATPR}, is the effect of varying the angle of attack on ATPR output. As shown from the Figure above, the ATPR increases with the angle of attack $\alpha$ since at an angled attack the flow enters the engine and allows for less loss of total pressure through the shock trains along the interior of the engine. Should in Figure \ref{fig:mach05} the first shock leading into the combustor hits just past the corner of the leading edge resulting in a reflected shock resulting in larger losses through the interior of the engine. Comparatively in Figure \ref{fig:mach30}, the first shock leads directly into this corner and lines to the natural compression fan along the top resulting in a lower loss of total pressure. These are subtle differences shown in Figure \ref{fig:mach_fields}, but are most visible by ``\textit{blurred}'' Mach lines along the interior of the engine where the shock trains occur.
 
 \pagebreak
 \subsubsection{Flow Fields for Varying Angle of Attacks}
@@ -31,7 +21,7 @@ Shown above in Figure \ref{fig:aoa_ATPR}, is the effect of varying the angle of 
     \begin{subfigure}[h]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q5/mach_a5.pdf}
-        \caption{Mach field at $\alpha=0.5\degree$.}
+        \caption{Mach field at $\alpha=0.5\degree$.}\label{fig:mach05}
     \end{subfigure}
     \begin{subfigure}[h]{0.48\linewidth}
         \centering
@@ -58,7 +48,7 @@ Shown above in Figure \ref{fig:aoa_ATPR}, is the effect of varying the angle of 
     \begin{subfigure}[h]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{rep/q5/mach_a30.pdf}
-        \caption{Mach field at $\alpha=3.0\degree$.}
+        \caption{Mach field at $\alpha=3.0\degree$.}\label{fig:mach30}
     \end{subfigure}
     \caption[Mach Field with Varying Angle of Attack]{Varying angle of attack, and its effect on the mach field.}
     \label{fig:mach_fields}

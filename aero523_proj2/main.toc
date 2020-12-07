@@ -47,9 +47,9 @@
 \contentsline {subsection}{\numberline {4.5}Adaptive Iterations}{26}{subsection.4.5}% 
 \contentsline {subsubsection}{\numberline {4.5.1}ATPR Versus Angle of Attack}{26}{subsubsection.4.5.1}% 
 \contentsline {subsubsection}{\numberline {4.5.2}Flow Fields for Varying Angle of Attacks}{27}{subsubsection.4.5.2}% 
-\contentsline {paragraph}{Effect on Mach Field from Varying Angle of Attack}{27}{paragraph*.47}% 
-\contentsline {paragraph}{Effect on Total Pressure Field from Varying Angle of Attack}{28}{paragraph*.49}% 
-\contentsline {section}{Appendices}{29}{section*.50}% 
+\contentsline {paragraph}{Effect on Mach Field from Varying Angle of Attack}{27}{paragraph*.46}% 
+\contentsline {paragraph}{Effect on Total Pressure Field from Varying Angle of Attack}{28}{paragraph*.48}% 
+\contentsline {section}{Appendices}{29}{section*.49}% 
 \contentsline {section}{Appendix \numberline {A}Python Implementation}{29}{Appendix.a.A}% 
 \contentsline {subsection}{\numberline {A.1}Main Driving Code}{29}{subsection.a.A.1}% 
 \contentsline {subsection}{\numberline {A.2}Finite-Volume-Element Code}{34}{subsection.a.A.2}% 
